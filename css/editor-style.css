@@ -1,0 +1,57 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+# Buttons
+# Notices
+# Highlights
+# Pre tag
+
+/*------------------------------------------------------------------
+[# Theme Button]
+-------------------------------------------------------------------*/
+.pwd-theme-button { font-size: 11px; text-transform: uppercase; font-weight: bold; color: #fff; background: #3f91eb; text-shadow: none; display: inline-block; padding: 0.7em 1.2em; margin: 0 2px 5px 0; transition: all 0.15s linear; -moz-transition: all 0.15s linear; -webkit-transition: all 0.15s linear; text-decoration: none !important }
+.pwd-theme-button:hover { color: #fff; text-decoration: none; opacity: 0.75; }
+
+/*pwd-theme-button colors*/
+.pwd-theme-button.pwd-blue,
+.theme-button.pwd-blue { background: #3f91eb }
+.pwd-theme-button.pwd-red,
+.theme-button.pwd-red { background: #d9534f }
+.pwd-theme-button.pwd-orange,
+.theme-button.pwd-orange { background: #FE5722 }
+.pwd-theme-button.pwd-green,
+.theme-button.pwd-green { background: #5cb85c }
+.pwd-theme-button.pwd-black,
+.theme-button.pwd-black { background: #000 }
+.pwd-theme-button.pwd-white,
+.theme-button.pwd-white { background: #fff }
+.pwd-theme-button.pwd-clean,
+.theme-button.pwd-clean { color: #585858; background: none; border: 1px solid #ccc; }
+.pwd-theme-button.pwd-clean:hover,
+.theme-button.pwd-clean:hover { opacity: 1; background: #f4f4f4; }
+
+/*------------------------------------------------------------------
+[# Notices]
+-------------------------------------------------------------------*/
+.pwd-notice { padding: 20px; margin: 0 0 20px; background: #f9f9f9; border: 1px solid #ddd; border-left: 5px solid #f0ad4e; }
+.pwd-info { border-left-color: #5bc0de }
+.pwd-info strong { color: #5bc0de }
+.pwd-warning { border-left-color: #d9534f }
+.pwd-warning strong { color: #d9534f }
+.pwd-success { border-left-color: #5cb85c }
+.pwd-success strong { color: #5cb85c }
+
+/*------------------------------------------------------------------
+[# Highlights]
+-------------------------------------------------------------------*/
+.pwd-text-highlight { background-color: #FFF49B; color: #A5651A; padding: 0 0.313em; }
+
+/*------------------------------------------------------------------
+[# Pre Tag & blockquote]
+-------------------------------------------------------------------*/
+body#tinymce.wp-editor pre { background: #444; color: #fff; font-size: 0.87em; padding: 15px 20px; margin-bottom: 30px; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; font-family: 'Verdana'; }
+
+
+body#tinymce.wp-editor blockquote { font-size: 1.2em; margin: 0 0 20px; padding: 14px 0; position: relative; font-family: Georgia; color: #888; font-style: italic; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+body#tinymce.wp-editor blockquote.left { float: left; margin-left: 0; margin-right: 20px; text-align: right; width: 33%; }
+body#tinymce.wp-editor blockquote.right { float: right; margin-left: 20px; margin-right: 0; text-align: left; width: 33%; }
