@@ -40,8 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'total'     => $wp_query->max_num_pages,
 		'mid_size'  => 3,
 		'type'      => 'list',
-		'prev_text' => esc_html__( 'Previous', 'powered' ),
-		'next_text' => esc_html__( 'Next', 'powered' ),
+		'prev_text' => '<i class="fa fa-chevron-left"></i>',
+		'next_text' => '<i class="fa fa-chevron-right"></i>',
 	) );
 
 	// Output pagination

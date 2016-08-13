@@ -95,35 +95,20 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 			if ( $pwd_query->have_posts() ) { ?>
 
 				<ul class="pwd-widget-recent-posts widget-recent-list pwd-clr">
-
 					<?php foreach( $pwd_query->posts as $post ) : setup_postdata( $post );
-
 						if ( has_post_thumbnail() ) { ?>
-
 							<li>
 								<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>" class="pwd-thumbnail pwd-clr">
 									<?php the_post_thumbnail( $img_size ); ?>
 								</a>
-
 								<div class="pwd-details pwd-clr">
-
 									<h4 class="pwd-title">
 										<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>"><?php the_title(); ?></a>
 									</h4><!-- .pwd-title -->
-
-									<div class="pwd-date">
-										<span class="fa fa-clock-o" aria-hidden="true"></span>
-										<?php echo get_the_date(); ?>
-									</div><!-- .pwd-date -->
-
 								</div><!-- .pwd-details -->
-
 							</li>
-
 						<?php } ?>
-
 					<?php endforeach; ?>
-
 				</ul>
 
 			<?php }

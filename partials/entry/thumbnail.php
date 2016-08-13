@@ -29,6 +29,7 @@ if ( $pwd_is_singular ) {
 if ( has_post_thumbnail() ) : ?>
 
 	<div class="pwd-loop-entry-thumbnail pwd-loop-entry-media pwd-clr">
+
 		<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>" class="pwd-loop-entry-media-link"><?php 
 
 			// Display thumbnail
@@ -36,12 +37,17 @@ if ( has_post_thumbnail() ) : ?>
 
 			// Format icons
 			if ( pwd_has_post_video() ) {
+
 				echo '<span class="fa fa-play pwd-loop-entry-format-icon"></span>';
+
 			} elseif ( pwd_has_post_audio() && ! pwd_get_theme_mod( 'entry_embeds', false ) ) {
+
 				echo '<span class="fa fa-music pwd-loop-entry-format-icon"></span>';
+
 			}
 
 		?></a>
+		
 	</div><!-- .pwd-loop-entry-thumbnail -->
 	
 <?php endif; ?>

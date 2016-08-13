@@ -66,15 +66,15 @@ $classes[] = 'pwd-col-'. $columns; ?>
 
 	?><div class="pwd-loop-entry-content pwd-clr"><?php
 
+			// Entry category
+			if ( 'post' == get_post_type() && ! is_category() ) {
+
+				get_template_part( 'partials/entry/category' );
+
+			}
+
 			// Display title
 			get_template_part( 'partials/entry/title' );
-
-			// Display entry meta
-			if ( pwd_get_theme_mod( 'entry_meta', true ) ) :
-
-				get_template_part( 'partials/entry/meta' );
-			
-			endif;
 
 			// Display entry excerpt/content
 			get_template_part( 'partials/entry/content' );

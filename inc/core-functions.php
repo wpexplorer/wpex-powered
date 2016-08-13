@@ -47,9 +47,10 @@ function pwd_meta_prefix() {
  */
 function pwd_get_image_sizes() {
 	return apply_filters( 'pwd_get_image_sizes', array(
-		'entry'         => esc_html__( 'Entry', 'powered' ),
-		'post'          => esc_html__( 'Single Post (if enabled)', 'powered' ),
-		'entry_related' => esc_html__( 'Related Entries', 'powered' ),
+		'entry_featured' => esc_html__( 'Featured Entry', 'powered' ),
+		'entry'          => esc_html__( 'Entry', 'powered' ),
+		'post'           => esc_html__( 'Single Post (if enabled)', 'powered' ),
+		'entry_related'  => esc_html__( 'Related Entries', 'powered' ),
 	) );
 }
 
@@ -204,7 +205,7 @@ function pwd_get_loop_columns( $current_query = 'archive' ) {
 
 	// Get theme mod setting
 	if ( 'related' == $current_query ) {
-		$columns = pwd_get_theme_mod( 'related_entry_columns', '3' );
+		$columns = pwd_get_theme_mod( 'related_entry_columns', '2' );
 	} else {
 		$columns = pwd_get_theme_mod( 'entry_columns', '3' );
 	}
@@ -470,7 +471,7 @@ if ( ! function_exists( 'pwd_comment' ) ) {
 						<div class="comment-author vcard">
 							<?php
 							// Display avatar
-							$avatar_size = apply_filters( 'pwd_comments_avatar_size', 45 );
+							$avatar_size = apply_filters( 'pwd_comments_avatar_size', 60 );
 							echo get_avatar( $comment, $avatar_size ); ?>
 						</div><!-- .comment-author -->
 						<div class="comment-details pwd-clr">
@@ -753,59 +754,6 @@ function pwd_post_terms_list( $taxonomy = 'category', $first_only = false, $clas
 }
 
 /**
- * Returns thumbnail sizes
- *
- * @since 1.0.0
- * @link  http://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
- */
-function pwd_get_thumbnail_sizes( $size = '' ) {
-
-	global $_wp_additional_image_sizes;
-
-	$sizes = array(
-		'full'  => array(
-		'width'  => '9999',
-		'height' => '9999',
-		'crop'   => 0,
-		),
-	);
-	$get_intermediate_image_sizes = get_intermediate_image_sizes();
-
-	// Create the full array with sizes and crop info
-	foreach( $get_intermediate_image_sizes as $_size ) {
-
-		if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
-
-			$sizes[ $_size ]['width']   = get_option( $_size . '_size_w' );
-			$sizes[ $_size ]['height']  = get_option( $_size . '_size_h' );
-			$sizes[ $_size ]['crop']    = (bool) get_option( $_size . '_crop' );
-
-		} elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
-
-			$sizes[ $_size ] = array( 
-				'width'     => $_wp_additional_image_sizes[ $_size ]['width'],
-				'height'    => $_wp_additional_image_sizes[ $_size ]['height'],
-				'crop'      => $_wp_additional_image_sizes[ $_size ]['crop']
-			);
-
-		}
-
-	}
-
-	// Get only 1 size if found
-	if ( $size ) {
-		if ( isset( $sizes[ $size ] ) ) {
-			return $sizes[ $size ];
-		} else {
-			return false;
-		}
-	}
-
-	// Return sizes
-	return $sizes;
-}
-
-/**
  * Returns post video
  *
  * @since 1.0.0
@@ -980,15 +928,16 @@ function pwd_masonry_settings( $location = 'archive' ) {
 		if ( $layout_mode && in_array( $layout_mode, array( 'masonry', 'fitRows' ) ) ) {
 			$layout_mode = $layout_mode;
 		} else {
-			$layout_mode = 'masonry';
+			$layout_mode = 'fitRows';
 		}
 	}
 
 	// Apply filters
 	$settings = apply_filters( 'pwd_masonry_settings', array(
-		'itemSelector' => '.pwd-masonry-item',
-		'originLeft'   => is_rtl() ? false : true,
-		'layoutMode'   => $layout_mode,
+		'itemSelector'       => '.pwd-masonry-item',
+		'originLeft'         => is_rtl() ? false : true,
+		'layoutMode'         => $layout_mode,
+		'transitionDuration' => '0',
 	), $location );
 
 	// Return settings
@@ -1024,4 +973,57 @@ function pwd_minify_css( $css ) {
 	// Return minified CSS
 	return trim( $css );
 
+}
+
+/**
+ * Returns thumbnail sizes
+ *
+ * @since 1.0.0
+ * @link  http://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
+ */
+function pwd_get_thumbnail_sizes( $size = '' ) {
+
+	global $_wp_additional_image_sizes;
+
+	$sizes = array(
+		'full'  => array(
+		'width'  => '9999',
+		'height' => '9999',
+		'crop'   => 0,
+		),
+	);
+	$get_intermediate_image_sizes = get_intermediate_image_sizes();
+
+	// Create the full array with sizes and crop info
+	foreach( $get_intermediate_image_sizes as $_size ) {
+
+		if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
+
+			$sizes[ $_size ]['width']   = get_option( $_size . '_size_w' );
+			$sizes[ $_size ]['height']  = get_option( $_size . '_size_h' );
+			$sizes[ $_size ]['crop']    = (bool) get_option( $_size . '_crop' );
+
+		} elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
+
+			$sizes[ $_size ] = array( 
+				'width'     => $_wp_additional_image_sizes[ $_size ]['width'],
+				'height'    => $_wp_additional_image_sizes[ $_size ]['height'],
+				'crop'      => $_wp_additional_image_sizes[ $_size ]['crop']
+			);
+
+		}
+
+	}
+
+	// Get only 1 size if found
+	if ( $size ) {
+		if ( isset( $sizes[ $size ] ) ) {
+			return $sizes[ $size ];
+		} else {
+			return false;
+		}
+	}
+
+	// Return sizes
+	return $sizes;
 }

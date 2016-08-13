@@ -76,7 +76,6 @@
 			self.cache.$window.on( 'load', function() {
 				self.cache.$body.addClass( 'pwd-site-loaded' );
 				self.masonry();
-				self.lightSliders();
 			} );
 
 		},
@@ -133,15 +132,10 @@
 			$( '.single .comments-link' ).click( function() {
 				var $target = $( '#comments' );
 				var $offset = 30;
-					if ( $target.length ) {
-					if ( $( '.pwd-post-share' ).length ) {
-						$offset = 65;
-					}
-					if ( $target.length ) {
-						$( 'html,body' ).animate({
-							scrollTop: $target.offset().top - $offset
-						}, 1000 );
-					}
+				if ( $target.length ) {
+					$( 'html,body' ).animate({
+						scrollTop: $target.offset().top - $offset
+					}, 1000 );
 					return false;
 				}
 			} );
@@ -197,7 +191,7 @@
 			$scrollTopLink.on( 'click', function() {
 				$( 'html, body' ).animate( {
 					scrollTop : 0
-				}, 800 );
+				}, 400 );
 				return false;
 			} );
 

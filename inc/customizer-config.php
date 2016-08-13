@@ -401,7 +401,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				),
 				array(
 					'id' => 'related_entry_columns',
-					'default' => '3',
+					'default' => '2',
 					'control' => array(
 						'label' => esc_html__( 'Post Related Columns', 'powered' ),
 						'type' => 'select',
@@ -415,13 +415,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				),
 				array(
 					'id' => 'post_related_grid_layout_mode',
-					'default' => 'masonry',
+					'default' => 'fitRows',
 					'control' => array(
 						'label' => esc_html__( 'Grid Layout Mode', 'powered' ),
 						'type' => 'select',
 						'choices' => array(
-							'masonry' => esc_html__( 'Masonry', 'powered' ),
 							'fitRows' => esc_html__( 'Fit Rows', 'powered' ),
+							'masonry' => esc_html__( 'Masonry', 'powered' ),
 						),
 						'active_callback' => 'pwd_customizer_has_related_posts',
 					),
@@ -442,7 +442,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				),
 				array(
 					'id' => 'post_related_count',
-					'default' => '12',
+					'default' => '6',
 					'control' => array(
 						'label' => esc_html__( 'Post Related: Count', 'powered' ),
 						'type' => 'number',

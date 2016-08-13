@@ -19,6 +19,15 @@ function pwd_is_responsive() {
 }
 
 /**
+ * Check if featured post is enabled
+ *
+ * @since 1.0.0
+ */
+function pwd_archive_has_featured_post() {
+	return apply_filters( 'pwd_archive_has_featured_post', true );
+}
+
+/**
  * Show post thumbnail?
  *
  * @since 1.0.0

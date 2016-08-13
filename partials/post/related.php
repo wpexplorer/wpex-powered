@@ -22,7 +22,7 @@ if ( 'post' != get_post_type()
 }
 
 // Get count
-$posts_per_page = pwd_get_theme_mod( 'post_related_count', 8 );
+$posts_per_page = pwd_get_theme_mod( 'post_related_count', 6 );
 if ( ! $posts_per_page || 0 == $posts_per_page ) {
 	return;
 }
@@ -78,7 +78,7 @@ if ( $pwd_query->have_posts() ) { ?>
 		$heading = pwd_get_theme_mod( 'post_related_heading' );
 		$heading = $heading ? $heading : esc_html__( 'Related Articles', 'powered' );
 		if ( $heading ) : ?>
-			<h4 class="pwd-related-posts-heading"><?php echo pwd_sanitize( $heading, 'html' ); ?></h4>
+			<h4 class="pwd-heading"><?php echo pwd_sanitize( $heading, 'html' ); ?></h4>
 		<?php endif; ?>
 
 		<div class="pwd-entries pwd-row pwd-clr" data-settings="<?php echo pwd_masonry_settings( 'related' ); ?>"><?php

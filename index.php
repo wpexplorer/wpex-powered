@@ -28,13 +28,11 @@ get_header(); ?>
 
 			<?php
 			// Home info
-			if ( is_front_page() && $tagline = pwd_get_theme_mod( 'home_tagline' ) ) : ?>
+			if ( pwd_archive_has_featured_post() && ( is_front_page() || is_archive() ) ) :
 
-				<div id="pwd-home-tagline" class="pwd-clr"><?php
-					echo wp_kses_post( $tagline );
-				?></div><!-- #pwd-home-tagline -->
+				get_template_part( 'partials/archives/featured-post' );
 
-			<?php endif; ?>
+			endif; ?>
 
 			<?php
 			// Check if posts exist
@@ -51,6 +49,11 @@ get_header(); ?>
 
 					// Loop through posts
 					while ( have_posts() ) : the_post();
+
+						// Exclude featured post
+						if ( get_the_ID() == pwd_get_first_post_with_thumb() ) {
+							continue;
+						}
 
 						// Display post entry
 						get_template_part( 'partials/layout-entry' );

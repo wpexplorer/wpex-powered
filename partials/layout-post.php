@@ -38,16 +38,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		endif;
 
 	endif;
+
+	// Display post share
+	if ( pwd_has_social_share() ) :
+
+		get_template_part( 'partials/post/share' );
+	
+	endif;
 	
 	// Display post header
 	get_template_part( 'partials/post/header' );
-
-	// Display post share above post
-	if ( pwd_has_social_share() ) :
-
-		get_template_part( 'partials/global/share' );
-	
-	endif;
 	
 	// Display post content
 	get_template_part( 'partials/post/content' );
@@ -74,8 +74,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	// Display post nav (next/prev)
 	if ( pwd_get_theme_mod ( 'post_next_prev', true ) ) {
+
 		get_template_part( 'partials/post/navigation' );
+		
 	}
+
+	// Display related posts
+	if ( pwd_get_theme_mod( 'post_related', true ) ) :
+		
+		get_template_part( 'partials/post/related' );
+
+	endif;
 
 	// Display comments
 	if ( pwd_get_theme_mod( 'comments_on_posts', true ) ) :

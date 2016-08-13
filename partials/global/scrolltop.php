@@ -14,4 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<a href="#" title="<?php esc_html_e( 'Top', 'powered' ); ?>" class="pwd-site-scroll-top"><span class="fa fa-caret-up"></span></a>
+<a href="#" title="<?php esc_html_e( 'Top', 'powered' ); ?>" class="pwd-site-scroll-top"><span class="fa fa-chevron-up"></span></a>

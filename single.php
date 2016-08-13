@@ -27,12 +27,4 @@ get_header(); ?>
 
 <?php get_sidebar(); ?>
 
-<?php
-// Display related posts
-if ( pwd_get_theme_mod( 'post_related', true ) ) :
-	
-	get_template_part( 'partials/post/related' );
-
-endif; ?>
-
 <?php get_footer(); ?>
