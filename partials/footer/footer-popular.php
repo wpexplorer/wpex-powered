@@ -15,17 +15,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Check if enabled
-if ( ! apply_filters( 'pwd_footer_popular_posts', true ) ) {
+$enabled = ( is_search() || is_page() ) ?  false : true;
+if ( ! apply_filters( 'pwd_footer_popular_posts', $enabled ) ) {
 	return;
 }
 
 // Query arguments
 $args = array(
 	'posts_per_page'      => 5,
-	'post__not_in'        => array( get_the_ID() ),
-	'orderby'             => 'comment_count',
 	'ignore_sticky_posts' => true,
 );
+
+// Exclude current post on singular posts
+if ( is_singular() ) {
+	$args['post__not_in'] = array( get_the_ID() );
+}
+
+// Orderby ?
+if ( class_exists( 'Post_Views_Counter' ) ) {
+	$args['orderby'] = 'post_views';
+} else {
+	$args['orderby'] = 'comment_count';
+}
 
 // Apply filters to args
 $args = apply_filters( 'pwd_footer_popular_posts_args', $args );

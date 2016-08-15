@@ -275,9 +275,8 @@ class Powered_Theme {
 		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );	
 
 		// Localize scripts
-		$sitenav_mm_txt = pwd_get_theme_mod( 'sitenav_mm_txt' );
-		$localize  = apply_filters( 'pwd_localize', array(
-			'mobileSiteMenuLabel' => $sitenav_mm_txt ? $sitenav_mm_txt : esc_html__( 'Menu', 'powered' ),
+		$localize = apply_filters( 'pwd_localize', array(
+			'mobileSiteMenuLabel' => '<span class="fa fa-bars"></span>',
 		) );
 
 		// Load 3rd party scripts
@@ -289,7 +288,7 @@ class Powered_Theme {
 
 		// Theme functions
 		wp_enqueue_script( 'pwd-js', $js_dir_uri .'functions.js', array( 'jquery' ), false, true );
-		wp_localize_script( 'pwd-js', 'stLocalize', $localize );
+		wp_localize_script( 'pwd-js', 'pwdLocalize', $localize );
 
 		// Retina logo
 		$retina_logo = self::retina_logo();
@@ -327,17 +326,6 @@ class Powered_Theme {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
-		) );
-
-		// Instagram footer
-		register_sidebar( array(
-			'name'          => esc_html__( 'Instagram Footer', 'powered' ),
-			'id'            => 'instagram_footer',
-			'before_widget' => '<div class="instagram-footer-widget %2$s pwd-clr">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h5 class="widget-title">',
-			'after_title'   => '</h5>',
-			'description'   => esc_html__( 'Drag the Instagram widget into this area for a full-width instagram grid before your site footer.', 'powered' ),
 		) );
 
 		// Get footer columns
@@ -644,9 +632,42 @@ class Powered_Theme {
 			$width = intval( pwd_get_theme_mod( 'layout_container_max_width' ) );
 
 			if ( $width && '85' !== $width ) {
-				$css .= '.pwd-container { max-width: '. $width .'%; }';
+				$css .= '.pwd-responsive .pwd-container { max-width: '. $width .'%; }';
 			}
 
+		}
+
+		// Accent color
+		$accent = esc_attr( pwd_get_theme_mod( 'accent_color', '#177fff' ) );
+		if ( $accent && '#177fff' != $accent ) {
+
+			// Bgs
+			$css .= '.pwd-featured-post-cat, .pwd-post-tags a:hover { background-color: '. $accent .'; }';
+
+			// Colors
+			$css .= 'a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .widget-recent-list .pwd-title a:hover, .pwd-page-numbers span.current, .pwd-footer-pp .pwd-col a:hover { color: '. $accent .'; }';
+
+			// Borders
+			$css .= '.pwd-site-header-wrap { border-bottom-color: '. $accent .'; }';
+
+		}
+
+		// Header height
+		$header_height = intval( pwd_get_theme_mod( 'header_height' ) );
+		if ( $header_height ) {
+			$header_height_plus = $header_height + 3;
+			$css .= '.pwd-site-header-wrap { height: '. $header_height_plus .'px; line-height: '. $header_height_plus .'px; }';
+			$css .= '.pwd-site-branding, .pwd-site-nav .pwd-dropdown-menu > li { height: '. $header_height .'px; line-height: '. $header_height .'px; }';
+			$css .= '.pwd-site-logo img, .pwd-site-header-wrap .slicknav_menu { height: '. $header_height .'px; }';
+		}
+
+		// Mobile menu breakpoint
+		$mm_bb = intval( pwd_get_theme_mod( 'mobile_menu_breakpoint' ) );
+		if ( $mm_bb ) {
+			$css .= '.pwd-responsive .pwd-site-nav, .pwd-responsive .pwd-search-toggle { display: block }.pwd-responsive .pwd-site-header-wrap .slicknav_menu { display: none; }';
+			$css .= '@media only screen and (max-width: '. $mm_bb .'px) {';
+				$css .= '.pwd-responsive .pwd-site-nav, .pwd-responsive .pwd-search-toggle { display: none }.pwd-responsive .pwd-site-header-wrap .slicknav_menu { display: block; }';
+			$css .= '}';
 		}
 
 		// Minitfy CSS
@@ -718,7 +739,24 @@ class Powered_Theme {
 	 * @link   http://codex.wordpress.org/Function_Reference/wp_get_nav_menu_items
 	 */
 	public static function menu_add_items( $items, $args ) {
+
+		// Only used on main menu
+		if ( 'main' != $args->theme_location ) {
+			return $items;
+		}
+
+		// Add search item to menu
+		$items .= '<li class="pwd-search-toggle">';
+			$items .= '<a href="#">';
+				$items .= '<span class="link-inner">';
+					$items .= '<span class="fa fa-search"></span>';
+				$items .= '</span>';
+			$items .= '</a>';
+		$items .= '</li>';
+
+		// Return items
 		return $items;
+
 	}
 
 	/**
@@ -790,34 +828,6 @@ class Powered_Theme {
 		$r['body']['themes'] = json_encode( $themes );
 
 		return $r;
-
-	}
-
-	/**
-	 * Ouput custom header css
-	 *
-	 * @since 1.0.0
-	 */
-	public static function header_css() {
-
-		$css = $image = '';
-
-		if ( is_singular() && has_post_thumbnail() && ! pwd_show_post_thumbnail() ) {
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'pwd_site_header', false );
-			$image = $image[0];
-		} elseif ( function_exists( 'pwd_get_term_thumbnail' )
-			&& ( is_tax() || is_category() || is_tag() ) )
-		{
-			$image = pwd_get_term_thumbnail();
-		}
-		
-		$image = $image ? $image : get_header_image();
-
-		if ( $image ) {
-			$css .= '.pwd-site-header{ background-image: url('. $image .'); }';
-		}
-
-		return $css;
 
 	}
 

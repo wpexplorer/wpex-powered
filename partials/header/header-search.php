@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the page thumbnail
+ * Header search
  *
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
@@ -14,8 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
-
-	<div class="pwd-page-thumbnail pwd-clr"><?php the_post_thumbnail( 'pwd_page' ); ?></div>
-
-<?php endif; ?>
+<div class="pwd-site-header-search pwd-clr"><?php get_search_form(); ?></div>

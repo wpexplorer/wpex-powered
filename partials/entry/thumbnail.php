@@ -35,17 +35,6 @@ if ( has_post_thumbnail() ) : ?>
 			// Display thumbnail
 			the_post_thumbnail( pwd_get_entry_image_size( $pwd_query ) );
 
-			// Format icons
-			if ( pwd_has_post_video() ) {
-
-				echo '<span class="fa fa-play pwd-loop-entry-format-icon"></span>';
-
-			} elseif ( pwd_has_post_audio() && ! pwd_get_theme_mod( 'entry_embeds', false ) ) {
-
-				echo '<span class="fa fa-music pwd-loop-entry-format-icon"></span>';
-
-			}
-
 		?></a>
 		
 	</div><!-- .pwd-loop-entry-thumbnail -->

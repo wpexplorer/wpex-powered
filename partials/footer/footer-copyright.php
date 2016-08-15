@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Get copyright data
-$copy = pwd_get_theme_mod( 'footer_copyright', '<a href="http://www.wpexplorer.com/powered-free-wordpress-theme/" title="WordPress" target="_blank">Powered</a> by <a href="http://www.wpexplorer.com/" target="_blank" title="WPExplorer">WPExplorer</a> powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a>' );
+$copy = pwd_get_theme_mod( 'footer_copyright', '<a href="http://www.wpexplorer.com/powered-free-wordpress-theme/" title="WordPress" target="_blank">Powered Theme</a> by <a href="http://www.wpexplorer.com/" target="_blank" title="WPExplorer">WPExplorer</a> powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a>' );
 
 // Display copyright
 if ( $copy ) : ?>

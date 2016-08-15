@@ -14,8 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Check display
+$display = apply_filters( 'pwd_post_author_info', pwd_get_theme_mod( 'post_author_info', true ) );
+
 // Author description required
-if ( $description = get_the_author_meta( 'description' ) ) : ?>
+if ( $display && $description = get_the_author_meta( 'description' ) ) : ?>
 
 	<section class="pwd-author-info pwd-clr">
 

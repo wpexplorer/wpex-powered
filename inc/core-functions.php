@@ -51,6 +51,8 @@ function pwd_get_image_sizes() {
 		'entry'          => esc_html__( 'Entry', 'powered' ),
 		'post'           => esc_html__( 'Single Post (if enabled)', 'powered' ),
 		'entry_related'  => esc_html__( 'Related Entries', 'powered' ),
+		'page'           => esc_html__( 'Pages', 'powered' ),
+		'footer_popular' => esc_html__( 'Popular Posts', 'powered' ),
 	) );
 }
 
@@ -523,7 +525,7 @@ function pwd_get_entry_excerpt_length() {
 	if ( isset( $_GET['excerpt_length'] ) ) {
 		return esc_html( $_GET['excerpt_length'] );
 	}
-	return pwd_get_theme_mod( 'entry_excerpt_length', 14 );
+	return pwd_get_theme_mod( 'entry_excerpt_length', 20 );
 }
 
 /**
@@ -1027,3 +1029,14 @@ function pwd_get_thumbnail_sizes( $size = '' ) {
 	// Return sizes
 	return $sizes;
 }
+
+/**
+ * Current year shortcode
+ *
+ * @since 1.0.0
+ * @link  https://codex.wordpress.org/Function_Reference/add_shortcode
+ */
+function pwd_current_year_shortcode() {
+	return date( 'Y' );
+}
+add_shortcode( 'pwd_current_year', 'pwd_current_year_shortcode');

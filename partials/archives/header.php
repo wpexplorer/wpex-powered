@@ -62,6 +62,8 @@ if ( $is_author ) {
 			printf( esc_html__( 'You searched for: %s', 'powered' ), '<span>'. get_search_query() .'</span>' );
 		?></div><!-- .pwd-header-tagline -->
 
+		<div class="pwd-search-results-form pwd-clr"><?php get_search_form(); ?></div>
+
 	<?php
 	// Author description
 	elseif ( $is_author ) : ?>

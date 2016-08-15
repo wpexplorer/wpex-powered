@@ -28,6 +28,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		// Display header menu
 		get_template_part( 'partials/header/header-nav' ); ?>
 
+		<?php
+		// Header search
+		get_template_part( 'partials/header/header-search' ); ?>
+
 	</header><!-- .pwd-site-header -->
 
 </div><!-- .pwd-site-header-wrap -->

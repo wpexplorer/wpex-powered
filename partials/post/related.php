@@ -22,7 +22,7 @@ if ( 'post' != get_post_type()
 }
 
 // Get count
-$posts_per_page = pwd_get_theme_mod( 'post_related_count', 6 );
+$posts_per_page = pwd_get_theme_mod( 'post_related_count', 4 );
 if ( ! $posts_per_page || 0 == $posts_per_page ) {
 	return;
 }

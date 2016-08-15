@@ -26,8 +26,8 @@ $url   = rawurlencode( esc_url( get_permalink( get_the_ID() ) ) ); ?>
 			</a>
 		</li>
 		<li class="pwd-googleplus">
-			<a href="https://plus.google.com/share?url=<?php echo $url; ?>" title="<?php esc_html_e( 'Share on Google+', 'total' ); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-				<span class="fa fa-google-plus"></span><?php esc_html_e( 'Plus one', 'total' ); ?></span>
+			<a href="https://plus.google.com/share?url=<?php echo $url; ?>" title="<?php esc_html_e( 'Share on Google+', 'powered' ); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+				<span class="fa fa-google-plus"></span><?php esc_html_e( 'Plus one', 'powered' ); ?></span>
 			</a>
 		</li>
 		<li class="pwd-facebook">

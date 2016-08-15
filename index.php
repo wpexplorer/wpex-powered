@@ -27,7 +27,7 @@ get_header(); ?>
 			get_template_part( 'partials/archives/header' ); ?>
 
 			<?php
-			// Home info
+			// Featured post
 			if ( pwd_archive_has_featured_post() && ( is_front_page() || is_archive() ) ) :
 
 				get_template_part( 'partials/archives/featured-post' );

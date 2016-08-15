@@ -16,22 +16,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <article class="pwd-page-article pwd-clr"><?php
 
-	// Open boxed layout
-	echo '<div class="pwd-boxed-content pwd-clr">';
+	// Featured image
+	if ( has_post_thumbnail() ) :
 
-		// Page Header
-		if ( ! get_post_meta( get_the_ID(), 'pwd_hide_title', true ) ) :
-			get_template_part( 'partials/page/header' );
-		endif;
+		get_template_part( 'partials/page/thumbnail' );
 
-		// Page content
-		get_template_part( 'partials/page/content' );
+	endif;
 
-		// Post Edit link
-		get_template_part( 'partials/global/edit' );
+	// Page Header
+	if ( ! get_post_meta( get_the_ID(), pwd_meta_prefix() .'hide_title', true ) ) :
 
-	// Close boxed layout
-	echo '</div><!-- .pwd-boxed-content -->';
+		get_template_part( 'partials/page/header' );
+
+	endif;
+
+	// Page content
+	get_template_part( 'partials/page/content' );
+
+	// Post Edit link
+	get_template_part( 'partials/global/edit' );
 
 	// Page comments
 	if ( get_theme_mod( 'comments_on_pages', true ) ) :

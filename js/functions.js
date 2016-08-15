@@ -65,6 +65,7 @@
 			// Run on document ready
 			self.cache.$document.on( 'ready', function() {
 				self.mobileCheck();
+				self.headerSearch();
 				self.responsiveEmbeds();
 				self.commentScrollTo();
 				self.commentLastClass();
@@ -91,6 +92,25 @@
 				this.cache.$isMobile = true;
 				return true;
 			}
+		},
+
+		/**
+		 * Header search
+		 *
+		 * @since 1.0.0
+		 */
+		headerSearch: function() {
+			var $headerSearch = $( '.pwd-site-header-search' ),
+				$headerSearchToggle = $( '.pwd-search-toggle' );
+			$headerSearchToggle.click( function() {
+				$headerSearch.toggleClass( 'pwd-active' );
+				return false;
+			} );
+			this.cache.$document.on( 'click', function( event ) {
+				if ( ! $( event.target ).closest(  $headerSearch ).length ) {
+					$headerSearch.removeClass( 'pwd-active' );
+				}
+			} );
 		},
 
 		/**
@@ -162,8 +182,8 @@
 				var $menu = $mobileMenuAlt.length ? $mobileMenuAlt : $( '.pwd-site-nav-container .pwd-dropdown-menu' );
 				if ( $menu.length ) {
 					$menu.slicknav( {
-						prependTo        : '.pwd-site-header-wrap',
-						label            : '<span class="fa fa-bars"></span>'+ stLocalize.mobileSiteMenuLabel,
+						appendTo        : '.pwd-site-header',
+						label            : pwdLocalize.mobileSiteMenuLabel,
 						allowParentLinks : true,
 						closedSymbol     : $closedSymbol
 					} );

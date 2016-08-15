@@ -47,17 +47,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 			'900' => '900',
 		);
 
-		// Categories
-		$categories = array();
-		$get_categories = get_categories( array(
-			'orderby' => 'name'
-		) );
-		if ( ! empty( $get_categories ) ) {
-			foreach ( $get_categories as $cat ) {
-				$categories[$cat->term_id] = $cat->name;
-			}
-		}
-
 		/*-----------------------------------------------------------------------------------*/
 		/* - General Panel
 		/*-----------------------------------------------------------------------------------*/
@@ -176,11 +165,10 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					),
 				),
 				array(
-					'id' => 'sitenav_mm_txt',
+					'id' => 'mobile_menu_breakpoint',
 					'control' => array(
-						'label' => esc_html__( 'Main Menu Mobile Toggle Text', 'powered' ),
-						'type' => 'text',
-						'active_callback' => 'pwd_is_responsive',
+						'label' => esc_html__( 'Mobile Menu Breakpoint', 'powered' ),
+						'desc' => esc_html__( 'The window width at which the theme will hide the default menu and display the mobile menu. Default is 959px.', 'powered' ),
 					),
 				),
 			),
@@ -191,49 +179,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 			'id' => 'pwd_general',
 			'title' => esc_html__( 'Header', 'powered' ),
 			'settings' => array(
-				array(
-					'id' => 'site_description',
-					'default' => true,
-					'control' => array(
-						'label' => esc_html__( 'Display description?', 'powered' ),
-						'type' => 'checkbox'
-					),
-				),
-				array(
-					'id' => 'header_overlay_opacity',
-					'sanitize_callback' => 'absint',
-					'control' => array(
-						'label' => esc_html__( 'Header Overlay Opacity', 'powered' ),
-						'type' => 'text',
-					),
-					'inline_css' => array(
-						'target' => '.pwd-site-header-overlay',
-						'alter' => 'opacity',
-					),
-				),
-				array(
-					'id' => 'header_overlay_olor',
-					'control' => array(
-						'label' => esc_html__( 'Header Overlay Color', 'powered' ),
-						'type' => 'color',
-					),
-					'inline_css' => array(
-						'target' => '.pwd-site-header-overlay',
-						'alter' => 'background-color',
-					),
-				),
-				array(
-					'id' => 'logo_bottom_margin',
-					'control' => array(
-						'label' => esc_html__( 'Logo Bottom Margin', 'powered' ),
-						'type' => 'text',
-					),
-					'inline_css' => array(
-						'target' => '.pwd-site-logo',
-						'alter' => 'margin-bottom',
-						'sanitize' => 'px',
-					),
-				),
 				array(
 					'id' => 'logo',
 					'control' => array(
@@ -252,7 +197,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'logo_retina_height',
 					'control' => array(
 						'label' => esc_html__( 'Standard Logo Height', 'powered' ),
-						'desc' => esc_html__( 'Enter the standard height for your logo. Used to set your retina logo to the correct dimensions', 'powered' ),
+						'desc' => esc_html__( 'Enter the standard height for your logo. Used to set your retina logo to the correct dimensions.', 'powered' ),
 					),
 				),
 			),
@@ -303,7 +248,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				),
 				array(
 					'id' => 'entry_excerpt_length',
-					'default' => 14,
+					'default' => 20,
 					'control' => array(
 						'label' => esc_html__( 'Entry Excerpt Length', 'powered' ),
 						'type' => 'text',
@@ -325,14 +270,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						'label' => esc_html__( 'Entry Embeds', 'powered' ),
 						'type' => 'checkbox',
 						'desc' => esc_html__( 'Display\'s your video/audio embed on the homepage and archives instead of the featured image.', 'powered' ),
-					),
-				),
-				array(
-					'id' => 'entry_meta',
-					'default' => true,
-					'control' => array(
-						'label' => esc_html__( 'Entry Meta', 'powered' ),
-						'type' => 'checkbox',
 					),
 				),
 			),
@@ -442,7 +379,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				),
 				array(
 					'id' => 'post_related_count',
-					'default' => '6',
+					'default' => '4',
 					'control' => array(
 						'label' => esc_html__( 'Post Related: Count', 'powered' ),
 						'type' => 'number',
@@ -478,6 +415,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'control' => array(
 						'label' => esc_html__( 'Footer Copyright', 'powered' ),
 						'type' => 'textarea',
+						'desc' =>  esc_html__( 'Use shortcode [pwd_current_year] to display current year.', 'powered' ),
 					),
 				),
 			),
@@ -523,22 +461,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 			)
 		);
 
-		// Ads
-		$panels['general']['sections']['ads'] = array(
-			'id' => 'pwd_ads',
-			'title' => esc_html__( 'Advertisements', 'powered' ),
-			'settings' => array(
-				array(
-					'id' => 'ad_above_post',
-					'default' => '<a href="http://themeforest.net/user/wpexplorer"><img src="'. esc_url( get_template_directory_uri() ) .'/images/ad-banner.jpg" /></a>',
-					'control' => array(
-						'label' => esc_html__( 'Above Post', 'powered' ),
-						'type' => 'textarea',
-					),
-				),
-			)
-		);
-
 		/*-----------------------------------------------------------------------------------*/
 		/* - Typography
 		/*-----------------------------------------------------------------------------------*/
@@ -562,51 +484,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 							'inline_css' => array(
 								'target' => 'body',
 								'alter' => 'font-family',
-							),
-						),
-						array(
-							'id' => 'body_font_weight',
-							'control' => array(
-								'label' => esc_html__( 'Font Weight', 'powered' ),
-								'type' => 'select',
-								'choices' => $font_weights,
-							),
-							'inline_css' => array(
-								'target' => 'body',
-								'alter' => 'font-weight',
-							),
-						),
-						array(
-							'id' => 'body_font_size',
-							'control' => array(
-								'label' => esc_html__( 'Font Size', 'powered' ),
-							),
-							'inline_css' => array(
-								'target' => 'body',
-								'alter' => 'font-size',
-								'sanitize' => 'px',
-							),
-						),
-						array(
-							'id' => 'body_letter_spacing',
-							'control' => array(
-								'label' => esc_html__( 'Letter Spacing', 'powered' ),
-							),
-							'inline_css' => array(
-								'target' => 'body',
-								'alter' => 'letter-spacing',
-								'sanitize' => 'px',
-							),
-						),
-						array(
-							'id' => 'body_color',
-							'control' => array(
-								'label' => esc_html__( 'Color', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => 'body, strong',
-								'alter' => 'color',
 							),
 						),
 					),
@@ -669,40 +546,40 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				// Headings Typography
 				array(
 					'id' => 'gds_headings_typography',
-					'title' => esc_html__( 'Headings', 'gridster' ),
-					'desc' => 'h1,h2,h3,h4,h5,h6,thead',
+					'title' => esc_html__( 'Headings', 'powered' ),
+					'desc' => 'h1,h2,h3,h4,h5,h6',
 					'settings' => array(
 						array(
 							'id' => 'headings_font_family',
 							'default' => 'Lato',
 							'control' => array(
-								'label' => esc_html__( 'Font Family', 'gridster' ),
+								'label' => esc_html__( 'Font Family', 'powered' ),
 								'type' => 'google_font',
 							),
 							'inline_css' => array(
-								'target' => 'h1,h2,h3,h4,h5,h6,.gds-heading-font-family,.gds-heading,.gds-loop-entry-social-share-list a,.gds-social-profiles-widget,thead, tfoot th,.cart-collaterals .cart_totals th',
+								'target' => 'h1,h2,h3,h4,h5,h6',
 								'alter' => 'font-family',
 							),
 						),
 						array(
 							'id' => 'headings_font_weight',
 							'control' => array(
-								'label' => esc_html__( 'Font Weight', 'gridster' ),
+								'label' => esc_html__( 'Font Weight', 'powered' ),
 								'type' => 'select',
 								'choices' => $font_weights,
 							),
 							'inline_css' => array(
-								'target' => 'h1,h2,h3,h4,h5,h6,.gds-heading-font-family,.gds-heading,.gds-loop-entry-social-share-list a,.gds-social-profiles-widget',
+								'target' => 'h1,h2,h3,h4,h5,h6',
 								'alter' => 'font-weight',
 							),
 						),
 						array(
 							'id' => 'headings_letter_spacing',
 							'control' => array(
-								'label' => esc_html__( 'Letter Spacing', 'gridster' ),
+								'label' => esc_html__( 'Letter Spacing', 'powered' ),
 							),
 							'inline_css' => array(
-								'target' => 'h1,h2,h3,h4,h5,h6,.gds-heading-font-family,.gds-heading,.gds-loop-entry-social-share-list a,.gds-social-profiles-widget',
+								'target' => 'h1,h2,h3,h4,h5,h6',
 								'alter' => 'letter-spacing',
 								'sanitize' => 'px',
 							),
@@ -726,31 +603,11 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'title' => esc_html__( 'Main', 'powered' ),
 					'settings' => array(
 						array(
-							'id' => 'primary_accent_color',
-							'default' => '#3f91eb',
+							'id' => 'accent_color',
+							'default' => '#177fff',
 							'control' => array(
 								'label' => esc_html__( 'Accent Color', 'powered' ),
 								'type' => 'color',
-							),
-						),
-						array(
-							'id' => 'secondary_accent_color',
-							'default' => '#fff',
-							'control' => array(
-								'label' => esc_html__( 'Accent Color', 'powered' ),
-								'type' => 'color',
-							),
-						),
-						array(
-							'id' => 'link_color',
-							'control' => array(
-								'label' => esc_html__( 'Links', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => 'a,.pwd-site-content h2 a:hover,.pwd-site-content h3 a:hover',
-								'sanitize' => 'hex',
-								'alter' => 'color',
 							),
 						),
 					),
@@ -775,25 +632,12 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 							),
 						),
 						array(
-							'id' => 'header_top_padding',
+							'id' => 'header_height',
 							'control' => array(
-								'label' => esc_html__( 'Top Padding', 'powered' ),
+								'label' => esc_html__( 'Header Height', 'powered' ),
 								'type' => 'text',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-header',
-								'alter' => 'padding-top',
-							),
-						),
-						array(
-							'id' => 'header_bottom_padding',
-							'control' => array(
-								'label' => esc_html__( 'Bottom Padding', 'powered' ),
-								'type' => 'text',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-header',
-								'alter' => 'padding-top',
+								'sanitize' => 'absint',
+								'desc' => esc_html__( 'In pixels. Default is 50px.', 'powered' ),
 							),
 						),
 						array(
@@ -811,19 +655,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 								'important' => true,
 							),
 						),
-						array(
-							'id' => 'site_description_color',
-							'control' => array(
-								'label' => esc_html__( 'Site Description Color', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-description',
-								'important' => true,
-								'alter' => 'color',
-								'sanitize' => 'hex',
-							),
-						),
 					),
 				),
 
@@ -833,25 +664,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'title' => esc_html__( 'Menu', 'powered' ),
 					'settings' => array(
 						array(
-							'id' => 'nav_bg',
-							'control' => array(
-								'label' => esc_html__( 'Menu Background', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-nav-wrap',
-								'alter' => 'background-color',
-								'sanitize' => 'hex',
-							),
-						),
-						array(
 							'id' => 'nav_color',
 							'control' => array(
 								'label' => esc_html__( 'Menu Link Color', 'powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
-								'target' => '.pwd-site-nav .pwd-dropdown-menu a,.pwd-menu-search-toggle',
+								'target' => '.pwd-site-nav .pwd-dropdown-menu a,.pwd-menu-search-toggle,.pwd-site-header-wrap .slicknav_btn',
 								'alter' => 'color',
 								'sanitize' => 'hex',
 							),
@@ -863,7 +682,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 								'type' => 'color',
 							),
 							'inline_css' => array(
-								'target' => '.pwd-site-nav .pwd-dropdown-menu li a:hover,.pwd-site-nav .pwd-dropdown-menu > li.menu-item-has-children:hover > a',
+								'target' => '.pwd-site-nav .pwd-dropdown-menu li a:hover,.pwd-site-nav .pwd-dropdown-menu > li.menu-item-has-children:hover > a,.pwd-site-header-wrap .slicknav_btn:hover',
 								'alter' => 'color',
 								'sanitize' => 'hex',
 							),
@@ -952,198 +771,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 								'alter' => 'background-color',
 								'sanitize' => 'hex',
 								'important' => true,
-							),
-						),
-					),
-				),
-
-				// Sidebar
-				array(
-					'id' => 'pwd_styling_sidebar',
-					'title' => esc_html__( 'Sidebar', 'powered' ),
-					'settings' => array(
-						array(
-							'id' => 'sidebar_text_color',
-							'control' => array(
-								'label' => esc_html__( 'Text', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-sidebar',
-								'alter' => 'color',
-								'sanitize' => 'hex',
-							),
-						),
-						array(
-							'id' => 'sidebar_links_color',
-							'control' => array(
-								'label' => esc_html__( 'Links', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-sidebar-widget a',
-								'alter' => 'color',
-								'sanitize' => 'hex',
-							),
-						),
-						array(
-							'id' => 'sidebar_links_hover_color',
-							'control' => array(
-								'label' => esc_html__( 'Links: Hover', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-sidebar-widget a:hover',
-								'alter' => 'color',
-								'sanitize' => 'hex',
-							),
-						),
-					),
-				),
-
-				// Footer
-				array(
-					'id' => 'pwd_styling_footer',
-					'title' => esc_html__( 'Footer', 'powered' ),
-					'settings' => array(
-						array(
-							'id' => 'footer_bg',
-							'control' => array(
-								'label' => esc_html__( 'Background ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-footer',
-								'sanitize' => 'hex',
-								'alter' => 'background-color',
-							),
-						),
-						array(
-							'id' => 'footer_borders',
-							'control' => array(
-								'label' => esc_html__( 'borders ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-footer ul li,.pwd-footer-widgets .widget_archive li,.pwd-footer-widgets .widget_recent_entries li,.pwd-footer-widgets .widget_categories li,.pwd-footer-widgets .widget_meta li,.pwd-footer-widgets .widget_recent_comments li,.pwd-footer-widgets .widget_nav_menu li,.pwd-footer-widgets .widget-recent-list li,.pwd-site-footer #wp-calendar td,.pwd-footer-widgets .widget_pages li',
-								'sanitize' => 'hex',
-								'alter' => 'border-color',
-							),
-						),
-						array(
-							'id' => 'footer_color',
-							'control' => array(
-								'label' => esc_html__( 'Color ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-footer',
-								'sanitize' => 'hex',
-								'alter' => 'color',
-							),
-						),
-						array(
-							'id' => 'footer_widget_title_color',
-							'control' => array(
-								'label' => esc_html__( 'Widget Titles', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-widgets .widget-title',
-								'sanitize' => 'hex',
-								'alter' => 'color',
-							),
-						),
-						array(
-							'id' => 'footer_link',
-							'control' => array(
-								'label' => esc_html__( 'Links', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-widgets a,.pwd-footer-widgets .widget-recent-list .pwd-title a,.pwd-footer-widgets a,.pwd-footer-widgets .widget-recent-list .pwd-title a,.pwd-footer-widgets .pwd-widget-popular-posts li a',
-								'sanitize' => 'hex',
-								'alter' => 'color',
-							),
-						),
-						array(
-							'id' => 'footer_link_hover',
-							'control' => array(
-								'label' => esc_html__( 'Links: Hover ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-footer a:hover,.pwd-footer-widgets .widget-recent-list .pwd-title a:hover,.pwd-footer-widgets a:hover,.pwd-footer-widgets .widget-recent-list .pwd-title a:hover,.pwd-footer-widgets .pwd-widget-popular-posts li a:hover',
-								'sanitize' => 'hex',
-								'alter' => 'color',
-							),
-						),
-					),
-				),
-
-				// Footer Bottom
-				array(
-					'id' => 'pwd_styling_footer_bottom_bottom',
-					'title' => esc_html__( 'Footer Bottom', 'powered' ),
-					'settings' => array(
-						array(
-							'id' => 'footer_bottom_bg',
-							'control' => array(
-								'label' => esc_html__( 'Background ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-bottom',
-								'sanitize' => 'hex',
-								'alter' => 'background-color',
-							),
-						),
-						array(
-							'id' => 'footer_bottom_border',
-							'control' => array(
-								'label' => esc_html__( 'Border ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-bottom',
-								'sanitize' => 'hex',
-								'alter' => 'border-top-color',
-							),
-						),
-						array(
-							'id' => 'footer_bottom_color',
-							'control' => array(
-								'label' => esc_html__( 'Color ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-bottom',
-								'sanitize' => 'hex',
-								'alter' => 'color',
-							),
-						),
-						array(
-							'id' => 'footer_bottom_link',
-							'control' => array(
-								'label' => esc_html__( 'Links', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-bottom a',
-								'sanitize' => 'hex',
-								'alter' => 'color',
-							),
-						),
-						array(
-							'id' => 'footer_bottom_link_hover',
-							'control' => array(
-								'label' => esc_html__( 'Links: Hover ', 'powered' ),
-								'type' => 'color',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-footer-bottom a:hover',
-								'sanitize' => 'hex',
-								'alter' => 'color',
 							),
 						),
 					),

@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'base'      => str_replace( 999999999, '%#%', html_entity_decode( get_pagenum_link( 999999999 ) ) ),
 		'format'    => $format,
 		'current'   => max( 1, get_query_var( 'paged') ),
-		'total'     => $wp_query->max_num_pages,
+		'powered'     => $wp_query->max_num_pages,
 		'mid_size'  => 3,
 		'type'      => 'list',
 		'prev_text' => '<i class="fa fa-chevron-left"></i>',
