@@ -24,7 +24,7 @@ function pwd_is_responsive() {
  * @since 1.0.0
  */
 function pwd_archive_has_featured_post() {
-	return apply_filters( 'pwd_archive_has_featured_post', true );
+	return apply_filters( 'pwd_archive_has_featured_post', pwd_get_theme_mod( 'archive_featured_post', true ) );
 }
 
 /**

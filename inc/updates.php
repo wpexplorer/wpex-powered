@@ -8,18 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Theme Data
-$theme_slug  = 'wpex-powered';
-$api_url     = 'https://wpexplorer-updates.com/api/v1';
-$license_key = null;
-
 // Updater class
 if ( ! class_exists( 'Powered_Theme_Auto_Updates' ) ) {
 	class Powered_Theme_Auto_Updates {
-		private $api_endpoint = null;
-		private $theme_slug   = null;
-		private $license_key  = null;
-		private $theme_data   = null;
+		private $api_endpoint;
+		private $theme_slug;
+		private $license_key;
+		private $theme_data;
 	
 		/**
 		 * Initializes the auto updates class
@@ -28,13 +23,13 @@ if ( ! class_exists( 'Powered_Theme_Auto_Updates' ) ) {
 		 * @param $theme_slug  string  Theme slug
 		 * @param $license_key string  License Validation
 		 */
-		public function __construct( $api_url = '', $theme_slug, $license_key = ''  ) {
+		public function __construct() {
 
 			// Update vars
-			$this->api_endpoint = $api_url;
-			$this->theme_slug   = $theme_slug;
-			$this->license_key  = $license_key;
-			$this->theme_data   = wp_get_theme( $theme_slug );
+			$this->api_endpoint = 'https://wpexplorer-updates.com/api/v1';
+			$this->theme_slug   = 'wpex-powered';
+			$this->license_key  = null;
+			$this->theme_data   = wp_get_theme( $this->theme_slug );
 
 			// Check for updates
 			add_filter( 'pre_set_site_transient_update_themes', array( $this, 'check_for_update' ) );
@@ -157,4 +152,4 @@ if ( ! class_exists( 'Powered_Theme_Auto_Updates' ) ) {
 
 	}
 }
-new Powered_Theme_Auto_Updates( $api_url, $theme_slug, $license_key );
+new Powered_Theme_Auto_Updates();

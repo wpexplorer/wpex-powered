@@ -1,0 +1,65 @@
+/*------------------------------------------------------------------
+
+ Theme Name: Powered
+ Version: 1.0.0
+ Description: RTL styles
+ Author: WPExplorer
+ Author URI: http://www.wpexplorer.com/
+ Theme URI: http://www.wpexplorer.com/powered-free-wordpress-theme/
+ License: GNU General Public License version 2.0
+ License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+------------------------------------------------------------------*/
+
+/* Header */
+.pwd-site-branding { float: right; margin-right: 0; margin-left: 60px; }
+.pwd-site-nav { float: left; }
+.pwd-site-nav .pwd-dropdown-menu > li { float: right; }
+.pwd-site-nav .pwd-dropdown-menu li a .fa { margin-left: 0; margin-right: 5px; }
+.pwd-site-header-search { left: 0; right: auto; }
+.pwd-site-header-wrap .slicknav_menu { float: left; }
+
+/* Archives & Entries */
+.pwd-featured-post-content { right: auto; left: 0; }
+.pwd-featured-post-cat { right: auto; left: 0; }
+.pwd-loop-entry-cats a { float: right; margin-right: 0; margin-left: 2px; }
+.pwd-loop-entry-format-icon { margin-right: 0; margin-left: 0.8em; }
+
+/* Pagination */
+.pwd-page-numbers li { float: right; }
+.pwd-page-numbers a.next .fa:before { content: "\f053"; }
+.pwd-page-numbers a.prev .fa:before { content: "\f054"; }
+
+/* Widgets */
+.widget-recent-list li { padding-left: 0; padding-right: 100px; }
+.widget-recent-list .pwd-thumbnail { right: 0; left: auto; }
+
+.widget_tag_cloud a { float: right; margin: 0 0 3px 3px; }
+
+.pwd-site-searchform input[type="search"] { padding-right: 0.857em; padding-left: 50px; }
+.pwd-site-searchform button { right: auto; left: 0; }
+
+.footer-widget .pwd-social-profiles-widget li { float: right; padding: 0; margin-left: 0; margin-right: 5px; }
+.footer-widget .pwd-social-profiles-widget li:first-child { margin-right: 0; }
+
+/* Posts */
+.pwd-meta li, .pwd-meta .pwd-sep { float: right; }
+.pwd-post-share li { float: right; margin-right: 0; margin-left: 6px; }
+.pwd-post-share a .fa { margin-right: 0; margin-left: 6px; }
+.pwd-post-tags a { float: right; margin-right: 0; margin-left: 3px; }
+
+.pwd-author-info-inner { padding-left: 30px; padding-right: 160px; }
+.pwd-author-info-avatar { left: auto; right: 30px; }
+.pwd-author-info-social a { float: right; margin-right: 0; margin-left: 3px; }
+
+.pwd-post-navigation .fa { display: none; }
+.pwd-post-navigation .nav-next { float: right; }
+.pwd-post-navigation .nav-previous { float: left; text-align: left; }
+
+/* Comments */
+.comment-details { margin-left: 0; margin-right: 85px; }
+.comment-author { left: auto; right: 20px; }
+.comment-date { margin-right: 0; margin-left: 8px; }
+
+/* Other */
+.pwd-site-scroll-top { right: auto; left: 20px; }

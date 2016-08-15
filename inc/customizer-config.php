@@ -65,7 +65,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'control' => array(
 						'label' => esc_html__( 'Container Width', 'powered' ),
 						'type' => 'text',
-						'desc' => esc_html__( 'Default:', 'powered' ) .' 1000px',
+						'desc' => esc_html__( 'Default:', 'powered' ) .' 1100px',
 					),
 				),
 				array(
@@ -208,6 +208,14 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 			'id' => 'pwd_entries',
 			'title' => esc_html__( 'Entries', 'powered' ),
 			'settings' => array(
+				array(
+					'id' => 'archive_featured_post',
+					'default' => true,
+					'control' => array(
+						'label' => esc_html__( 'Featured Post?', 'powered' ),
+						'type' => 'checkbox',
+					),
+				),
 				array(
 					'id' => 'entry_columns',
 					'default' => '3',
@@ -394,6 +402,14 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 			'id' => 'pwd_footer',
 			'title' => esc_html__( 'Footer', 'powered' ),
 			'settings' => array(
+				array(
+					'id' => 'footer_popular_posts',
+					'default' => true,
+					'control' => array(
+						'label' => esc_html__( 'Popular Posts', 'powered' ),
+						'type' => 'checkbox',
+					),
+				),
 				array(
 					'id' => 'footer_widget_columns',
 					'default' => 4,

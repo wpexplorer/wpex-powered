@@ -50,9 +50,7 @@
 /*------------------------------------------------------------------
 [# Accents]
 -------------------------------------------------------------------
-
 # Primary : #177fff
-
 
 /*------------------------------------------------------------------
 [# Reset]
@@ -109,7 +107,7 @@ body { background: #fff; color: #333; font: 400 14px/1.6 'Helvetica Neue', Helve
 html.pwd-prevent-scroll, body.pwd-prevent-scroll { overflow: hidden; height: 100%; }
 .pwd-container { width: 1100px; margin: 0 auto; }
 .pwd-site-content { padding: 40px 0; }
-.pwd-content-area { float: left; width: 70%; max-width: 700px; }
+.pwd-content-area { float: left; width: 70%; max-width: 760px; }
 .pwd-sidebar { float: right; width: 26%; }
 body.full-width .pwd-content-area { width: 100%; max-width: none; }
 body.left-sidebar .pwd-content-area { float: right }
@@ -133,7 +131,6 @@ body.left-sidebar .pwd-sidebar { float: left }
 
 /*images*/
 img { height: auto; max-height: 100%; max-width: 100%; }
-.pwd-post-thumbnail img { display: block; width: 100%; }
 
 /*blockquote*/
 blockquote { font-size: 1.2em; margin: 0 0 20px; padding: 14px 0; position: relative; font-family: Georgia; color: #888; font-style: italic; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
@@ -294,7 +291,7 @@ a { outline: 0 }
 .pwd-site-header { position: relative; z-index: 2; }
 
 /*logo*/
-.pwd-site-branding { float: left; margin-right: 40px; height: 50px; line-height: 50px; font-size: 24px; }
+.pwd-site-branding { float: left; margin-right: 60px; height: 50px; line-height: 50px; font-size: 24px; }
 .pwd-site-logo img { display: block; height: 50px; }
 .site-text-logo a { font-weight: bold; color: #fff; text-decoration: none; }
 .site-text-logo a:hover { text-decoration: none; }
@@ -312,7 +309,7 @@ a { outline: 0 }
 .pwd-site-nav .pwd-dropdown-menu > li.current-menu-item > a:hover,
 .pwd-site-nav .pwd-dropdown-menu > li.parent-menu-item > a:hover,
 .pwd-site-nav .pwd-dropdown-menu > li.current-menu-ancestor > a:hover { color: #333; }
-.pwd-site-nav .pwd-dropdown-menu .sub-menu { background: #313131; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); min-width: 100%; max-width: 200px; left: 0; overflow: hidden; transition: all 0.2s; text-transform: none; font-size: 1.083em; padding: 0.6em 0; }
+.pwd-site-nav .pwd-dropdown-menu .sub-menu { background: #222; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); min-width: 100%; max-width: 200px; left: 0; overflow: hidden; transition: all 0.2s; text-transform: none; font-size: 1.083em; padding: 0.6em 0; }
 
 .pwd-site-nav .pwd-dropdown-menu .sub-menu li { margin: 0; height: auto; line-height: 1.5; }
 .pwd-site-nav .pwd-dropdown-menu .sub-menu > li:last-child { border-bottom: 0 }
@@ -366,7 +363,7 @@ a { outline: 0 }
 .slicknav_nav .pwd-dropdown-arrow-side { display: none; }
 
 .pwd-site-header-wrap .slicknav_menu { background: none; float: right; height: 50px; z-index: 99; }
-.pwd-site-header-wrap .slicknav_btn { display: block; color: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-transform: uppercase; text-align: right; }
+.pwd-site-header-wrap .slicknav_btn { display: block; width: 40px; text-align: right; color: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-transform: uppercase; text-align: right; }
 .pwd-site-header-wrap .slicknav_btn .fa { margin-right: 1em; }
 .pwd-site-header-wrap .slicknav_nav { font-size: 1.2em; position: absolute; top: 100%; right: 0; width: 100%; line-height: normal; }
 
@@ -412,6 +409,11 @@ a { outline: 0 }
 .pwd-social-profiles-widget li a { background: #444; display: block; width: 100%; padding: 10px 0; text-align: center; font-size: 21px; color: #fff !important; }
 .pwd-social-profiles-widget li a:active { box-shadow: inset 0 2px 2px rgba(0,0,0,0.35); }
 .pwd-social-profiles-widget ul a:hover { opacity: 0.7; }
+
+.footer-widget .pwd-social-profiles-widget ul { margin: 0; }
+.footer-widget .pwd-social-profiles-widget li { width: auto; padding: 0; margin-left: 5px; margin-bottom: 5px; }
+.footer-widget .pwd-social-profiles-widget li:first-child { margin-left: 0; }
+.footer-widget .pwd-social-profiles-widget li a { height: 40px; width: 40px; line-height: 40px; padding: 0; }
 
 /*recent posts lists*/
 .widget-recent-list li { position: relative; display: block; margin-bottom: 24px; padding-left: 100px; min-height: 80px; }
@@ -485,6 +487,7 @@ a { outline: 0 }
 .pwd-post-header { margin-bottom: 40px; }
 .pwd-post-title { margin-bottom: 0; line-height: 1.3; }
 .pwd-post-media { position: relative; margin-bottom: 30px; }
+.pwd-post-thumbnail img { display: block; }
 .pwd-post-content { margin-bottom: 30px; }
 .pwd-post-edit { padding: 30px 0; }
 
@@ -938,8 +941,6 @@ button.et_bloom_submit_subscription { display: inline; display: inline-block; }
 	.pwd-responsive .pwd-content-area { width: 100%; float: none; max-width: none; }
 	.pwd-responsive .pwd-sidebar { width: 100%; float: none; max-width: none; clear: both; padding: 50px 0 0; max-width: 70%; margin: 0 auto; }
 	.pwd-responsive .pwd-site-footer .pwd-row .pwd-col { width: 100%; max-width: 70%; float: none; margin: 0 auto; }
-
-	.pwd-responsive .pwd-site-branding { float: left; }
 	.pwd-responsive .pwd-site-nav,
 	.pwd-responsive .pwd-search-toggle { display: none }
 	.pwd-responsive .pwd-site-header-wrap .slicknav_menu { display: block; }

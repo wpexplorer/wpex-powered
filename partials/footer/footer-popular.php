@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Check if enabled
-$enabled = ( is_search() || is_page() ) ?  false : true;
+$enabled = ( is_search() || is_page() ) ?  false : pwd_get_theme_mod( 'footer_popular_posts', true );
 if ( ! apply_filters( 'pwd_footer_popular_posts', $enabled ) ) {
 	return;
 }

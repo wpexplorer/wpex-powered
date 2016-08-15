@@ -22,6 +22,16 @@
  * @since     1.0.0
  */
 
+// Theme info
+function wpex_get_theme_info() {
+	return array(
+		'name'      => 'Powered',
+		'dir'       => get_template_directory_uri() .'/inc/',
+		'url'       => 'http://www.wpexplorer.com/powered-free-wordpress-theme/',
+		'changelog' => 'https://wpexplorer-updates.com/changelog/powered/',
+	);
+}
+
 class Powered_Theme {
 
 	/**
@@ -86,6 +96,13 @@ class Powered_Theme {
 		require_once( $dir .'/inc/meta-posts.php' );
 		require_once( $dir .'/inc/meta-pages.php' );
 		require_once( $dir .'/inc/schema.php' );
+
+		if ( ! defined( 'WPEX_DISABLE_THEME_ABOUT_PAGE' ) ) {
+			require_once( $dir .'/inc/dashboard-feed.php' );
+		}
+		if ( ! defined( 'WPEX_DISABLE_THEME_DASHBOARD_FEEDS' ) ) {
+			require_once( $dir .'/inc/welcome.php' );
+		}
 
 		// Include Classes
 		require_once( $dir .'/inc/classes/customizer/customizer.php' );
@@ -405,11 +422,6 @@ class Powered_Theme {
 		// Responsive
 		if ( pwd_is_responsive() ) {
 			$classes[] = 'pwd-responsive';
-		}
-
-		// RTL
-		if ( is_RTL() || isset( $_GET['rtl'] ) ) {
-			$classes[] = 'rtl';
 		}
 		
 		// Return classes
