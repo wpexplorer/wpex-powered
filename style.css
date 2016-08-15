@@ -255,14 +255,9 @@ a { outline: 0 }
 
 /*archives header*/
 .pwd-archive-header { margin-bottom: 40px; text-align: left; text-align: center; }
-.pwd-archive-title { margin: 0; }
+.pwd-archive-title { margin: 0; text-transform: capitalize; }
 .pwd-header-tagline { color: #909090; font-size: 1.385em; font-family: 'Georgia'; font-style: italic; }
 .pwd-header-tagline p:last-child { margin: 0; }
-
-/*------------------------------------------------------------------
-[# Ads]
--------------------------------------------------------------------*/
-.pwd-archives-top { float: right; max-width: 63%; }
 
 /*------------------------------------------------------------------
 [# Dropdowns]
