@@ -121,9 +121,9 @@ function pwd_get_first_post_with_thumb( $query = '' ) {
 	if ( $posts_count == 0 ) {
 		return;
 	}
-	$post_with_thumb = 0;
+	$post_with_thumb = '';
 	foreach ( $posts as $post ) {
-		if ( has_post_thumbnail( $post->ID ) ) {
+		if ( has_post_thumbnail( $post ) ) {
 			$post_with_thumb = $post->ID;
 			break;
 		}
