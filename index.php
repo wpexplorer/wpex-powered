@@ -38,7 +38,7 @@ get_header(); ?>
 			// Check if posts exist
 			if ( have_posts() ) : ?>
 
-				<div id="pwd-grid" class="pwd-entries pwd-row pwd-clr" data-settings="<?php echo pwd_masonry_settings(); ?>">   
+				<div id="pwd-grid" class="pwd-entries pwd-row pwd-clr" data-settings="<?php echo pwd_masonry_settings(); ?>">
 
 					<?php
 					// Set counter
