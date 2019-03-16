@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Check to make sure menu isn't empty
 if ( has_nav_menu( 'main' ) ) : ?>
-	
+
 	<nav class="pwd-site-nav pwd-clr"<?php pwd_schema_markup( 'site_navigation' ); ?>><?php
-			
+
 		// Display menu
 		wp_nav_menu( array(
 			'theme_location'  => 'main',

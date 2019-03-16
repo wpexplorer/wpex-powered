@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -23,11 +23,11 @@ $allows_embeds = pwd_get_theme_mod( 'entry_embeds', false ); ?>
 			// Format icons
 			if ( pwd_has_post_video() ) {
 
-				echo '<span class="fa fa-play pwd-loop-entry-format-icon"></span>';
+				echo '<span class="fa fa-play pwd-loop-entry-format-icon" aria-hidden="true"></span>';
 
 			} elseif ( pwd_has_post_audio() && ! pwd_get_theme_mod( 'entry_embeds', false ) ) {
 
-				echo '<span class="fa fa-music pwd-loop-entry-format-icon"></span>';
+				echo '<span class="fa fa-music pwd-loop-entry-format-icon" aria-hidden="true"></span>';
 
 			}
 

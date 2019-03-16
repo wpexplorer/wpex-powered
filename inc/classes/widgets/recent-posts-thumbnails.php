@@ -12,7 +12,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 // Start widget class
 if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 	class Powered_Recent_Posts_Thumb_Widget extends WP_Widget {
-		
+
 		/**
 		 * Register widget with WordPress.
 		 *
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 		function __construct() {
 			parent::__construct(
 				'pwd_recent_posts_thumb',
-				esc_html__( 'Posts With Thumbnails', 'powered' )
+				esc_html__( 'Posts With Thumbnails', 'wpex-powered' )
 			);
 		}
 
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 			if ( $title ) {
 				echo pwd_sanitize( $before_title . $title . $after_title, 'html' );
 			}
-			
+
 			// Category
 			if ( ! empty( $category ) && 'all' != $category ) {
 				$taxonomy = array (
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 		public function form( $instance ) {
 
 			$instance = wp_parse_args( ( array ) $instance, array(
-				'title'          => esc_html__( 'Recent Posts','powered' ),
+				'title'          => esc_html__( 'Recent Posts','wpex-powered' ),
 				'number'         => '5',
 				'order'          => 'DESC',
 				'orderby'        => 'date',
@@ -164,41 +164,41 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 
 			) );
 			extract( $instance ); ?>
-			
-			
+
+
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'powered' ); ?>:</label> 
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title','powered' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'wpex-powered' ); ?>:</label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title','wpex-powered' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number to Show', 'powered' ); ?>:</label> 
+				<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number to Show', 'wpex-powered' ); ?>:</label>
 				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="text" value="<?php echo esc_attr( intval( $number ) ); ?>" />
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>"><?php esc_html_e( 'Order', 'powered' ); ?>:</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>"><?php esc_html_e( 'Order', 'wpex-powered' ); ?>:</label>
 				<br />
 				<select class='pwd-select' name="<?php echo esc_attr( $this->get_field_name( 'order' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>">
-				<option value="DESC" <?php selected( $order, 'DESC' ) ?>><?php esc_html_e( 'Descending', 'powered' ); ?></option>
-				<option value="ASC" <?php selected( $order, 'ASC' ) ?>><?php esc_html_e( 'Ascending', 'powered' ); ?></option>
+				<option value="DESC" <?php selected( $order, 'DESC' ) ?>><?php esc_html_e( 'Descending', 'wpex-powered' ); ?></option>
+				<option value="ASC" <?php selected( $order, 'ASC' ) ?>><?php esc_html_e( 'Ascending', 'wpex-powered' ); ?></option>
 				</select>
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>"><?php esc_html_e( 'Order By', 'powered' ); ?>:</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>"><?php esc_html_e( 'Order By', 'wpex-powered' ); ?>:</label>
 				<br />
 				<select class='pwd-select' name="<?php echo esc_attr( $this->get_field_name( 'orderby' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>">
 				<?php $orderby_array = array (
-					'date'          => esc_html__( 'Date', 'powered' ),
-					'title'         => esc_html__( 'Title', 'powered' ),
-					'modified'      => esc_html__( 'Modified', 'powered' ),
-					'author'        => esc_html__( 'Author', 'powered' ),
-					'rand'          => esc_html__( 'Random', 'powered' ),
-					'comment_count' => esc_html__( 'Comment Count', 'powered' ),
+					'date'          => esc_html__( 'Date', 'wpex-powered' ),
+					'title'         => esc_html__( 'Title', 'wpex-powered' ),
+					'modified'      => esc_html__( 'Modified', 'wpex-powered' ),
+					'author'        => esc_html__( 'Author', 'wpex-powered' ),
+					'rand'          => esc_html__( 'Random', 'wpex-powered' ),
+					'comment_count' => esc_html__( 'Comment Count', 'wpex-powered' ),
 				);
 				if ( class_exists( 'Popwd_Views_Counter' ) ) {
-					$orderby_array['post_views'] = esc_html__( 'Post Views', 'powered' );
+					$orderby_array['post_views'] = esc_html__( 'Post Views', 'wpex-powered' );
 				}
 				foreach ( $orderby_array as $key => $value ) { ?>
 					<option value="<?php echo esc_attr( $key ); ?>" <?php if( $orderby == $key ) { ?>selected="selected"<?php } ?>>
@@ -209,10 +209,10 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php esc_html_e( 'Category', 'powered' ); ?>:</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php esc_html_e( 'Category', 'wpex-powered' ); ?>:</label>
 				<br />
 				<select class='pwd-select' name="<?php echo esc_attr( $this->get_field_name( 'category' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>">
-				<option value="all" <?php if($category == 'all' ) { ?>selected="selected"<?php } ?>><?php esc_html_e( 'All', 'powered' ); ?></option>
+				<option value="all" <?php if($category == 'all' ) { ?>selected="selected"<?php } ?>><?php esc_html_e( 'All', 'wpex-powered' ); ?></option>
 				<?php
 				$terms = get_terms( 'category' );
 				foreach ( $terms as $term ) { ?>
@@ -223,14 +223,14 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 
 			<?php /* Image Size */ ?>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'img_size' ) ); ?>"><?php esc_html_e( 'Image Size', 'powered' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'img_size' ) ); ?>"><?php esc_html_e( 'Image Size', 'wpex-powered' ); ?></label>
 				<br />
 				<select class='pwd-select' name="<?php echo esc_attr( $this->get_field_name( 'img_size' ) ); ?>" style="width:100%;">
 					<?php $get_img_sizes = pwd_get_thumbnail_sizes(); ?>
 					<?php foreach ( $get_img_sizes as $key => $val ) { ?>
 						<option value="<?php echo esc_attr( $key ); ?>" <?php if ( $img_size == $key ) { ?>selected="selected"<?php } ?>><?php echo esc_attr( $key ); ?></option>
 					<?php } ?>
-					
+
 				</select>
 			</p>
 

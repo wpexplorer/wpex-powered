@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Powered WordPress Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-15 11:36-0700\n"
+"POT-Creation-Date: 2019-03-16 14:01-0700\n"
 "PO-Revision-Date: 2016-07-26 10:42-0800\n"
 "Last-Translator: \n"
 "Language-Team: WPExplorer.com\n"
@@ -12,12 +12,125 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Lapwd-Translator: AJ Clarke <stplorer@gmail.com>\n"
 "X-Poedit-KeywordsList: esc_html_e;gettext;gettext_noop;__;_e;_n;_nx;"
-"esc_html__\n"
+"esc_html__;esc_html_x;_x\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/about.php:120
+msgid "A free WordPress theme by WPExplorer"
+msgstr ""
+
+#: ../admin/about.php:120
+msgid "Theme Details"
+msgstr ""
+
+#: ../admin/about.php:120
+msgid "More Themes"
+msgstr ""
+
+#: ../admin/about.php:124
+msgid "About"
+msgstr ""
+
+#: ../admin/about.php:127
+msgid "GPL License"
+msgstr ""
+
+#: ../admin/about.php:128
+msgid ""
+"This theme is licensed under the GPL license. This means you can use it for "
+"anything you like as long as it remains GPL."
+msgstr ""
+
+#: ../admin/about.php:132
+msgid "Credits"
+msgstr ""
+
+#: ../admin/about.php:134
+msgid "This theme was created by:"
+msgstr ""
+
+#: ../admin/about.php:136
+msgid "We work hard to develop, support and update this theme."
+msgstr ""
+
+#: ../admin/about.php:138
+msgid ""
+"A back-link to our website is very much appreciated or you can follow us via "
+"our social media!"
+msgstr ""
+
+#: ../admin/about.php:149
+msgid "Getting Started"
+msgstr ""
+
+#: ../admin/about.php:153
+msgid ""
+"Below you will find some useful links to get you started with this theme."
+msgstr ""
+
+#: ../admin/about.php:163
+msgid "Customize Your Site"
+msgstr ""
+
+#: ../admin/about.php:168
+msgid "Recommendations"
+msgstr ""
+
+#: ../admin/about.php:171
+msgid "Plugins"
+msgstr ""
+
+#: ../admin/about.php:172
+msgid ""
+"Below you will find links to plugins we (WPExplorer.com staff) personally "
+"like and recommend. None of these plugins are required for your theme to "
+"work, they simply add additional functionality."
+msgstr ""
+
+#: ../admin/about.php:187
+msgid "Total Drag & Drop Theme"
+msgstr ""
+
+#: ../admin/about.php:188
+msgid ""
+"Check out our most advanced (yet easy to use) and flexible theme to date."
+msgstr ""
+
+#: ../admin/about.php:196
+msgid "WordPress Hosting"
+msgstr ""
+
+#: ../admin/about.php:197
+msgid ""
+"If you need fast and reliable hosting we recommend the same host we use and "
+"love WPEngine."
+msgstr ""
+
+#: ../admin/about.php:205
+msgid "Deals & Coupons"
+msgstr ""
+
+#: ../admin/about.php:206
+msgid "Check out our coupons page for great deals on WordPress resources."
+msgstr ""
+
+#: ../admin/about.php:213 ../admin/about.php:215
+msgid "Disable This Page"
+msgstr ""
+
+#: ../admin/about.php:214
+msgid ""
+"Click the link below to disable this about page completely and never see it "
+"again."
+msgstr ""
+
+#: ../admin/dashboard-feed.php:9
+msgid "WordPress Articles"
+msgstr ""
 
 #: ../comments.php:37
 msgid "This Article Has 1 Comment"
@@ -48,39 +161,39 @@ msgstr ""
 msgid "Comments are now closed."
 msgstr ""
 
-#: ../functions.php:160 ../inc/customizer-config.php:619
+#: ../functions.php:153 ../inc/customizer-config.php:619
 msgid "Main"
 msgstr ""
 
-#: ../functions.php:161
+#: ../functions.php:154
 msgid "Mobile Alternative"
 msgstr ""
 
-#: ../functions.php:330
+#: ../functions.php:323
 msgid "Sidebar - Main"
 msgstr ""
 
-#: ../functions.php:340
+#: ../functions.php:333
 msgid "Sidebar - Pages"
 msgstr ""
 
-#: ../functions.php:355
+#: ../functions.php:348
 msgid "Footer 1"
 msgstr ""
 
-#: ../functions.php:369
+#: ../functions.php:362
 msgid "Footer 2"
 msgstr ""
 
-#: ../functions.php:383
+#: ../functions.php:376
 msgid "Footer 3"
 msgstr ""
 
-#: ../functions.php:397
+#: ../functions.php:390
 msgid "Footer 4"
 msgstr ""
 
-#: ../functions.php:509
+#: ../functions.php:502
 msgid "Featured Image"
 msgstr ""
 
@@ -276,6 +389,11 @@ msgstr ""
 
 #: ../inc/core-functions.php:466
 msgid "Pingback:"
+msgstr ""
+
+#: ../inc/core-functions.php:486
+#, php-format
+msgid "%1$s"
 msgstr ""
 
 #: ../inc/core-functions.php:492
@@ -686,14 +804,6 @@ msgid ""
 "alter these values."
 msgstr ""
 
-#: ../inc/dashboard-feed.php:9
-msgid "WPExplorer Blog"
-msgstr ""
-
-#: ../inc/dashboard-feed.php:10
-msgid "Web Design Blog"
-msgstr ""
-
 #: ../inc/meta-pages.php:38
 msgid "Page Settings"
 msgstr ""
@@ -722,113 +832,6 @@ msgstr ""
 
 #: ../inc/meta-posts.php:73
 msgid "Audio"
-msgstr ""
-
-#: ../inc/welcome.php:53 ../inc/welcome.php:54
-msgid "Theme"
-msgstr ""
-
-#: ../inc/welcome.php:92
-msgid "A free WordPress theme by WPExplorer"
-msgstr ""
-
-#: ../inc/welcome.php:92
-msgid "Changelog"
-msgstr ""
-
-#: ../inc/welcome.php:92
-msgid "Theme Page"
-msgstr ""
-
-#: ../inc/welcome.php:92
-msgid "More Themes"
-msgstr ""
-
-#: ../inc/welcome.php:96
-msgid "About"
-msgstr ""
-
-#: ../inc/welcome.php:100
-msgid "GPL License"
-msgstr ""
-
-#: ../inc/welcome.php:101
-msgid ""
-"This theme is licensed under the GPL license. This means you can use it for "
-"anything you like as long as it remains GPL."
-msgstr ""
-
-#: ../inc/welcome.php:105
-msgid "Credits"
-msgstr ""
-
-#: ../inc/welcome.php:107
-msgid "This theme was created by:"
-msgstr ""
-
-#: ../inc/welcome.php:109
-msgid "We work hard to develop, support and update this theme."
-msgstr ""
-
-#: ../inc/welcome.php:111
-msgid ""
-"A back-link to our website is very much appreciated or you can follow us via "
-"our social media!"
-msgstr ""
-
-#: ../inc/welcome.php:122
-msgid "Getting Started"
-msgstr ""
-
-#: ../inc/welcome.php:128
-msgid ""
-"Below you will find some useful links to get you started with this theme."
-msgstr ""
-
-#: ../inc/welcome.php:138
-msgid "Customize Your Site"
-msgstr ""
-
-#: ../inc/welcome.php:143
-msgid "Recommendations"
-msgstr ""
-
-#: ../inc/welcome.php:148
-msgid "Plugins"
-msgstr ""
-
-#: ../inc/welcome.php:149
-msgid ""
-"Below you will find links to plugins we (WPExplorer.com staff) personally "
-"like and recommend. None of these plugins are required for your theme to "
-"work, they simply add additional functionality."
-msgstr ""
-
-#: ../inc/welcome.php:165
-msgid "Total Drag & Drop Theme"
-msgstr ""
-
-#: ../inc/welcome.php:166
-msgid ""
-"Check out our most advanced (yet easy to use) and flexible theme to date."
-msgstr ""
-
-#: ../inc/welcome.php:174
-msgid "WordPress Hosting"
-msgstr ""
-
-#: ../inc/welcome.php:175
-msgid ""
-"If you need fast and reliable hosting we recommend the same host we use and "
-"love WPEngine."
-msgstr ""
-
-#: ../inc/welcome.php:183
-msgid "Deals & Coupons"
-msgstr ""
-
-#: ../inc/welcome.php:184
-msgid "Check out our coupons page for great deals on WordPress resources."
 msgstr ""
 
 #: ../partials/archives/header.php:39

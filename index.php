@@ -12,7 +12,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -65,7 +65,11 @@ get_header(); ?>
 
 				<?php
 				// Include pagination template part
-				pwd_include_template( 'partials/global/pagination.php' ); ?>
+				the_posts_pagination( apply_filters( 'pwd_pagination_args', array(
+					'mid_size'  => 3,
+					'prev_text' => '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+					'next_text' => '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+				) ) ); ?>
 
 			<?php
 			// Display no posts found message

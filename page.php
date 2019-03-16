@@ -9,7 +9,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 

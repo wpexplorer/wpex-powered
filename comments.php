@@ -9,7 +9,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -31,16 +31,16 @@ $have_comments = have_comments(); ?>
 	<?php
 	// Get comments title
 	if ( $have_comments ) {
-	
+
 		$comments_number = number_format_i18n( get_comments_number() );
 		if ( '1' == $comments_number ) {
-			$comments_title = esc_html__( 'This Article Has 1 Comment', 'powered' );
+			$comments_title = esc_html__( 'This Article Has 1 Comment', 'wpex-powered' );
 		} else {
-			$comments_title = sprintf( esc_html__( 'This Article Has %s Comments', 'powered' ), $comments_number );
+			$comments_title = sprintf( esc_html__( 'This Article Has %s Comments', 'wpex-powered' ), $comments_number );
 		}
 
 	} else {
-		$comments_title = esc_html__( 'Be the first to comment', 'powered' );
+		$comments_title = esc_html__( 'Be the first to comment', 'wpex-powered' );
 	}
 
 	// Apply filter to title
@@ -68,13 +68,13 @@ $have_comments = have_comments(); ?>
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 
 				<nav class="navigation comment-navigation row pwd-clr" role="navigation">
-					<h3 class="assistive-text pwd-heading"><span><?php esc_html_e( 'Comment navigation', 'powered' ); ?></span></h3>
+					<h3 class="assistive-text pwd-heading"><span><?php esc_html_e( 'Comment navigation', 'wpex-powered' ); ?></span></h3>
 					<div class="pwd-clr">
 						<div class="pwd-nav-previous"><?php
-							previous_comments_link( esc_html__( '&larr; Older Comments', 'powered' ) );
+							previous_comments_link( esc_html__( '&larr; Older Comments', 'wpex-powered' ) );
 						?></div>
 						<div class="pwd-nav-next"><?php
-							next_comments_link( esc_html__( 'Newer Comments &rarr;', 'powered' ) );
+							next_comments_link( esc_html__( 'Newer Comments &rarr;', 'wpex-powered' ) );
 						?></div>
 					</div><!-- .pwd-clr -->
 				</nav>
@@ -87,7 +87,7 @@ $have_comments = have_comments(); ?>
 
 				<div class="comments-closed-notice pwd-clr"><?php
 
-					esc_html_e( 'Comments are now closed.', 'powered' );
+					esc_html_e( 'Comments are now closed.', 'wpex-powered' );
 
 				?></div><!-- .comments-closed-notice -->
 

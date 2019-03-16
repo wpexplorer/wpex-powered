@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 ?><!DOCTYPE html>
@@ -20,10 +20,12 @@
 
 <body <?php body_class(); ?><?php pwd_schema_markup( 'body' ); ?>>
 
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wpex-powered' ); ?></a>
+
 	<?php do_action( 'pwd_after_body_tag' ); ?>
 
 	<div class="pwd-site-wrap">
 
 		<?php get_template_part( 'partials/layout-header' ); ?>
-		
-		<div class="pwd-site-content pwd-container pwd-clr">
+
+		<div id="content" class="pwd-site-content pwd-container pwd-clr">

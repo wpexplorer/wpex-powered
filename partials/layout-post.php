@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -43,12 +43,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( pwd_has_social_share() ) :
 
 		get_template_part( 'partials/post/share' );
-	
+
 	endif;
-	
+
 	// Display post header
 	get_template_part( 'partials/post/header' );
-	
+
 	// Display post content
 	get_template_part( 'partials/post/content' );
 
@@ -76,12 +76,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( pwd_get_theme_mod ( 'post_next_prev', true ) ) {
 
 		get_template_part( 'partials/post/navigation' );
-		
+
 	}
 
 	// Display related posts
 	if ( pwd_get_theme_mod( 'post_related', true ) ) :
-		
+
 		get_template_part( 'partials/post/related' );
 
 	endif;

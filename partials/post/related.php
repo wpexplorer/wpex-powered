@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -40,18 +40,18 @@ $args = array(
 );
 if ( 'related_tags' == $display ) {
 	$tags = wp_get_post_terms( $post_id, 'post_tag' );
-	$tag_ids = array();  
+	$tag_ids = array();
 	foreach( $tags as $tag ) {
-		$tag_ids[] = $tag->term_id; 
+		$tag_ids[] = $tag->term_id;
 	}
 	if ( ! empty( $tag_ids ) ) {
 		$args['tag__in'] = $tag_ids;
 	}
 } elseif ( 'related_category' == $display ) {
 	$cats = wp_get_post_terms( $post_id, 'category' );
-	$cats_ids = array();  
+	$cats_ids = array();
 	foreach( $cats as $cat ) {
-		$cats_ids[] = $cat->term_id; 
+		$cats_ids[] = $cat->term_id;
 	}
 	if ( ! empty( $cats_ids ) ) {
 		$args['category__in'] = $cats_ids;
@@ -76,7 +76,7 @@ if ( $pwd_query->have_posts() ) { ?>
 		<?php
 		// Display heading
 		$heading = pwd_get_theme_mod( 'post_related_heading' );
-		$heading = $heading ? $heading : esc_html__( 'Related Articles', 'powered' );
+		$heading = $heading ? $heading : esc_html__( 'Related Articles', 'wpex-powered' );
 		if ( $heading ) : ?>
 			<h4 class="pwd-heading"><?php echo pwd_sanitize( $heading, 'html' ); ?></h4>
 		<?php endif; ?>

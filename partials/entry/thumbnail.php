@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -30,13 +30,13 @@ if ( has_post_thumbnail() ) : ?>
 
 	<div class="pwd-loop-entry-thumbnail pwd-loop-entry-media pwd-clr">
 
-		<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>" class="pwd-loop-entry-media-link"><?php 
+		<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>" class="pwd-loop-entry-media-link"><?php
 
 			// Display thumbnail
 			the_post_thumbnail( pwd_get_entry_image_size( $pwd_query ) );
 
 		?></a>
-		
+
 	</div><!-- .pwd-loop-entry-thumbnail -->
-	
+
 <?php endif; ?>

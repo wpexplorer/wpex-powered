@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -36,11 +36,11 @@ if ( $is_author ) {
 
 		elseif ( is_search() ) :
 
-			esc_html_e( 'Search Results ', 'powered' );
+			esc_html_e( 'Search Results ', 'wpex-powered' );
 
 		elseif ( $is_author ) :
 
-			esc_html_e( 'Posts written by', 'powered' ); ?> <?php echo ucfirst( esc_html( $curauth->nickname ) );
+			esc_html_e( 'Posts written by', 'wpex-powered' ); ?> <?php echo ucfirst( esc_html( $curauth->nickname ) );
 
 		elseif ( is_tax() || is_category() || is_tag() ) :
 
@@ -59,7 +59,7 @@ if ( $is_author ) {
 	if ( is_search() ) : ?>
 
 		<div class="pwd-header-tagline pwd-clr"><?php
-			printf( esc_html__( 'You searched for: %s', 'powered' ), '<span>'. get_search_query() .'</span>' );
+			printf( esc_html__( 'You searched for: %s', 'wpex-powered' ), '<span>'. get_search_query() .'</span>' );
 		?></div><!-- .pwd-header-tagline -->
 
 		<div class="pwd-search-results-form pwd-clr"><?php get_search_form(); ?></div>
@@ -70,7 +70,7 @@ if ( $is_author ) {
 
 		<div class="pwd-header-tagline pwd-clr"><?php
 			$count = count_user_posts( get_query_var( 'author' ) );
-			printf( esc_html__( 'This author has written %d articles', 'powered' ), $count );
+			printf( esc_html__( 'This author has written %d articles', 'wpex-powered' ), $count );
 		?></div><!-- .pwd-header-tagline -->
 
 	<?php
@@ -91,15 +91,15 @@ if ( $is_author ) {
 				
 				if ( is_category() ) {
 					if ( 1 == $wp_query->found_posts ) {
-						echo esc_html__( 'There is 1 article in this category', 'powered' );
+						echo esc_html__( 'There is 1 article in this category', 'wpex-powered' );
 					} elseif ( $wp_query->found_posts ) {
-						printf( esc_html__( 'There are %s articles in this category', 'powered' ), $wp_query->found_posts );
+						printf( esc_html__( 'There are %s articles in this category', 'wpex-powered' ), $wp_query->found_posts );
 					}
 				} elseif ( is_tag() ) {
 					if ( 1 == $wp_query->found_posts ) {
-						echo esc_html__( 'There is 1 article under this tag', 'powered' );
+						echo esc_html__( 'There is 1 article under this tag', 'wpex-powered' );
 					} elseif ( $wp_query->found_posts ) {
-						printf( esc_html__( 'There are %s articles under this tag', 'powered' ), $wp_query->found_posts );
+						printf( esc_html__( 'There are %s articles under this tag', 'wpex-powered' ), $wp_query->found_posts );
 					}
 				}
 			?></div><!-- .pwd-header-tagline -->
@@ -113,9 +113,9 @@ if ( $is_author ) {
 		<div class="pwd-header-tagline pwd-clr"><?php
 
 			if ( 1 == $wp_query->found_posts ) {
-				echo esc_html__( 'There is 1 article in this archive', 'powered' );
+				echo esc_html__( 'There is 1 article in this archive', 'wpex-powered' );
 			} elseif ( $wp_query->found_posts ) {
-				printf( esc_html__( 'There are %s articles in this archive', 'powered' ), $wp_query->found_posts );
+				printf( esc_html__( 'There are %s articles in this archive', 'wpex-powered' ), $wp_query->found_posts );
 			}
 
 		?></div><!-- .pwd-header-tagline -->

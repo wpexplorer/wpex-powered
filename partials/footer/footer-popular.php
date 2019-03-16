@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -54,7 +54,7 @@ if ( $pwd_query->have_posts() ) { ?>
 			<?php
 			// Display heading
 			$heading = pwd_get_theme_mod( 'footer_popular_posts_heading' );
-			$heading = $heading ? $heading : esc_html__( 'Popular Posts', 'powered' );
+			$heading = $heading ? $heading : esc_html__( 'Popular Posts', 'wpex-powered' );
 
 			if ( $heading ) : ?>
 

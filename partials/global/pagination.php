@@ -2,11 +2,12 @@
 /**
  * Outputs pagination
  *
- * @package   Powered WordPress Theme
- * @author    Alexander Clarke
- * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
- * @since     1.0.0
+ * @package    Powered WordPress Theme
+ * @author     Alexander Clarke
+ * @copyright  Copyright (c) 2015, WPExplorer.com
+ * @link       https://www.wpexplorer.com/
+ * @since      1.0.0
+ * @deprecated 1.1
  */
 
 // Exit if accessed directly
@@ -37,11 +38,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'base'      => str_replace( 999999999, '%#%', html_entity_decode( get_pagenum_link( 999999999 ) ) ),
 		'format'    => $format,
 		'current'   => max( 1, get_query_var( 'paged') ),
-		'powered'     => $wp_query->max_num_pages,
+		'wpex-powered'     => $wp_query->max_num_pages,
 		'mid_size'  => 3,
 		'type'      => 'list',
-		'prev_text' => '<i class="fa fa-chevron-left"></i>',
-		'next_text' => '<i class="fa fa-chevron-right"></i>',
+		'prev_text' => '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+		'next_text' => '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
 	) );
 
 	// Output pagination

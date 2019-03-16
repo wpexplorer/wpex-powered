@@ -33,10 +33,6 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 					'name' => 'Facebook',
 					'url' => ''
 				),
-				'google-plus' => array(
-					'name' => 'Google',
-					'url' => ''
-				),
 				'instagram' => array(
 					'name' => 'Instagram',
 					'url' => ''
@@ -106,7 +102,7 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 					'url' => ''
 				),
 				'email' => array(
-					'name' => esc_html__( 'Email', 'powered' ),
+					'name' => esc_html__( 'Email', 'wpex-powered' ),
 					'url' => ''
 				),
 			) );
@@ -114,7 +110,7 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 			// Start widget class
 			parent::__construct(
 				'pwd_social_profiles',
-				esc_html__( 'Social Profiles', 'powered' )
+				esc_html__( 'Social Profiles', 'wpex-powered' )
 			);
 
 			// Load scripts
@@ -156,6 +152,9 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 
 						// Loop through each item in the array
 						foreach( $social_services as $key => $val ) {
+							if ( empty( $social_services_array[$key]['name'] ) ) {
+								continue;
+							}
 							$link     = ! empty( $val['url'] ) ? esc_url( $val['url'] ) : null;
 							$name     = $social_services_array[$key]['name'];
 							$nofollow = isset( $social_services_array[$key]['nofollow'] ) ? ' rel="nofollow"' : '';
@@ -166,7 +165,7 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 								$icon = 'email' == $key ? 'envelope' : $icon;
 								$icon = 'vimeo-square' == $key ? 'vimeo' : $icon;
 								echo '<li>
-										<a href="'. esc_url( $link ) .'" title="'. esc_attr( $name ) .'" class="pwd-social-bg pwd-'. $key .'"'. pwd_get_target_blank( $target_blank ) . $nofollow .'><span class="fa fa-'. $icon .'"></span></a>
+										<a href="'. esc_url( $link ) .'" title="'. esc_attr( $name ) .'" class="pwd-social-bg pwd-'. $key .'"'. pwd_get_target_blank( $target_blank ) . $nofollow .'><span class="fa fa-'. $icon .'" aria-hidden="true"></span></a>
 									</li>';
 							}
 						} ?>
@@ -206,7 +205,7 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 		 */
 		public function form( $instance ) {
 			$defaults = array(
-				'title'           => esc_html__( 'Follow Us', 'powered' ),
+				'title'           => esc_html__( 'Follow Us', 'wpex-powered' ),
 				'description'     => '',
 				'font_size'       => '',
 				'border_radius'   => '',
@@ -215,31 +214,31 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 				'social_services' => $this->social_services_array
 			);
 			$instance = wp_parse_args( ( array ) $instance, $defaults );  ?>
-			
+
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'powered' ); ?></label> 
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'wpex-powered' ); ?></label>
 				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>"><?php esc_html_e( 'Description:','powered' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>"><?php esc_html_e( 'Description:','wpex-powered' ); ?></label>
 				<textarea class="widefat" rows="5" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'description' ) ); ?>"><?php echo esc_html( $instance['description'] ); ?></textarea>
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'target' ) ); ?>"><?php esc_html_e( 'Link Target:', 'powered' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'target' ) ); ?>"><?php esc_html_e( 'Link Target:', 'wpex-powered' ); ?></label>
 				<br />
 				<select class='pwd-widget-select' name="<?php echo esc_attr( $this->get_field_name( 'target' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'target' ) ); ?>">
-					<option value="blank" <?php if ( $instance['target'] == 'blank' ) { ?>selected="selected"<?php } ?>><?php esc_html_e( 'Blank', 'powered' ); ?></option>
-					<option value="self" <?php if ( $instance['target'] == 'self' ) { ?>selected="selected"<?php } ?>><?php esc_html_e( 'Self', 'powered' ); ?></option>
+					<option value="blank" <?php if ( $instance['target'] == 'blank' ) { ?>selected="selected"<?php } ?>><?php esc_html_e( 'Blank', 'wpex-powered' ); ?></option>
+					<option value="self" <?php if ( $instance['target'] == 'self' ) { ?>selected="selected"<?php } ?>><?php esc_html_e( 'Self', 'wpex-powered' ); ?></option>
 				</select>
 			</p>
 
 			<?php
 			$field_id_services   = $this->get_field_id( 'social_services' );
 			$field_name_services = $this->get_field_name( 'social_services' ); ?>
-			<h3 style="margin-top:20px;margin-bottom:0;"><?php esc_html_e( 'Social Links','powered' ); ?></h3> 
-			<small style="display:block;margin-bottom:10px;"><?php esc_html_e( 'Drag and drop to re-order items.', 'powered' ); ?></small>
+			<h3 style="margin-top:20px;margin-bottom:0;"><?php esc_html_e( 'Social Links','wpex-powered' ); ?></h3>
+			<small style="display:block;margin-bottom:10px;"><?php esc_html_e( 'Drag and drop to re-order items.', 'wpex-powered' ); ?></small>
 			<ul id="<?php echo esc_attr( $field_id_services ); ?>" class="pwd-services-list">
 				<input type="hidden" id="<?php echo esc_attr( $field_name_services ); ?>" value="<?php echo esc_attr( $field_name_services ); ?>">
 				<input type="hidden" id="<?php echo wp_create_nonce( 'pwd_fontawesome_social_widget_nonce' ); ?>">
@@ -250,18 +249,21 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 				$display_services = isset ( $instance['social_services'] ) ? $instance['social_services']: '';
 				// Loop through social services to display inputs
 				foreach( $display_services as $key => $val ) {
+					if ( empty( $social_services_array[$key]['name'] ) ) {
+						continue;
+					}
 					$url  = ! empty( $val['url'] ) ? esc_url( $val['url'] ) : null;
 					$name = $social_services_array[$key]['name']; ?>
 					<li id="<?php echo esc_attr( $field_id_services ); ?>_0<?php echo esc_attr( $key ); ?>">
 						<p>
 							<label for="<?php echo esc_attr( $field_id_services ); ?>-<?php echo esc_attr( $key ); ?>-name"><?php echo esc_attr( $name ); ?>:</label>
 							<input type="hidden" id="<?php echo esc_attr( $field_id_services ); ?>-<?php echo esc_attr( $key ); ?>-url" name="<?php echo esc_attr( $field_name_services .'['.$key.'][name]' ); ?>" value="<?php echo esc_attr( $name ); ?>">
-							<input type="url" class="widefat" id="<?php echo esc_attr( $field_id_services ); ?>-<?php echo esc_attr( $key ) ?>-url" name="<?php echo esc_attr( $field_name_services .'['.$key.'][url]' ); ?>" value="<?php echo esc_attr( $url ); ?>" />
+							<input type="text" class="widefat" id="<?php echo esc_attr( $field_id_services ); ?>-<?php echo esc_attr( $key ) ?>-url" name="<?php echo esc_attr( $field_name_services .'['.$key.'][url]' ); ?>" value="<?php echo esc_attr( $url ); ?>" />
 						</p>
 					</li>
 				<?php } ?>
 			</ul>
-			
+
 		<?php
 		}
 
@@ -277,8 +279,8 @@ if ( ! class_exists( 'Powered_Social_Profiles_Widget' ) ) {
 
 			$dir = get_template_directory_uri() .'/inc/classes/widgets/assets/';
 
-			wp_enqueue_style( 'pwd-social-widget', $dir .'pwd-social-widget.css' );
-			wp_enqueue_script( 'pwd-social-widget', $dir .'pwd-social-widget.js', array( 'jquery' ), false, true );
+			wp_enqueue_style( 'pwd-social-widget', $dir . 'pwd-social-widget.css' );
+			wp_enqueue_script( 'pwd-social-widget', $dir . 'pwd-social-widget.js', array( 'jquery' ), false, true );
 
 		}
 

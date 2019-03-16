@@ -10,20 +10,20 @@ class Powered_Fonts_Dropdown_Control extends WP_Customize_Control {
 	<label>
 		<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 		<select <?php $this->link(); ?> style="width:100%;">
-			<option value="" <?php if ( ! $this_val ) echo 'selected="selected"'; ?>><?php esc_html_e( 'Default', 'powered' ); ?></option>
+			<option value="" <?php if ( ! $this_val ) echo 'selected="selected"'; ?>><?php esc_html_e( 'Default', 'wpex-powered' ); ?></option>
 			<?php
 			// Add custom fonts from child themes
 			if ( function_exists( 'pwd_add_custom_fonts' ) ) {
 				$fonts = pwd_add_custom_fonts();
 				if ( $fonts && is_array( $fonts ) ) { ?>
-					<optgroup label="<?php esc_html_e( 'Custom Fonts', 'powered' ); ?>">
+					<optgroup label="<?php esc_html_e( 'Custom Fonts', 'wpex-powered' ); ?>">
 						<?php foreach ( $fonts as $font ) { ?>
 							<option value="<?php echo esc_attr( $font ); ?>" <?php if ( $font == $this_val ) echo 'selected="selected"'; ?>><?php echo strip_tags( $font ); ?></option>
 						<?php } ?>
 					</optgroup>
 				<?php }
 			} ?>
-			<optgroup label="<?php esc_html_e( 'Standard Fonts', 'powered' ); ?>">
+			<optgroup label="<?php esc_html_e( 'Standard Fonts', 'wpex-powered' ); ?>">
 				<?php
 				// Get standard font options
 				$std_fonts = pwd_standard_fonts_array();
@@ -33,7 +33,7 @@ class Powered_Fonts_Dropdown_Control extends WP_Customize_Control {
 					<option value="<?php echo esc_attr( $font ); ?>" <?php selected( $font, $this_val ); ?>><?php echo strip_tags( $font ); ?></option>
 				<?php } ?>
 			</optgroup>
-			<optgroup label="<?php esc_html_e( 'Google Fonts', 'powered' ); ?>">
+			<optgroup label="<?php esc_html_e( 'Google Fonts', 'wpex-powered' ); ?>">
 				<?php
 				// Get font options
 				$google_fonts = pwd_google_fonts_array();

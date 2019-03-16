@@ -5,7 +5,7 @@
  * @package Powered WordPress Theme
  * @author Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link http://www.stplorer.com
+ * @link https://www.wpexplorer.com/
  * @since 1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 
 		// Columns
 		$columns = array(
-			'' => esc_html__( 'Default', 'powered' ),
+			'' => esc_html__( 'Default', 'wpex-powered' ),
 			1 => 1,
 			2 => 2,
 			3 => 3,
@@ -28,14 +28,14 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 
 		// Layouts
 		$layouts = array(
-			'right-sidebar' => esc_html__( 'Right Sidebar', 'powered' ),
-			'left-sidebar'  => esc_html__( 'Left Sidebar', 'powered' ),
-			'full-width'    => esc_html__( 'No Sidebar', 'powered' ),
+			'right-sidebar' => esc_html__( 'Right Sidebar', 'wpex-powered' ),
+			'left-sidebar'  => esc_html__( 'Left Sidebar', 'wpex-powered' ),
+			'full-width'    => esc_html__( 'No Sidebar', 'wpex-powered' ),
 		);
-		
+
 		// Font Weights
 		$font_weights = array(
-			'' => esc_html__( 'Default', 'powered' ),
+			'' => esc_html__( 'Default', 'wpex-powered' ),
 			'100' => '100',
 			'200' => '200',
 			'300' => '300',
@@ -51,46 +51,46 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		/* - General Panel
 		/*-----------------------------------------------------------------------------------*/
 		$panels['general'] = array(
-			'title' => esc_html__( 'General Theme Settings', 'powered' ),
+			'title' => esc_html__( 'General Theme Settings', 'wpex-powered' ),
 			'sections' => array()
 		);
 
 		// Site Widths
 		$panels['general']['sections']['site-widths'] = array(
 			'id' => 'pwd_site_widths',
-			'title' => esc_html__( 'Site Widths', 'powered' ),
+			'title' => esc_html__( 'Site Widths', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'layout_container_width',
 					'control' => array(
-						'label' => esc_html__( 'Container Width', 'powered' ),
+						'label' => esc_html__( 'Container Width', 'wpex-powered' ),
 						'type' => 'text',
-						'desc' => esc_html__( 'Default:', 'powered' ) .' 1100px',
+						'desc' => esc_html__( 'Default:', 'wpex-powered' ) .' 1100px',
 					),
 				),
 				array(
 					'id' => 'layout_container_max_width',
 					'control' => array(
-						'label' => esc_html__( 'Container Max Width Percent', 'powered' ),
+						'label' => esc_html__( 'Container Max Width Percent', 'wpex-powered' ),
 						'type' => 'text',
 						'active_callback' => 'pwd_is_responsive',
-						'desc' => esc_html__( 'Default:', 'powered' ) .' 85%',
+						'desc' => esc_html__( 'Default:', 'wpex-powered' ) .' 85%',
 					),
 				),
 				array(
 					'id' => 'layout_content_width',
 					'control' => array(
-						'label' => esc_html__( 'Content Area Width', 'powered' ),
+						'label' => esc_html__( 'Content Area Width', 'wpex-powered' ),
 						'type' => 'text',
-						'desc' => esc_html__( 'Default:', 'powered' ) .' 70%',
+						'desc' => esc_html__( 'Default:', 'wpex-powered' ) .' 70%',
 					),
 				),
 				array(
 					'id' => 'layout_sidebar_width',
 					'control' => array(
-						'label' => esc_html__( 'Sidebar Width', 'powered' ),
+						'label' => esc_html__( 'Sidebar Width', 'wpex-powered' ),
 						'type' => 'text',
-						'desc' => esc_html__( 'Default:', 'powered' ) .' 26%',
+						'desc' => esc_html__( 'Default:', 'wpex-powered' ) .' 26%',
 					),
 				),
 			),
@@ -99,13 +99,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Layouts
 		$panels['general']['sections']['layouts'] = array(
 			'id' => 'pwd_layouts',
-			'title' => esc_html__( 'Layouts', 'powered' ),
+			'title' => esc_html__( 'Layouts', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'home_layout',
 					'default' => 'full-width',
 					'control' => array(
-						'label' => esc_html__( 'Homepage Layout', 'powered' ),
+						'label' => esc_html__( 'Homepage Layout', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => $layouts,
 					),
@@ -114,10 +114,10 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'archives_layout',
 					'default' => 'full-width',
 					'control' => array(
-						'label' => esc_html__( 'Archives Layout', 'powered' ),
+						'label' => esc_html__( 'Archives Layout', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => $layouts,
-						'desc' => esc_html__( 'Categories, tags, author...etc', 'powered' ),
+						'desc' => esc_html__( 'Categories, tags, author...etc', 'wpex-powered' ),
 					),
 				),
 				array(
@@ -125,7 +125,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'default' => 'full-width',
 					'transport' => 'postMessage',
 					'control' => array(
-						'label' => esc_html__( 'Search Layout', 'powered' ),
+						'label' => esc_html__( 'Search Layout', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => $layouts,
 					),
@@ -134,7 +134,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_layout',
 					'default' => 'right-sidebar',
 					'control' => array(
-						'label' => esc_html__( 'Post Layout', 'powered' ),
+						'label' => esc_html__( 'Post Layout', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => $layouts,
 					),
@@ -143,7 +143,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'page_layout',
 					'default' => 'right-sidebar',
 					'control' => array(
-						'label' => esc_html__( 'Page Layout', 'powered' ),
+						'label' => esc_html__( 'Page Layout', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => $layouts,
 					),
@@ -154,21 +154,21 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Responsive
 		$panels['general']['sections']['responsive'] = array(
 			'id' => 'pwd_responsive',
-			'title' => esc_html__( 'Responsiveness', 'powered' ),
+			'title' => esc_html__( 'Responsiveness', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'responsive',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Enable', 'powered' ),
+						'label' => esc_html__( 'Enable', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
 				array(
 					'id' => 'mobile_menu_breakpoint',
 					'control' => array(
-						'label' => esc_html__( 'Mobile Menu Breakpoint', 'powered' ),
-						'desc' => esc_html__( 'The window width at which the theme will hide the default menu and display the mobile menu. Default is 959px.', 'powered' ),
+						'label' => esc_html__( 'Mobile Menu Breakpoint', 'wpex-powered' ),
+						'desc' => esc_html__( 'The window width at which the theme will hide the default menu and display the mobile menu. Default is 959px.', 'wpex-powered' ),
 					),
 				),
 			),
@@ -177,27 +177,27 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Header Section
 		$panels['general']['sections']['general'] = array(
 			'id' => 'pwd_general',
-			'title' => esc_html__( 'Header', 'powered' ),
+			'title' => esc_html__( 'Header', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'logo',
 					'control' => array(
-						'label' => esc_html__( 'Custom Logo', 'powered' ),
+						'label' => esc_html__( 'Custom Logo', 'wpex-powered' ),
 						'type' => 'upload',
 					),
 				),
 				array(
 					'id' => 'logo_retina',
 					'control' => array(
-						'label' => esc_html__( 'Custom Retina Logo', 'powered' ),
+						'label' => esc_html__( 'Custom Retina Logo', 'wpex-powered' ),
 						'type' => 'upload',
 					),
 				),
 				array(
 					'id' => 'logo_retina_height',
 					'control' => array(
-						'label' => esc_html__( 'Standard Logo Height', 'powered' ),
-						'desc' => esc_html__( 'Enter the standard height for your logo. Used to set your retina logo to the correct dimensions.', 'powered' ),
+						'label' => esc_html__( 'Standard Logo Height', 'wpex-powered' ),
+						'desc' => esc_html__( 'Enter the standard height for your logo. Used to set your retina logo to the correct dimensions.', 'wpex-powered' ),
 					),
 				),
 			),
@@ -206,13 +206,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Entries
 		$panels['general']['sections']['entries'] = array(
 			'id' => 'pwd_entries',
-			'title' => esc_html__( 'Entries', 'powered' ),
+			'title' => esc_html__( 'Entries', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'archive_featured_post',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Featured Post?', 'powered' ),
+						'label' => esc_html__( 'Featured Post?', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -220,7 +220,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'entry_columns',
 					'default' => '3',
 					'control' => array(
-						'label' => esc_html__( 'Grid Columns', 'powered' ),
+						'label' => esc_html__( 'Grid Columns', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
 							'1' => '1',
@@ -234,11 +234,11 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'grid_layout_mode',
 					'default' => 'fitRows',
 					'control' => array(
-						'label' => esc_html__( 'Grid Layout Mode', 'powered' ),
+						'label' => esc_html__( 'Grid Layout Mode', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
-							'fitRows' => esc_html__( 'Fit Rows', 'powered' ),
-							'masonry' => esc_html__( 'Masonry', 'powered' ),
+							'fitRows' => esc_html__( 'Fit Rows', 'wpex-powered' ),
+							'masonry' => esc_html__( 'Masonry', 'wpex-powered' ),
 						),
 					),
 				),
@@ -246,11 +246,11 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'entry_content_display',
 					'default' => 'excerpt',
 					'control' => array(
-						'label' => esc_html__( 'Entry Displays?', 'powered' ),
+						'label' => esc_html__( 'Entry Displays?', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
-							'excerpt' => esc_html__( 'Custom Excerpt', 'powered' ),
-							'content' => esc_html__( 'Full Content', 'powered' ),
+							'excerpt' => esc_html__( 'Custom Excerpt', 'wpex-powered' ),
+							'content' => esc_html__( 'Full Content', 'wpex-powered' ),
 						),
 					),
 				),
@@ -258,26 +258,25 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'entry_excerpt_length',
 					'default' => 20,
 					'control' => array(
-						'label' => esc_html__( 'Entry Excerpt Length', 'powered' ),
+						'label' => esc_html__( 'Entry Excerpt Length', 'wpex-powered' ),
 						'type' => 'text',
-						'desc' => esc_html__( 'How many words to display per excerpt', 'powered' ),
-						'active_callback' => 'pwd_has_custom_excerpt'
+						'desc' => esc_html__( 'How many words to display per excerpt', 'wpex-powered' ),
 					),
 				),
 				array(
 					'id' => 'entry_thumbnail',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Entry Thumbnail', 'powered' ),
+						'label' => esc_html__( 'Entry Thumbnail', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
 				array(
 					'id' => 'entry_embeds',
 					'control' => array(
-						'label' => esc_html__( 'Entry Embeds', 'powered' ),
+						'label' => esc_html__( 'Entry Embeds', 'wpex-powered' ),
 						'type' => 'checkbox',
-						'desc' => esc_html__( 'Display\'s your video/audio embed on the homepage and archives instead of the featured image.', 'powered' ),
+						'desc' => esc_html__( 'Display\'s your video/audio embed on the homepage and archives instead of the featured image.', 'wpex-powered' ),
 					),
 				),
 			),
@@ -286,13 +285,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Posts
 		$panels['general']['sections']['posts'] = array(
 			'id' => 'pwd_posts',
-			'title' => esc_html__( 'Posts', 'powered' ),
+			'title' => esc_html__( 'Posts', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'post_thumbnail',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Thumbnail', 'powered' ),
+						'label' => esc_html__( 'Post Thumbnail', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -300,7 +299,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_meta',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Meta', 'powered' ),
+						'label' => esc_html__( 'Post Meta', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -308,7 +307,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_tags',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Tags', 'powered' ),
+						'label' => esc_html__( 'Post Tags', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -316,7 +315,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'social_share',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Social Share', 'powered' ),
+						'label' => esc_html__( 'Post Social Share', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -324,7 +323,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_author_info',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Author Box', 'powered' ),
+						'label' => esc_html__( 'Post Author Box', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -332,7 +331,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_next_prev',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Next/Previous', 'powered' ),
+						'label' => esc_html__( 'Post Next/Previous', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -340,7 +339,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_related',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Post Related', 'powered' ),
+						'label' => esc_html__( 'Post Related', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -348,7 +347,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'related_entry_columns',
 					'default' => '2',
 					'control' => array(
-						'label' => esc_html__( 'Post Related Columns', 'powered' ),
+						'label' => esc_html__( 'Post Related Columns', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
 							'1' => '1',
@@ -362,11 +361,11 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_related_grid_layout_mode',
 					'default' => 'fitRows',
 					'control' => array(
-						'label' => esc_html__( 'Grid Layout Mode', 'powered' ),
+						'label' => esc_html__( 'Grid Layout Mode', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
-							'fitRows' => esc_html__( 'Fit Rows', 'powered' ),
-							'masonry' => esc_html__( 'Masonry', 'powered' ),
+							'fitRows' => esc_html__( 'Fit Rows', 'wpex-powered' ),
+							'masonry' => esc_html__( 'Masonry', 'wpex-powered' ),
 						),
 						'active_callback' => 'pwd_customizer_has_related_posts',
 					),
@@ -375,12 +374,12 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_related_displays',
 					'default' => 'related_tags',
 					'control' => array(
-						'label' => esc_html__( 'Relate Posts by', 'powered' ),
+						'label' => esc_html__( 'Relate Posts by', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
-							'related_tags' => esc_html__( 'Tags', 'powered' ),
-							'related_category' => esc_html__( 'Category', 'powered' ),
-							'random' => esc_html__( 'Random', 'powered' ),
+							'related_tags' => esc_html__( 'Tags', 'wpex-powered' ),
+							'related_category' => esc_html__( 'Category', 'wpex-powered' ),
+							'random' => esc_html__( 'Random', 'wpex-powered' ),
 						),
 						'active_callback' => 'pwd_customizer_has_related_posts',
 					),
@@ -389,7 +388,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'post_related_count',
 					'default' => '4',
 					'control' => array(
-						'label' => esc_html__( 'Post Related: Count', 'powered' ),
+						'label' => esc_html__( 'Post Related: Count', 'wpex-powered' ),
 						'type' => 'number',
 						'active_callback' => 'pwd_customizer_has_related_posts',
 					),
@@ -400,13 +399,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Footer
 		$panels['general']['sections']['footer'] = array(
 			'id' => 'pwd_footer',
-			'title' => esc_html__( 'Footer', 'powered' ),
+			'title' => esc_html__( 'Footer', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'footer_popular_posts',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Popular Posts', 'powered' ),
+						'label' => esc_html__( 'Popular Posts', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -414,10 +413,10 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'footer_widget_columns',
 					'default' => 4,
 					'control' => array(
-						'label' => esc_html__( 'Footer Widgets Columns', 'powered' ),
+						'label' => esc_html__( 'Footer Widgets Columns', 'wpex-powered' ),
 						'type' => 'select',
 						'choices' => array(
-							'disable' => esc_html__( 'None - Disable', 'powered' ),
+							'disable' => esc_html__( 'None - Disable', 'wpex-powered' ),
 							1 => 1,
 							2 => 2,
 							3 => 3,
@@ -427,11 +426,11 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				),
 				array(
 					'id' => 'footer_copyright',
-					'default' => '<a href="http://www.wordpress.org" title="WordPress" target="_blank">WordPress</a> Theme Designed &amp; Developed by <a href="http://www.stplorer.com/" target="_blank" title="WPExplorer">WPExplorer</a>',
+					'default' => '<a href="http://www.wordpress.org" title="WordPress" target="_blank">WordPress</a> Theme Designed &amp; Developed by <a href="https://www.wpexplorer.com//" target="_blank" title="WPExplorer">WPExplorer</a>',
 					'control' => array(
-						'label' => esc_html__( 'Footer Copyright', 'powered' ),
+						'label' => esc_html__( 'Footer Copyright', 'wpex-powered' ),
 						'type' => 'textarea',
-						'desc' =>  esc_html__( 'Use shortcode [pwd_current_year] to display current year.', 'powered' ),
+						'desc' =>  esc_html__( 'Use shortcode [pwd_current_year] to display current year.', 'wpex-powered' ),
 					),
 				),
 			),
@@ -440,13 +439,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Discussion
 		$panels['general']['sections']['discussion'] = array(
 			'id' => 'pwd_site_discussion',
-			'title' => esc_html__( 'Discussion', 'powered' ),
+			'title' => esc_html__( 'Discussion', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'comments_on_pages',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Comments For Pages', 'powered' ),
+						'label' => esc_html__( 'Comments For Pages', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -454,7 +453,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'id' => 'comments_on_posts',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Comments For Posts', 'powered' ),
+						'label' => esc_html__( 'Comments For Posts', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -464,13 +463,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		// Search
 		$panels['general']['sections']['search'] = array(
 			'id' => 'pwd_search',
-			'title' => esc_html__( 'Search Results', 'powered' ),
+			'title' => esc_html__( 'Search Results', 'wpex-powered' ),
 			'settings' => array(
 				array(
 					'id' => 'search_posts_only',
 					'default' => true,
 					'control' => array(
-						'label' => esc_html__( 'Search posts only.', 'powered' ),
+						'label' => esc_html__( 'Search posts only.', 'wpex-powered' ),
 						'type' => 'checkbox',
 					),
 				),
@@ -481,20 +480,20 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		/* - Typography
 		/*-----------------------------------------------------------------------------------*/
 		$panels['typography'] = array(
-			'title' => esc_html__( 'Typography', 'powered' ),
-			'description' => esc_html__( 'It is highly recommended that you do NOT use more then a couple custom Google fonts on the site because it could greatly slow things down.', 'powered' ),
+			'title' => esc_html__( 'Typography', 'wpex-powered' ),
+			'description' => esc_html__( 'It is highly recommended that you do NOT use more then a couple custom Google fonts on the site because it could greatly slow things down.', 'wpex-powered' ),
 			'sections' => array(
 
 				// Body Typography
 				array(
 					'id' => 'body',
-					'title' => esc_html__( 'Body', 'powered' ),
+					'title' => esc_html__( 'Body', 'wpex-powered' ),
 					'settings' => array(
 						array(
 							'id' => 'body_font_family',
 							'default' => 'Open Sans',
 							'control' => array(
-								'label' => esc_html__( 'Font Family', 'powered' ),
+								'label' => esc_html__( 'Font Family', 'wpex-powered' ),
 								'type' => 'google_font',
 							),
 							'inline_css' => array(
@@ -508,13 +507,13 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				// Logo Typography
 				array(
 					'id' => 'pwd_logo_typography',
-					'title' => esc_html__( 'Logo', 'powered' ),
+					'title' => esc_html__( 'Logo', 'wpex-powered' ),
 					'settings' => array(
 						array(
 							'id' => 'logo_font_family',
 							//'default' => 'Crete Round',
 							'control' => array(
-								'label' => esc_html__( 'Font Family', 'powered' ),
+								'label' => esc_html__( 'Font Family', 'wpex-powered' ),
 								'type' => 'google_font',
 							),
 							'inline_css' => array(
@@ -525,7 +524,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'logo_font_weight',
 							'control' => array(
-								'label' => esc_html__( 'Font Weight', 'powered' ),
+								'label' => esc_html__( 'Font Weight', 'wpex-powered' ),
 								'type' => 'select',
 								'choices' => $font_weights,
 							),
@@ -537,7 +536,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'logo_size',
 							'control' => array(
-								'label' => esc_html__( 'Font Size', 'powered' ),
+								'label' => esc_html__( 'Font Size', 'wpex-powered' ),
 							),
 							'inline_css' => array(
 								'target' => '.pwd-site-logo .site-text-logo',
@@ -548,7 +547,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'logo_letter_spacing',
 							'control' => array(
-								'label' => esc_html__( 'Letter Spacing', 'powered' ),
+								'label' => esc_html__( 'Letter Spacing', 'wpex-powered' ),
 							),
 							'inline_css' => array(
 								'target' => '.pwd-site-logo .site-text-logo',
@@ -562,14 +561,14 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				// Headings Typography
 				array(
 					'id' => 'gds_headings_typography',
-					'title' => esc_html__( 'Headings', 'powered' ),
+					'title' => esc_html__( 'Headings', 'wpex-powered' ),
 					'desc' => 'h1,h2,h3,h4,h5,h6',
 					'settings' => array(
 						array(
 							'id' => 'headings_font_family',
 							'default' => 'Lato',
 							'control' => array(
-								'label' => esc_html__( 'Font Family', 'powered' ),
+								'label' => esc_html__( 'Font Family', 'wpex-powered' ),
 								'type' => 'google_font',
 							),
 							'inline_css' => array(
@@ -580,7 +579,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'headings_font_weight',
 							'control' => array(
-								'label' => esc_html__( 'Font Weight', 'powered' ),
+								'label' => esc_html__( 'Font Weight', 'wpex-powered' ),
 								'type' => 'select',
 								'choices' => $font_weights,
 							),
@@ -592,7 +591,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'headings_letter_spacing',
 							'control' => array(
-								'label' => esc_html__( 'Letter Spacing', 'powered' ),
+								'label' => esc_html__( 'Letter Spacing', 'wpex-powered' ),
 							),
 							'inline_css' => array(
 								'target' => 'h1,h2,h3,h4,h5,h6',
@@ -610,19 +609,19 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		/* - Styling Panel
 		/*-----------------------------------------------------------------------------------*/
 		$panels['styling'] = array(
-			'title' => esc_html__( 'Styling', 'powered' ),
+			'title' => esc_html__( 'Styling', 'wpex-powered' ),
 			'sections' => array(
 
 				// Styling > Main
 				array(
 					'id' => 'pwd_styling_main',
-					'title' => esc_html__( 'Main', 'powered' ),
+					'title' => esc_html__( 'Main', 'wpex-powered' ),
 					'settings' => array(
 						array(
 							'id' => 'accent_color',
 							'default' => '#177fff',
 							'control' => array(
-								'label' => esc_html__( 'Accent Color', 'powered' ),
+								'label' => esc_html__( 'Accent Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 						),
@@ -632,12 +631,12 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				// Styling > Header
 				array(
 					'id' => 'pwd_styling_header',
-					'title' => esc_html__( 'Header', 'powered' ),
+					'title' => esc_html__( 'Header', 'wpex-powered' ),
 					'settings' => array(
 						array(
 							'id' => 'header_bg',
 							'control' => array(
-								'label' => esc_html__( 'Background Color', 'powered' ),
+								'label' => esc_html__( 'Background Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -650,16 +649,16 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'header_height',
 							'control' => array(
-								'label' => esc_html__( 'Header Height', 'powered' ),
+								'label' => esc_html__( 'Header Height', 'wpex-powered' ),
 								'type' => 'text',
 								'sanitize' => 'absint',
-								'desc' => esc_html__( 'In pixels. Default is 50px.', 'powered' ),
+								'desc' => esc_html__( 'In pixels. Default is 50px.', 'wpex-powered' ),
 							),
 						),
 						array(
 							'id' => 'logo_color',
 							'control' => array(
-								'label' => esc_html__( 'Logo Color', 'powered' ),
+								'label' => esc_html__( 'Logo Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -677,12 +676,12 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 				// Styling > Menu
 				array(
 					'id' => 'pwd_styling_nav',
-					'title' => esc_html__( 'Menu', 'powered' ),
+					'title' => esc_html__( 'Menu', 'wpex-powered' ),
 					'settings' => array(
 						array(
 							'id' => 'nav_color',
 							'control' => array(
-								'label' => esc_html__( 'Menu Link Color', 'powered' ),
+								'label' => esc_html__( 'Menu Link Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -694,7 +693,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_color_hover',
 							'control' => array(
-								'label' => esc_html__( 'Menu Link Hover Color', 'powered' ),
+								'label' => esc_html__( 'Menu Link Hover Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -706,7 +705,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_color_hover_bg',
 							'control' => array(
-								'label' => esc_html__( 'Menu Link Hover Background', 'powered' ),
+								'label' => esc_html__( 'Menu Link Hover Background', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -718,7 +717,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_color_active',
 							'control' => array(
-								'label' => esc_html__( 'Menu Link Active Color', 'powered' ),
+								'label' => esc_html__( 'Menu Link Active Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -730,7 +729,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_color_active_bg',
 							'control' => array(
-								'label' => esc_html__( 'Menu Link Active Background', 'powered' ),
+								'label' => esc_html__( 'Menu Link Active Background', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -742,7 +741,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_drop_bg',
 							'control' => array(
-								'label' => esc_html__( 'Menu Dropdown Background', 'powered' ),
+								'label' => esc_html__( 'Menu Dropdown Background', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -754,7 +753,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_drop_color',
 							'control' => array(
-								'label' => esc_html__( 'Menu Dropdown Link Color', 'powered' ),
+								'label' => esc_html__( 'Menu Dropdown Link Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -766,7 +765,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_drop_color_hover',
 							'control' => array(
-								'label' => esc_html__( 'Menu Dropdown Link Hover Color', 'powered' ),
+								'label' => esc_html__( 'Menu Dropdown Link Hover Color', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -779,7 +778,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						array(
 							'id' => 'nav_drop_color_hover_bg',
 							'control' => array(
-								'label' => esc_html__( 'Menu Dropdown Link Hover Background', 'powered' ),
+								'label' => esc_html__( 'Menu Dropdown Link Hover Background', 'wpex-powered' ),
 								'type' => 'color',
 							),
 							'inline_css' => array(
@@ -801,8 +800,8 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		$image_sizes             = array();
 		$get_image_sizes         = pwd_get_image_sizes();
 		$crop_locations          = pwd_image_crop_locations();
-		$crop_locations['false'] = esc_html__( 'False', 'powered' );
-		$desc = esc_html__( 'If you alter any image sizes you will have to regenerate your thumbnails.', 'powered' );
+		$crop_locations['false'] = esc_html__( 'False', 'wpex-powered' );
+		$desc = esc_html__( 'If you alter any image sizes you will have to regenerate your thumbnails.', 'wpex-powered' );
 		foreach ( $get_image_sizes as $id => $label ) {
 			$image_sizes[] = array(
 				'id' => 'pwd_'. $id .'_thumbnail_sizes',
@@ -814,7 +813,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						'default' => '9999',
 						'transport' => 'postMessage',
 						'control' => array(
-							'label' => esc_html__( 'Image Width', 'powered' ),
+							'label' => esc_html__( 'Image Width', 'wpex-powered' ),
 							'type' => 'text',
 						),
 					),
@@ -823,7 +822,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						'default' => '9999',
 						'transport' => 'postMessage',
 						'control' => array(
-							'label' => esc_html__( 'Image Height', 'powered' ),
+							'label' => esc_html__( 'Image Height', 'wpex-powered' ),
 							'type' => 'text',
 						),
 					),
@@ -832,7 +831,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						'default' => 'false',
 						'transport' => 'postMessage',
 						'control' => array(
-							'label' => esc_html__( 'Crop', 'powered' ),
+							'label' => esc_html__( 'Crop', 'wpex-powered' ),
 							'type' => 'select',
 							'choices' => $crop_locations,
 						),
@@ -842,8 +841,8 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		}
 
 		$panels['image_sizes'] = array(
-			'title' => esc_html__( 'Image Sizes', 'powered' ),
-			'desc' => esc_html__( 'By default this theme does not crop any images so you can customize your settings first and prevent unnecessary image cropping. Below you will find all the settings needed to crop the images on your site. Be sure to install a regenerate plugin so you can regenerate your thumbnails whenvever you alter these values.', 'powered' ),
+			'title' => esc_html__( 'Image Sizes', 'wpex-powered' ),
+			'desc' => esc_html__( 'By default this theme does not crop any images so you can customize your settings first and prevent unnecessary image cropping. Below you will find all the settings needed to crop the images on your site. Be sure to install a regenerate plugin so you can regenerate your thumbnails whenvever you alter these values.', 'wpex-powered' ),
 			'sections' => $image_sizes,
 		);
 

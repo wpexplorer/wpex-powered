@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -47,12 +47,12 @@ function pwd_meta_prefix() {
  */
 function pwd_get_image_sizes() {
 	return apply_filters( 'pwd_get_image_sizes', array(
-		'entry_featured' => esc_html__( 'Featured Entry', 'powered' ),
-		'entry'          => esc_html__( 'Entry', 'powered' ),
-		'post'           => esc_html__( 'Single Post (if enabled)', 'powered' ),
-		'entry_related'  => esc_html__( 'Related Entries', 'powered' ),
-		'page'           => esc_html__( 'Pages', 'powered' ),
-		'footer_popular' => esc_html__( 'Popular Posts', 'powered' ),
+		'entry_featured' => esc_html__( 'Featured Entry', 'wpex-powered' ),
+		'entry'          => esc_html__( 'Entry', 'wpex-powered' ),
+		'post'           => esc_html__( 'Single Post (if enabled)', 'wpex-powered' ),
+		'entry_related'  => esc_html__( 'Related Entries', 'wpex-powered' ),
+		'page'           => esc_html__( 'Pages', 'wpex-powered' ),
+		'footer_popular' => esc_html__( 'Popular Posts', 'wpex-powered' ),
 	) );
 }
 
@@ -76,16 +76,16 @@ function pwd_parse_obj_id( $id = '', $type = 'page' ) {
  */
 function pwd_image_crop_locations() {
 	return array(
-		' '             => esc_html__( 'Default', 'powered' ),
-		'left-top'      => esc_html__( 'Top Left', 'powered' ),
-		'right-top'     => esc_html__( 'Top Right', 'powered' ),
-		'center-top'    => esc_html__( 'Top Center', 'powered' ),
-		'left-center'   => esc_html__( 'Center Left', 'powered' ),
-		'right-center'  => esc_html__( 'Center Right', 'powered' ),
-		'center-center' => esc_html__( 'Center Center', 'powered' ),
-		'left-bottom'   => esc_html__( 'Bottom Left', 'powered' ),
-		'right-bottom'  => esc_html__( 'Bottom Right', 'powered' ),
-		'center-bottom' => esc_html__( 'Bottom Center', 'powered' ),
+		' '             => esc_html__( 'Default', 'wpex-powered' ),
+		'left-top'      => esc_html__( 'Top Left', 'wpex-powered' ),
+		'right-top'     => esc_html__( 'Top Right', 'wpex-powered' ),
+		'center-top'    => esc_html__( 'Top Center', 'wpex-powered' ),
+		'left-center'   => esc_html__( 'Center Left', 'wpex-powered' ),
+		'right-center'  => esc_html__( 'Center Right', 'wpex-powered' ),
+		'center-center' => esc_html__( 'Center Center', 'wpex-powered' ),
+		'left-bottom'   => esc_html__( 'Bottom Left', 'wpex-powered' ),
+		'right-bottom'  => esc_html__( 'Bottom Right', 'wpex-powered' ),
+		'center-bottom' => esc_html__( 'Bottom Center', 'wpex-powered' ),
 	);
 }
 
@@ -430,7 +430,7 @@ function pwd_check_meta_type( $value ) {
 
 /**
  * Custom menu walker
- * 
+ *
  * @link  http://codex.wordpress.org/Class_Reference/Walker_Nav_Menu
  * @since 1.0.0
  */
@@ -439,10 +439,10 @@ if ( ! class_exists( 'Powered_Dropdown_Walker_Nav_Menu' ) ) {
 		function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
 			$id_field = $this->db_fields['id'];
 			if ( ! empty( $children_elements[$element->$id_field] ) && ( $depth == 0 ) ) {
-				$element->title .= ' <span class="fa fa-caret-down pwd-dropdown-arrow-down"></span>';
+				$element->title .= ' <span class="fa fa-caret-down pwd-dropdown-arrow-down" aria-hidden="true"></span>';
 			}
 			if ( ! empty( $children_elements[$element->$id_field] ) && ( $depth > 0 ) ) {
-				$element->title .= ' <span class="fa fa-caret-right pwd-dropdown-arrow-side"></span>';
+				$element->title .= ' <span class="fa fa-caret-right pwd-dropdown-arrow-side" aria-hidden="true"></span>';
 			}
 			Walker_Nav_Menu::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 		}
@@ -451,7 +451,7 @@ if ( ! class_exists( 'Powered_Dropdown_Walker_Nav_Menu' ) ) {
 
 /**
  * Custom comments callback
- * 
+ *
  * @link  http://codex.wordpress.org/Function_Reference/wp_lipwd_comments
  * @since 1.0.0
  */
@@ -463,7 +463,7 @@ if ( ! function_exists( 'pwd_comment' ) ) {
 			case 'trackback' :
 				// Display trackbacks differently than normal comments. ?>
 				<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-				<p><strong><?php esc_html_e( 'Pingback:', 'powered' ); ?></strong> <?php comment_author_link(); ?></p>
+				<p><strong><?php esc_html_e( 'Pingback:', 'wpex-powered' ); ?></strong> <?php comment_author_link(); ?></p>
 			<?php
 			break;
 			default :
@@ -483,13 +483,13 @@ if ( ! function_exists( 'pwd_comment' ) ) {
 									printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										get_comment_time( 'c' ),
-										sprintf( _x( '%1$s', '1: date', 'powered' ), get_comment_date() )
+										sprintf( _x( '%1$s', '1: date', 'wpex-powered' ), get_comment_date() )
 								); ?></span><!-- .comment-date -->
 								<?php
 								// Comment reply link
 								if ( '0' != $comment->comment_approved ) {
 									comment_reply_link( array_merge( $args, array(
-										'reply_text'    => esc_html__( 'Reply', 'powered' ) . '',
+										'reply_text'    => esc_html__( 'Reply', 'wpex-powered' ) . '',
 										'depth'         => $depth,
 										'max_depth'     => $args['max_depth']
 									) ) );
@@ -497,7 +497,7 @@ if ( ! function_exists( 'pwd_comment' ) ) {
 							</header><!-- .comment-meta -->
 							<?php if ( '0' == $comment->comment_approved ) : ?>
 								<p class="comment-awaiting-moderation">
-									<?php esc_html_e( 'Your comment is awaiting moderation.', 'powered' ); ?>
+									<?php esc_html_e( 'Your comment is awaiting moderation.', 'wpex-powered' ); ?>
 								</p><!-- .comment-awaiting-moderation -->
 							<?php endif; ?>
 							<div class="comment-content pwd-entry pwd-clr">
@@ -506,7 +506,7 @@ if ( ! function_exists( 'pwd_comment' ) ) {
 							<footer class="comment-footer pwd-clr">
 								<?php
 								// Edit comment link
-								edit_comment_link( esc_html__( 'Edit', 'powered' ), '<div class="edit-comment">', '</div>' ); ?>
+								edit_comment_link( esc_html__( 'Edit', 'wpex-powered' ), '<div class="edit-comment">', '</div>' ); ?>
 							</footer>
 						</div><!-- .comment-details -->
 					</div><!-- #comment-## -->
@@ -518,7 +518,7 @@ if ( ! function_exists( 'pwd_comment' ) ) {
 
 /**
  * Returns correct entry excerpt length
- * 
+ *
  * @since 1.0.0
  */
 function pwd_get_entry_excerpt_length() {
@@ -531,7 +531,7 @@ function pwd_get_entry_excerpt_length() {
 /**
  * Custom excerpts based on wp_trim_words
  * Created for child-theming purposes
- * 
+ *
  * @link  http://codex.wordpress.org/Function_Reference/wp_trim_words
  * @since 1.0.0
  */
@@ -552,7 +552,7 @@ function pwd_get_excerpt( $length = '', $readmore = false ) {
 	else {
 
 		// Redmore text
-		$readmore_text = get_theme_mod( 'entry_readmore_text', esc_html__( 'read more', 'powered' ) );
+		$readmore_text = get_theme_mod( 'entry_readmore_text', esc_html__( 'read more', 'wpex-powered' ) );
 
 		// Readmore link
 		$readmore_link = '<a href="'. get_permalink( $post->ID ) .'" title="'. $readmore_text .'">'. $readmore_text .'<span class="pwd-readmore-rarr">&rarr;</span></a>';
@@ -592,30 +592,8 @@ function pwd_excerpt( $length = '', $readmore = false ) {
 }
 
 /**
- * Includes correct template part
- *
- * @since 1.0.0
- */
-function pwd_include_template( $template ) {
-
-	// Return if no template is defined
-	if ( ! $template ) {
-		return;
-	}
-
-	// Locate template
-	$template = locate_template( $template, false );
-
-	// Load template if it exists
-	if ( $template ) {
-		include( $template );
-	}
-
-}
-
-/**
  * List categories for specific taxonomy
- * 
+ *
  * @link    http://codex.wordpress.org/Function_Reference/wp_get_post_terms
  * @since   1.0.0
  */
@@ -656,7 +634,7 @@ if ( ! function_exists( 'pwd_get_post_terms' ) ) {
 
 		// Return first category only
 		if ( $first_only ) {
-			
+
 			$return = $return[0];
 
 		}
@@ -677,7 +655,7 @@ if ( ! function_exists( 'pwd_get_post_terms' ) ) {
 
 /**
  * Echos the pwd_lipwd_post_terms function
- * 
+ *
  * @since 1.0.0
  */
 function pwd_post_terms( $taxonomy = 'category', $first_only = false, $classes = '' ) {
@@ -686,7 +664,7 @@ function pwd_post_terms( $taxonomy = 'category', $first_only = false, $classes =
 
 /**
  * List categories for specific taxonomy without links
- * 
+ *
  * @link    http://codex.wordpress.org/Function_Reference/wp_get_post_terms
  * @since   1.0.0
  */
@@ -727,7 +705,7 @@ if ( ! function_exists( 'pwd_get_post_terms_list' ) ) {
 
 		// Return first category only
 		if ( $first_only ) {
-			
+
 			$return = $return[0];
 
 		}
@@ -748,7 +726,7 @@ if ( ! function_exists( 'pwd_get_post_terms_list' ) ) {
 
 /**
  * Echos the pwd_get_post_terms_list function
- * 
+ *
  * @since 1.0.0
  */
 function pwd_post_terms_list( $taxonomy = 'category', $first_only = false, $classes = '' ) {
@@ -1007,7 +985,7 @@ function pwd_get_thumbnail_sizes( $size = '' ) {
 
 		} elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
 
-			$sizes[ $_size ] = array( 
+			$sizes[ $_size ] = array(
 				'width'     => $_wp_additional_image_sizes[ $_size ]['width'],
 				'height'    => $_wp_additional_image_sizes[ $_size ]['height'],
 				'crop'      => $_wp_additional_image_sizes[ $_size ]['crop']
@@ -1029,14 +1007,3 @@ function pwd_get_thumbnail_sizes( $size = '' ) {
 	// Return sizes
 	return $sizes;
 }
-
-/**
- * Current year shortcode
- *
- * @since 1.0.0
- * @link  https://codex.wordpress.org/Function_Reference/add_shortcode
- */
-function pwd_current_year_shortcode() {
-	return date( 'Y' );
-}
-add_shortcode( 'pwd_current_year', 'pwd_current_year_shortcode');

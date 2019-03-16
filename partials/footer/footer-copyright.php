@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Get copyright data
-$copy = pwd_get_theme_mod( 'footer_copyright', '<a href="http://www.wpexplorer.com/powered-free-wordpress-theme/" title="WordPress" target="_blank">Powered Theme</a> by <a href="http://www.wpexplorer.com/" target="_blank" title="WPExplorer">WPExplorer</a> powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a>' );
+$copy = pwd_get_theme_mod( 'footer_copyright', 'Theme by <a href="https://www.wpexplorer.com/" target="_blank">WPExplorer</a> powered by <a href="https://wordpress.org/">WordPress</a>' );
 
 // Display copyright
 if ( $copy ) : ?>

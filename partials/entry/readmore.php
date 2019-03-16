@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Define text
 $text = get_theme_mod( 'entry_readmore_text' );
-$text = $text ? $text : esc_html__( 'Continue reading', 'powered' );
+$text = $text ? $text : esc_html__( 'Continue reading', 'wpex-powered' );
 $text = apply_filters( 'pwd_entry_readmore_text', $text ); ?>
 
 

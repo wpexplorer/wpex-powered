@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -21,9 +21,9 @@ if ( ( function_exists( 'is_cart' ) && is_cart() ) || ( function_exists( 'is_che
 
 // Define text
 if ( is_page() ) {
-	$text = esc_html__( 'Edit This Page', 'powered' );
+	$text = esc_html__( 'Edit This Page', 'wpex-powered' );
 } else {
-	$text = esc_html__( 'Edit This Article', 'powered' );
+	$text = esc_html__( 'Edit This Article', 'wpex-powered' );
 }
 $text = apply_filters( 'pwd_post_edit_text', $text );
 

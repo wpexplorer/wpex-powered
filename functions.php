@@ -18,17 +18,17 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
 // Theme info
-function wpex_get_theme_info() {
+function wpex_theme_info() {
 	return array(
-		'name'      => 'Powered',
-		'dir'       => get_template_directory_uri() .'/inc/',
-		'url'       => 'http://www.wpexplorer.com/powered-free-wordpress-theme/',
-		'changelog' => 'https://wpexplorer-updates.com/changelog/powered/',
+		'name'    => 'WPEX Powered',
+		'slug'    => 'wpex-powered',
+		'url'     => 'https://www.wpexplorer.com/powered-free-wordpress-theme/',
+		'support' => 'https://github.com/wpexplorer/wpex-powered/issues',
 	);
 }
 
@@ -41,11 +41,6 @@ class Powered_Theme {
      * @access public
 	 */
 	public function __construct() {
-
-		// Updates
-		if ( is_admin() ) {
-			require_once( get_template_directory() .'/inc/updates.php' );
-		}
 
 		// Add Filters
 		add_filter( 'excerpt_more', array( 'Powered_Theme', 'excerpt_more' ) );
@@ -87,28 +82,28 @@ class Powered_Theme {
 	 */
 	public static function load_files() {
 
-		$dir = get_template_directory();
-
 		// Include Theme Functions
-		require_once( $dir .'/inc/core-functions.php' );
-		require_once( $dir .'/inc/conditionals.php' );
-		require_once( $dir .'/inc/customizer-config.php' );
-		require_once( $dir .'/inc/meta-posts.php' );
-		require_once( $dir .'/inc/meta-pages.php' );
-		require_once( $dir .'/inc/schema.php' );
-
-		if ( ! defined( 'WPEX_DISABLE_THEME_ABOUT_PAGE' ) ) {
-			require_once( $dir .'/inc/dashboard-feed.php' );
-		}
-		if ( ! defined( 'WPEX_DISABLE_THEME_DASHBOARD_FEEDS' ) ) {
-			require_once( $dir .'/inc/welcome.php' );
-		}
+		require_once get_parent_theme_file_path( '/inc/core-functions.php' );
+		require_once get_parent_theme_file_path( '/inc/conditionals.php' );
+		require_once get_parent_theme_file_path( '/inc/customizer-config.php' );
+		require_once get_parent_theme_file_path( '/inc/meta-posts.php' );
+		require_once get_parent_theme_file_path( '/inc/meta-pages.php' );
+		require_once get_parent_theme_file_path( '/inc/schema.php' );
 
 		// Include Classes
-		require_once( $dir .'/inc/classes/customizer/customizer.php' );
+		require_once get_parent_theme_file_path( '/inc/classes/customizer/customizer.php' );
 
 		// WPML/Polilang config
-		require_once( $dir .'/inc/translators-config.php' );
+		require_once get_parent_theme_file_path( 'inc/translators-config.php' );
+
+		if ( is_admin() ) {
+			if ( ! defined( 'WPEX_DISABLE_THEME_DASHBOARD_FEEDS' ) ) {
+				require_once get_parent_theme_file_path( '/admin/dashboard-feed.php' );
+			}
+			if ( ! defined( 'WPEX_DISABLE_THEME_ABOUT_PAGE' ) ) {
+				require_once get_parent_theme_file_path( '/admin/about.php' );
+			}
+		}
 
 	}
 
@@ -120,9 +115,6 @@ class Powered_Theme {
 	 */
 	public static function load_custom_widgets() {
 
-		// Define dir
-		$dir = get_template_directory();
-
 		// Apply filters so you can remove custom widgets via a child theme or plugin
 		$widgets = apply_filters( 'pwd_theme_widgets', array(
 			'social',
@@ -131,10 +123,7 @@ class Powered_Theme {
 
 		// Loop through and load widget files
 		foreach ( $widgets as $widget ) {
-			$widget_file = $dir .'/inc/classes/widgets/'. $widget .'.php';
-			if ( file_exists( $widget_file ) ) {
-				require_once( $widget_file );
-		   }
+			require_once get_parent_theme_file_path( '/inc/classes/widgets/' . $widget . '.php'  );
 		}
 
 	}
@@ -157,16 +146,16 @@ class Powered_Theme {
 
 		// Register navigation menus
 		register_nav_menus ( array(
-			'main'   => esc_html__( 'Main', 'powered' ),
-			'mobile' => esc_html__( 'Mobile Alternative', 'powered' ),
+			'main'   => esc_html__( 'Main', 'wpex-powered' ),
+			'mobile' => esc_html__( 'Mobile Alternative', 'wpex-powered' ),
 		) );
 
 		// Add editor styles
 		add_editor_style( 'css/editor-style.css' );
-		
+
 		// Localization support
-		load_theme_textdomain( 'powered', get_template_directory() .'/languages' );
-			
+		load_theme_textdomain( 'wpex-powered', get_template_directory() .'/languages' );
+
 		// Add theme support
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'automatic-feed-links' );
@@ -289,11 +278,11 @@ class Powered_Theme {
 
 		// HTML5
 		wp_enqueue_script( 'html5shiv', $js_dir_uri .'js/html5.js', array(), false, false );
-		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );	
+		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
 		// Localize scripts
 		$localize = apply_filters( 'pwd_localize', array(
-			'mobileSiteMenuLabel' => '<span class="fa fa-bars"></span>',
+			'mobileSiteMenuLabel' => '<span class="fa fa-bars" aria-hidden="true"></span>',
 		) );
 
 		// Load 3rd party scripts
@@ -327,9 +316,9 @@ class Powered_Theme {
 
 		// Sidebar
 		register_sidebar( array(
-			'name'          => esc_html__( 'Sidebar - Main', 'powered' ),
+			'name'          => esc_html__( 'Sidebar - Main', 'wpex-powered' ),
 			'id'            => 'sidebar',
-			'before_widget' => '<div class="pwd-sidebar-widget %2$s pwd-clr">',
+			'before_widget' => '<div class="pwd-sidebar-widget widget %2$s pwd-clr">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
@@ -337,9 +326,9 @@ class Powered_Theme {
 
 		// Sidebar
 		register_sidebar( array(
-			'name'          => esc_html__( 'Sidebar - Pages', 'powered' ),
+			'name'          => esc_html__( 'Sidebar - Pages', 'wpex-powered' ),
 			'id'            => 'sidebar_pages',
-			'before_widget' => '<div class="pwd-sidebar-widget %2$s pwd-clr">',
+			'before_widget' => '<div class="pwd-sidebar-widget widget %2$s pwd-clr">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
@@ -352,9 +341,9 @@ class Powered_Theme {
 		if ( $cols >= 1 ) {
 
 			register_sidebar( array(
-				'name'          => esc_html__( 'Footer 1', 'powered' ),
+				'name'          => esc_html__( 'Footer 1', 'wpex-powered' ),
 				'id'            => 'footer-one',
-				'before_widget' => '<div class="footer-widget %2$s pwd-clr">',
+				'before_widget' => '<div class="footer-widget widget %2$s pwd-clr">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6 class="widget-title">',
 				'after_title'   => '</h6>',
@@ -366,9 +355,9 @@ class Powered_Theme {
 		if ( $cols > 1 ) {
 
 			register_sidebar( array(
-				'name'          => esc_html__( 'Footer 2', 'powered' ),
+				'name'          => esc_html__( 'Footer 2', 'wpex-powered' ),
 				'id'            => 'footer-two',
-				'before_widget' => '<div class="footer-widget %2$s pwd-clr">',
+				'before_widget' => '<div class="footer-widget widget %2$s pwd-clr">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6 class="widget-title">',
 				'after_title'   => '</h6>',
@@ -380,9 +369,9 @@ class Powered_Theme {
 		if ( $cols > 2 ) {
 
 			register_sidebar( array(
-				'name'          => esc_html__( 'Footer 3', 'powered' ),
+				'name'          => esc_html__( 'Footer 3', 'wpex-powered' ),
 				'id'            => 'footer-three',
-				'before_widget' => '<div class="footer-widget %2$s pwd-clr">',
+				'before_widget' => '<div class="footer-widget widget %2$s pwd-clr">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6 class="widget-title">',
 				'after_title'   => '</h6>',
@@ -394,9 +383,9 @@ class Powered_Theme {
 		if ( $cols > 3 ) {
 
 			register_sidebar( array(
-				'name'          => esc_html__( 'Footer 4', 'powered' ),
+				'name'          => esc_html__( 'Footer 4', 'wpex-powered' ),
 				'id'            => 'footer-four',
-				'before_widget' => '<div class="footer-widget %2$s pwd-clr">',
+				'before_widget' => '<div class="footer-widget widget %2$s pwd-clr">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6 class="widget-title">',
 				'after_title'   => '</h6>',
@@ -405,7 +394,7 @@ class Powered_Theme {
 		}
 
 	}
-	
+
 	/**
 	 * Adds classes to the body_class function
 	 *
@@ -423,7 +412,7 @@ class Powered_Theme {
 		if ( pwd_is_responsive() ) {
 			$classes[] = 'pwd-responsive';
 		}
-		
+
 		// Return classes
 		return $classes;
 
@@ -506,7 +495,7 @@ class Powered_Theme {
 	 * @link   http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_posts_columns
 	 */
 	public static function posts_columns( $defaults ) {
-		$defaults['pwd_post_thumbs'] = esc_html__( 'Featured Image', 'powered' );
+		$defaults['pwd_post_thumbs'] = esc_html__( 'Featured Image', 'wpex-powered' );
 		return $defaults;
 	}
 
@@ -577,11 +566,6 @@ class Powered_Theme {
 		// Add Facebook
 		if ( ! isset( $contactmethods['pwd_facebook'] ) ) {
 			$contactmethods['wpex_facebook'] = 'Powered - Facebook';
-		}
-
-		// Add GoglePlus
-		if ( ! isset( $contactmethods['pwd_googleplus'] ) ) {
-			$contactmethods['wpex_googleplus'] = 'Powered - Google+';
 		}
 
 		// Add LinkedIn
@@ -711,7 +695,7 @@ class Powered_Theme {
     }
 
 	/**
-	 * Adds meta generator for 
+	 * Adds meta generator for
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -761,7 +745,7 @@ class Powered_Theme {
 		$items .= '<li class="pwd-search-toggle">';
 			$items .= '<a href="#">';
 				$items .= '<span class="link-inner">';
-					$items .= '<span class="fa fa-search"></span>';
+					$items .= '<span class="fa fa-search" aria-hidden="true"></span>';
 				$items .= '</span>';
 			$items .= '</a>';
 		$items .= '</li>';

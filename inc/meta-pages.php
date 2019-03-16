@@ -5,7 +5,7 @@
  * @package   Powered WordPress Theme
  * @author    Alexander Clarke
  * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      http://www.stplorer.com
+ * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
 
@@ -14,7 +14,7 @@ if ( ! is_admin() ) {
 	return;
 }
 
-/** 
+/**
  * The Class.
  */
 class STATUS_Page_Meta_Settings {
@@ -35,7 +35,7 @@ class STATUS_Page_Meta_Settings {
 		if ( 'page' == $post_type ) {
 			add_meta_box(
 				'pwd_page_settings_metabox',
-				esc_html__( 'Page Settings', 'powered' ),
+				esc_html__( 'Page Settings', 'wpex-powered' ),
 				array( $this, 'render_meta_box_content' ),
 				'page',
 				'side',
@@ -50,7 +50,7 @@ class STATUS_Page_Meta_Settings {
 	 * @param WP_Post $post The post object.
 	 */
 	public function render_meta_box_content( $post ) {
-	
+
 		// Get meta prefix
 		$prefix = pwd_meta_prefix();
 
@@ -65,15 +65,15 @@ class STATUS_Page_Meta_Settings {
 
 			// Layout options
 			$post_layouts = array(
-				''               => esc_html__( 'Default', 'powered' ),
-				'right-sidebar'  => esc_html__( 'Right Sidebar', 'powered' ),
-				'left-sidebar'   => esc_html__( 'Left Sidebar', 'powered' ),
-				'full-width'     => esc_html__( 'No Sidebar', 'powered' ),
+				''               => esc_html__( 'Default', 'wpex-powered' ),
+				'right-sidebar'  => esc_html__( 'Right Sidebar', 'wpex-powered' ),
+				'left-sidebar'   => esc_html__( 'Left Sidebar', 'wpex-powered' ),
+				'full-width'     => esc_html__( 'No Sidebar', 'wpex-powered' ),
 			);
 
 			// Display the form, using the current value.
 			echo '<tr>';
-				echo '<th><p><label for="'. $prefix .'post_layout">'. esc_html__( 'Layout', 'powered' ) .'</label></p></th>';
+				echo '<th><p><label for="'. $prefix .'post_layout">'. esc_html__( 'Layout', 'wpex-powered' ) .'</label></p></th>';
 				echo '<td><select type="text" id="'. $prefix .'post_layout" name="'. $prefix .'post_layout">';
 					foreach( $post_layouts as $key => $val ) {
 						echo '<option value="'. esc_attr( $key ) .'" '. selected( $value, $key ) .'>'. esc_attr( $val ) .'</option>';
@@ -84,7 +84,7 @@ class STATUS_Page_Meta_Settings {
 			// Hide Title
 			$checked = get_post_meta( $post->ID, $prefix .'hide_title', true );
 			echo '<tr>';
-				echo '<th><p><label for="'. $prefix .'hide_title">'. esc_html__( 'Hide Title', 'powered' ) .'</label></p></th>';
+				echo '<th><p><label for="'. $prefix .'hide_title">'. esc_html__( 'Hide Title', 'wpex-powered' ) .'</label></p></th>';
 				echo '<td><input type="checkbox" id="g'. $prefix .'hide_title" name="'. $prefix .'hide_title" '. checked( $checked, 1, false ) .' />';
 				echo '</td>';
 			echo '</tr>';
@@ -100,7 +100,7 @@ class STATUS_Page_Meta_Settings {
 	 * @param int $post_id The ID of the post being saved.
 	 */
 	public function save( $post_id ) {
-	
+
 		/*
 		 * We need to verify this came from the our screen and with proper authorization,
 		 * because save_post can be triggered at other times.
