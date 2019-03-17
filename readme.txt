@@ -33,3 +33,4 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 * Fixed extra quote in popular footer entries
 * Fixed issue with WordPress adding nav-links to single post pagination which is also added in the the_posts_pagination (numbered pagination) causing CSS conflicts
+* Updated default right side margin on site-branding/logo
