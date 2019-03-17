@@ -28,3 +28,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Added new wpex_theme_info function for use with upcoming WPEX Updater Plugin
 * Updated require_once functions in functions.php to use get_parent_theme_file_path instead of get_template_directory
 * Updated and renamed .POT file
+
+= 1.1.2 =
+
+* Fixed extra quote in popular footer entries
+* Fixed issue with WordPress adding nav-links to single post pagination which is also added in the the_posts_pagination (numbered pagination) causing CSS conflicts
