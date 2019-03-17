@@ -74,7 +74,7 @@ if ( $pwd_query->have_posts() ) { ?>
 						<div class="pwd-col pwd-col-5 pwd-clr">
 							<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>">
 								<?php the_post_thumbnail( 'pwd_footer_popular' ); ?>
-								<div class="pwd-footer-pp-entry-title""><?php the_title(); ?></div>
+								<div class="pwd-footer-pp-entry-title"><?php the_title(); ?></div>
 							</a>
 						</div>
 
