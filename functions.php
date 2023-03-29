@@ -137,7 +137,6 @@ class Powered_Theme {
 
 		// Add support for page excerpts
 		add_post_type_support( 'page', 'excerpt' );
-
 	}
 
 	/**
