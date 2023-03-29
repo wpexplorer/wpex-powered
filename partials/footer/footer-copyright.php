@@ -3,7 +3,7 @@
  * Footer copyright
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Get copyright data
-$copy = pwd_get_theme_mod( 'footer_copyright', 'Theme by <a href="https://www.wpexplorer.com/" target="_blank">WPExplorer</a> powered by <a href="https://wordpress.org/">WordPress</a>' );
+$current_year = date( 'Y' );
+$copy = apply_filters( 'pwd_footer_copyright', '&copy; ' . $current_year . ' Powered <a href="https://www.wpexplorer.com/free-wordpress-themes">theme</a> powered by <a href="https://wordpress.org/">WordPress</a>' );
 
 // Display copyright
 if ( $copy ) : ?>

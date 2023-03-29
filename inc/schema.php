@@ -3,7 +3,7 @@
  * Schema.org markup
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -15,8 +15,6 @@
  * @since 1.0.0
  */
 function pwd_get_schema_markup( $location ) {
-
-	// Return nothing if disabled
 	if ( ! apply_filters( 'pwd_schema_markup', true ) ) {
 		return null;
 	}

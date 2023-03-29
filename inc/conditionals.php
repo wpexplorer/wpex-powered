@@ -3,20 +3,11 @@
  * Useful conditionals for this theme
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
-
-/**
- * Check if responsiveness is enabled
- *
- * @since 1.0.0
- */
-function pwd_is_responsive() {
-	return pwd_get_theme_mod( 'responsive', true );
-}
 
 /**
  * Check if featured post is enabled
@@ -156,8 +147,6 @@ function pwd_author_has_social( $user_id = NULL ) {
 	if ( get_the_author_meta( 'wpex_twitter', $user_id ) ) {
 		return true;
 	} elseif ( get_the_author_meta( 'wpex_facebook', $user_id ) ) {
-		return true;
-	} elseif ( get_the_author_meta( 'wpex_googleplus', $user_id ) ) {
 		return true;
 	} elseif ( get_the_author_meta( 'wpex_linkedin', $user_id ) ) {
 		return true;

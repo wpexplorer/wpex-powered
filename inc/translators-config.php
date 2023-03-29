@@ -3,7 +3,7 @@
  * Configures Translators (WPMl, Polylang, etc)
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -18,8 +18,6 @@ function pwd_register_theme_mod_strings() {
 	return apply_filters( 'pwd_register_theme_mod_strings', array(
 		'pwd_logo'               => false,
 		'pwd_logo_retina'        => false,
-		'pwd_logo_retina_height' => false,
-		'pwd_footer_copyright'   => '<a href="http://www.wordpress.org" title="WordPress" target="_blank">WordPress</a> Theme Designed &amp; Developed by <a href="https://www.wpexplorer.com//" target="_blank" title="WPExplorer">WPExplorer</a>',
 	) );
 }
 

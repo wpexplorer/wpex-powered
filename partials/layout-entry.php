@@ -3,7 +3,7 @@
  * The default template for displaying post entries.
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,19 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Check if singular post
-global $pwd_is_singular;
-$pwd_is_singular = isset( $pwd_is_singular ) ? $pwd_is_singular : is_singular();
-
-// Current query
-if ( $pwd_is_singular ) {
-	$pwd_query = 'related';
-} else {
-	$pwd_query = 'archive';
-}
-
 // Base classes for entry
-$classes = array( 'pwd-loop-entry', 'pwd-col', 'pwd-clr' );
+$classes = array( 'pwd-loop-entry', 'pwd-col' );
 
 // Check if embeds are allowed
 $allow_embeds = pwd_get_theme_mod( 'entry_embeds', false );
@@ -36,13 +25,13 @@ $has_video = pwd_has_post_video();
 $has_audio = pwd_has_post_audio();
 
 // Classes
-$classes   = array( 'pwd-loop-entry', 'pwd-col', 'pwd-masonry-item' );
-$columns   = pwd_get_loop_columns( $pwd_query );
-$classes[] = 'pwd-col-'. $columns; ?>
+$classes = array( 'pwd-loop-entry', 'pwd-col', 'pwd-masonry-item' );
+
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 
-	<div class="pwd-loop-entry-inner pwd-clr"><?php
+	<div class="pwd-loop-entry-inner"><?php
 
 		// Video embed
 		if ( $allow_embeds && $has_video ) :
@@ -64,7 +53,7 @@ $classes[] = 'pwd-col-'. $columns; ?>
 
 		endif;
 
-	?><div class="pwd-loop-entry-content pwd-clr"><?php
+	?><div class="pwd-loop-entry-content"><?php
 
 			// Entry category
 			if ( 'post' == get_post_type() && ! is_category() ) {
@@ -78,7 +67,7 @@ $classes[] = 'pwd-col-'. $columns; ?>
 
 			// Display entry excerpt/content
 			get_template_part( 'partials/entry/content' );
-			
+
 		?></div><!-- .pwd-loop-entry-content -->
 
 	</div><!-- .pwd-boxed-container -->

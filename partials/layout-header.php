@@ -3,7 +3,7 @@
  * The main header layout
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<div class="pwd-site-header-wrap pwd-clr"<?php pwd_schema_markup( 'header' ); ?>>
+<div class="pwd-site-header-wrap"<?php pwd_schema_markup( 'header' ); ?>>
 
-	<header class="pwd-site-header pwd-container pwd-clr">
+	<header class="pwd-site-header pwd-container">
 
-		<div class="pwd-site-branding pwd-clr"><?php
+		<div class="pwd-site-branding"><?php
 
 			get_template_part( 'partials/header/header-logo' );
 

@@ -3,7 +3,7 @@
  * The post entry title
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -18,7 +18,7 @@ $allows_embeds = pwd_get_theme_mod( 'entry_embeds', false ); ?>
 
 <header class="pwd-loop-entry-header pwd-clr">
 	<h2 class="pwd-loop-entry-title">
-		<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>"><?php
+		<a href="<?php the_permalink(); ?>"><?php
 
 			// Format icons
 			if ( pwd_has_post_video() ) {

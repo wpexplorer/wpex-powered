@@ -3,7 +3,7 @@
  * Core functions used for the theme
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -107,31 +107,6 @@ function pwd_parse_image_crop( $crop = 'true' ) {
 }
 
 /**
- * Get first post with featured image in current query
- *
- * @since 1.0.0
- */
-function pwd_get_first_post_with_thumb( $query = '' ) {
-	if ( ! $query ) {
-		global $wp_query;
-		$query = $wp_query;
-	}
-	$posts = $query->posts;
-	$posts_count = count( $posts );
-	if ( $posts_count == 0 ) {
-		return;
-	}
-	$post_with_thumb = '';
-	foreach ( $posts as $post ) {
-		if ( has_post_thumbnail( $post ) ) {
-			$post_with_thumb = $post->ID;
-			break;
-		}
-	}
-	return $post_with_thumb;
-}
-
-/**
  * Returns correct header logo src
  *
  * @since 1.0.0
@@ -199,7 +174,7 @@ function pwd_get_loop_columns( $current_query = 'archive' ) {
 
 	// Check URL
 	if ( ! empty( $_GET['columns'] ) ) {
-		return intval( $_GET['columns'] );
+		return absint( $_GET['columns'] );
 	}
 
 	// Get post ID
@@ -220,7 +195,6 @@ function pwd_get_loop_columns( $current_query = 'archive' ) {
 
 	// Return layout
 	return intval( $columns );
-
 }
 
 /**
@@ -285,7 +259,6 @@ function pwd_get_post_layout() {
 
 	// Return layout
 	return $layout;
-
 }
 
 /**
@@ -436,7 +409,7 @@ function pwd_check_meta_type( $value ) {
  */
 if ( ! class_exists( 'Powered_Dropdown_Walker_Nav_Menu' ) ) {
 	class Powered_Dropdown_Walker_Nav_Menu extends Walker_Nav_Menu {
-		function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+		public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 			$id_field = $this->db_fields['id'];
 			if ( ! empty( $children_elements[$element->$id_field] ) && ( $depth == 0 ) ) {
 				$element->title .= ' <span class="fa fa-caret-down pwd-dropdown-arrow-down" aria-hidden="true"></span>';
@@ -523,7 +496,7 @@ if ( ! function_exists( 'pwd_comment' ) ) {
  */
 function pwd_get_entry_excerpt_length() {
 	if ( isset( $_GET['excerpt_length'] ) ) {
-		return esc_html( $_GET['excerpt_length'] );
+		return absint( $_GET['excerpt_length'] );
 	}
 	return pwd_get_theme_mod( 'entry_excerpt_length', 20 );
 }
@@ -544,7 +517,7 @@ function pwd_get_excerpt( $length = '', $readmore = false ) {
 	global $post;
 
 	// Check for custom excerpt
-	if ( has_excerpt( $post->ID ) ) {
+	if ( ! empty( $post->post_excerpt ) && ! ctype_space( $post->post_excerpt ) ) {
 		$output = $post->post_excerpt;
 	}
 
@@ -821,58 +794,6 @@ function pwd_post_audio( $post_id = '' ) {
 }
 
 /**
- * Return correct Google font url
- *
- * @since 1.0.0
- */
-function pwd_get_gfont_url( $font ) {
-
-	// Sanitize handle
-	$handle = trim( $font );
-	$handle = strtolower( $handle );
-	$handle = str_replace( ' ', '-', $handle );
-
-	// Sanitize font name
-	$font = trim( $font );
-	$font = str_replace( ' ', '+', $font );
-
-	// Subset
-	$subset = apply_filters( 'pwd_google_font_subsets', 'latin' );
-	$subset = $subset ? $subset : 'latin';
-	$subset = '&amp;subset='. $subset;
-
-	// Weights
-	$weights = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
-	$weights = apply_filters( 'wpex_google_font_enqueue_weights', $weights, $font );
-	$italics = apply_filters( 'wpex_google_font_enqueue_italics', true );
-
-	// Google URl
-	$gurl = esc_url( apply_filters( 'pwd_get_google_fonts_url', '//fonts.googleapis.com' ) );
-
-	// Main URL
-	$url = $gurl .'/css?family='. str_replace(' ', '%20', $font ) .':';
-
-	// Add weights to URL
-	if ( ! empty( $weights ) ) {
-		$url .= implode( ',' , $weights );
-		$italic_weights = array();
-		if ( $italics ) {
-			foreach ( $weights as $weight ) {
-				$italic_weights[] = $weight .'italic';
-			}
-			$url .= implode( ',' , $italic_weights );
-		}
-	}
-
-	// Add subset to URL
-	$url .= $subset;
-
-	// Return url
-	return $url;
-
-}
-
-/**
  * Infinite scroll render function
  *
  * @since 1.0.0
@@ -885,53 +806,11 @@ function pwd_infinite_scroll_render() {
 }
 
 /**
- * Infinite scroll render function
- *
- * @since 1.0.0
- */
-function pwd_masonry_settings( $location = 'archive' ) {
-
-	// Get theme settings
-	$layout_mode = pwd_get_theme_mod( 'grid_layout_mode' );
-	if ( isset( $_GET['layout_mode'] ) ) {
-		$layout_mode = esc_html( $_GET['layout_mode'] );
-	}
-	if ( $layout_mode && in_array( $layout_mode, array( 'masonry', 'fitRows' ) ) ) {
-		$layout_mode = $layout_mode;
-	} else {
-		$layout_mode = 'fitRows';
-	}
-
-	// Custom location settings
-	if ( 'related' == $location ) {
-		$layout_mode = pwd_get_theme_mod( 'post_related_grid_layout_mode' );
-		if ( $layout_mode && in_array( $layout_mode, array( 'masonry', 'fitRows' ) ) ) {
-			$layout_mode = $layout_mode;
-		} else {
-			$layout_mode = 'fitRows';
-		}
-	}
-
-	// Apply filters
-	$settings = apply_filters( 'pwd_masonry_settings', array(
-		'itemSelector'       => '.pwd-masonry-item',
-		'originLeft'         => is_rtl() ? false : true,
-		'layoutMode'         => $layout_mode,
-		'transitionDuration' => '0',
-	), $location );
-
-	// Return settings
-	return htmlentities( json_encode( $settings ) );
-
-}
-
-/**
  * Minify CSS
  *
  * @since 1.0.0
  */
 function pwd_minify_css( $css ) {
-
 	// Normalize whitespace
 	$css = preg_replace( '/\s+/', ' ', $css );
 
@@ -952,7 +831,6 @@ function pwd_minify_css( $css ) {
 
 	// Return minified CSS
 	return trim( $css );
-
 }
 
 /**
@@ -962,7 +840,6 @@ function pwd_minify_css( $css ) {
  * @link  http://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
  */
 function pwd_get_thumbnail_sizes( $size = '' ) {
-
 	global $_wp_additional_image_sizes;
 
 	$sizes = array(

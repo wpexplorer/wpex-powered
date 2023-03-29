@@ -3,7 +3,7 @@
  * Displays the post tags
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -17,6 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Return if post tags shouldn't display
 if ( post_password_required() ) {
 	return;
-} 
+}
 
-the_tags( '<div class="pwd-post-tags pwd-clr">', '', '</div>' ); ?>
+the_tags( '<div class="pwd-post-tags">', '', '</div>' ); ?>

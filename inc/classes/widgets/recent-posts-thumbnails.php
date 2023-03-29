@@ -21,7 +21,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 		function __construct() {
 			parent::__construct(
 				'pwd_recent_posts_thumb',
-				esc_html__( 'Posts With Thumbnails', 'wpex-powered' )
+				esc_html__( 'Powered - Posts With Thumbnails', 'wpex-powered' )
 			);
 		}
 
@@ -36,18 +36,12 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 		 * @param array $instance Saved values from database.
 		 */
 		public function widget( $args, $instance ) {
-
-			// Extract args
-			extract( $args );
-
-			// Args
-			$title    = isset( $instance['title'] ) ? $instance['title'] : '';
-			$title    = apply_filters( 'widget_title', $title );
-			$number   = isset( $instance['number'] ) ? $instance['number'] : '';
-			$order    = isset( $instance['order'] ) ? $instance['order'] : 'DESC';
-			$orderby  = isset( $instance['orderby'] ) ? $instance['orderby'] : 'date';
-			$category = isset( $instance['category'] ) ? $instance['category'] : 'all';
-			$img_size = isset( $instance['img_size'] ) ? $instance['img_size'] : 'thumbnail';
+			$title    = apply_filters( 'widget_title', $instance['title'] ?? '' );
+			$number   = $instance['number'] ?? '';
+			$order    = $instance['order'] ?? 'DESC';
+			$orderby  = $instance['orderby'] ?? 'date';
+			$category = $instance['category'] ?? 'all';
+			$img_size = $instance['img_size'] ?? 'thumbnail';
 
 			// Exclude current post
 			if ( is_singular() ) {
@@ -57,11 +51,11 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 			}
 
 			// Before widget hook
-			echo pwd_sanitize( $before_widget, 'html' );
+			echo pwd_sanitize( $args['before_widget'], 'html' );
 
 			// Display widget title
 			if ( $title ) {
-				echo pwd_sanitize( $before_title . $title . $after_title, 'html' );
+				echo pwd_sanitize( $args['before_title'] . $title . $args['after_title'], 'html' );
 			}
 
 			// Category
@@ -117,7 +111,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 			wp_reset_postdata();
 
 			// After widget hook
-			echo pwd_sanitize( $after_widget, 'html' );
+			echo pwd_sanitize( $args['after_widget'], 'html' );
 		}
 
 		/**
@@ -163,7 +157,10 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 				'img_size'       => 'thumbnail',
 
 			) );
-			extract( $instance ); ?>
+
+			extract( $instance );
+
+			?>
 
 
 			<p>
@@ -201,9 +198,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 					$orderby_array['post_views'] = esc_html__( 'Post Views', 'wpex-powered' );
 				}
 				foreach ( $orderby_array as $key => $value ) { ?>
-					<option value="<?php echo esc_attr( $key ); ?>" <?php if( $orderby == $key ) { ?>selected="selected"<?php } ?>>
-						<?php echo esc_attr( $value ); ?>
-					</option>
+					<option value="<?php echo esc_attr( $key ); ?>" <?php if( $orderby == $key ) { ?>selected="selected"<?php } ?>><?php echo esc_html( $value ); ?></option>
 				<?php } ?>
 				</select>
 			</p>
@@ -216,7 +211,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 				<?php
 				$terms = get_terms( 'category' );
 				foreach ( $terms as $term ) { ?>
-					<option value="<?php echo esc_attr( $term->term_id ); ?>" <?php if( $category == $term->term_id ) { ?>selected="selected"<?php } ?>><?php echo esc_attr( $term->name ); ?></option>
+					<option value="<?php echo esc_attr( $term->term_id ); ?>" <?php if ( $category == $term->term_id ) { ?>selected="selected"<?php } ?>><?php echo esc_html( $term->name ); ?></option>
 				<?php } ?>
 				</select>
 			</p>
@@ -228,7 +223,7 @@ if ( ! class_exists( 'Powered_Recent_Posts_Thumb_Widget' ) ) {
 				<select class='pwd-select' name="<?php echo esc_attr( $this->get_field_name( 'img_size' ) ); ?>" style="width:100%;">
 					<?php $get_img_sizes = pwd_get_thumbnail_sizes(); ?>
 					<?php foreach ( $get_img_sizes as $key => $val ) { ?>
-						<option value="<?php echo esc_attr( $key ); ?>" <?php if ( $img_size == $key ) { ?>selected="selected"<?php } ?>><?php echo esc_attr( $key ); ?></option>
+						<option value="<?php echo esc_attr( $key ); ?>" <?php if ( $img_size == $key ) { ?>selected="selected"<?php } ?>><?php echo esc_html( $key ); ?></option>
 					<?php } ?>
 
 				</select>

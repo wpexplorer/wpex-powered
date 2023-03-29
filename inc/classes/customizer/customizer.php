@@ -3,7 +3,7 @@
  * Main Customizer functions
  *
  * @package     WordPress Customizer Class
- * @author      Alexander Clarke
+ * @author      WPExplorer.com
  * @copyright   Copyright (c) 2015, WPExplorer.com
  * @link        https://www.wpexplorer.com/
  * @version     1.0.0
@@ -19,13 +19,7 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 		 * @version 1.0.0
 		 */
 		public function __construct() {
-
-			// Adds CSS for customizer custom controls
-			add_action( 'customize_controls_print_styles', array( 'Powered_Customizer', 'controls_print_styles' ) );
-
-			// Register and unregister Customizer settings
 			add_action( 'customize_register', array( 'Powered_Customizer', 'customize_register' ) );
-
 		}
 
 		/**
@@ -47,20 +41,6 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 		}
 
 		/**
-		 * Adds CSS for customizer custom controls
-		 *
-		 * @link    http://codex.wordpress.org/Plugin_API/Action_Reference/customize_controls_print_styles
-		 * @version 1.0.0
-		 */
-		public static function controls_print_styles() {
-			wp_enqueue_style(
-				'pwd-customizer-style',
-				get_template_directory_uri() . '/inc/classes/customizer/assets/customizer-style.css',
-				'1.0'
-			);
-		}
-
-		/**
 		 * Registers new controls
 		 * Adds new customizer panels, sections, settings & controls
 		 *
@@ -68,8 +48,6 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 		 * @since   1.0.0
 		 */
 		public static function customize_register( $wp_customize ) {
-
-			// Register only during customize preview
 			if ( ! is_customize_preview() ) {
 				return;
 			}
@@ -81,9 +59,6 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 			if ( empty( $panels ) ) {
 				return;
 			}
-
-			// Include custom controls
-			require_once( get_template_directory() . '/inc/classes/customizer/controls.php' );
 
 			// Register panels
 			$panel_priority = 140; // add panels at the bottom
@@ -125,15 +100,15 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 
 						$control_priority++;
 
-						$id                 = isset( $setting['id'] ) ? $prefix .'_'. $setting['id'] : '';
-						$transport          = isset( $setting['transport'] ) ? $setting['transport'] : 'refresh';
-						$default            = isset( $setting['default'] ) ? $setting['default'] : '';
-						$sanitize_callback  = isset( $setting['sanitize_callback'] ) ? $setting['sanitize_callback'] : false;
-						$label              = isset( $setting['control']['label'] ) ? $setting['control']['label'] : '';
-						$control_desc       = isset( $setting['control']['desc'] ) ? $setting['control']['desc'] : '';
-						$type               = isset( $setting['control']['type'] ) ? $setting['control']['type'] : 'text';
-						$choices            = isset( $setting['control']['choices'] ) ? $setting['control']['choices'] : array();
-						$active_callback    = isset( $setting['control']['active_callback'] ) ? $setting['control']['active_callback'] : null;
+						$id = isset( $setting['id'] ) ? $prefix .'_'. $setting['id'] : '';
+						$transport = isset( $setting['transport'] ) ? $setting['transport'] : 'refresh';
+						$default = isset( $setting['default'] ) ? $setting['default'] : '';
+						$sanitize_callback = isset( $setting['sanitize_callback'] ) ? $setting['sanitize_callback'] : false;
+						$label = isset( $setting['control']['label'] ) ? $setting['control']['label'] : '';
+						$control_desc = isset( $setting['control']['desc'] ) ? $setting['control']['desc'] : '';
+						$type = isset( $setting['control']['type'] ) ? $setting['control']['type'] : 'text';
+						$choices = isset( $setting['control']['choices'] ) ? $setting['control']['choices'] : array();
+						$active_callback = isset( $setting['control']['active_callback'] ) ? $setting['control']['active_callback'] : null;
 
 						// If no ID continue
 						if ( ! $id ) {
@@ -149,8 +124,6 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 							$control_object = 'WP_Customize_Image_Control';
 						} elseif ( 'sorter' == $type ) {
 							$control_object = 'Powered_Customize_Control_Sorter';
-						} elseif ( 'google_font' == $type ) {
-							$control_object = 'Powered_Fonts_Dropdown_Control';
 						} elseif ( 'ui-slider' == $type ) {
 							$control_object = 'Powered_Customize_Sliderui_Control';
 						} else {
@@ -203,30 +176,16 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function sanitize_data( $return, $data ) {
-
-			// Hex Color
 			if ( 'hex' == $return ) {
 				if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $data ) ) {
 					$data = $data;
 				}
+			} elseif ( 'px' == $return ) {
+				$data = intval( $data );
+				$data = $data .'px';
 			}
-
-			// Pixel
-			elseif ( 'px' == $return ) {
-				 $data = intval( $data );
-				 $data = $data .'px';
-			}
-
-			// Font Family
-			elseif ( 'font-family' == $return ) {
-				 $data = "'". $data ."'";
-			}
-
-			// Return sanitized data
-			return $data;
-
+			return sanitize_text_field( $data );
 		}
-		
 
 		/**
 		 * Generates inline CSS for styling options
@@ -234,10 +193,7 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function loop_through_settings() {
-
-			// Define vars
-			$add_css      = '';
-			$google_fonts = array();
+			$add_css = '';
 
 			// Get customizer panels
 			$panels = self::get_panels();
@@ -336,13 +292,6 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 								$add_css .= $target .'{'. $alter .':'. $value . $important .';}';
 							}
 						}
-
-						// If we are altering a font-family and it's not a standard font add the font to the list of Google fonts to load
-						$standard_fonts = self::std_fonts_array();
-						if ( 'font-family' == $alter && ! in_array( $theme_mod, $standard_fonts ) ) {
-							$google_fonts[] = $theme_mod;
-						}
-
 					}
 
 				}
@@ -351,47 +300,9 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 
 			// Return data
 			return array(
-				'css'   => $add_css,
-				'fonts' => $google_fonts
+				'css' => $add_css,
 			);
 
-		}
-
-		/**
-		 * List of standard fonts used in the Fonts control
-		 *
-		 * @since 1.0.0
-		 */
-		public static function std_fonts_array() {
-			return array(
-				"Arial, Helvetica, sans-serif",
-				"Arial Black, Gadget, sans-serif",
-				"Bookman Old Style, serif",
-				"Comic Sans MS, cursive",
-				"Courier, monospace",
-				"Garamond, serif",
-				"Georgia, serif",
-				"Impact, Charcoal, sans-serif",
-				"Lucida Console, Monaco, monospace",
-				"Lucida Sans Unicode, Lucida Grande, sans-serif",
-				"MS Sans Serif, Geneva, sans-serif",
-				"MS Serif, New York, sans-serif",
-				"Palatino Linotype, 'Book Antiqua, Palatino, serif",
-				"Tahoma, Geneva, sans-serif",
-				"Times New Roman, Times, serif",
-				"Trebuchet MS, Helvetica, sans-serif",
-				"Verdana, Geneva, sans-serif",
-				"Garamond, serif",
-				"Bookman Old Style",
-				"Verdana",
-				"Comic Sans",
-				"Courier, monospace",
-				"Comic Sans MS",
-				"Courier",
-				"Georgia",
-				"Paratina Linotype",
-				"Trebuchet MS",
-			);
 		}
 
 	}

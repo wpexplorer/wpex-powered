@@ -3,7 +3,7 @@
  * Footer popular Posts
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -47,9 +47,9 @@ $pwd_query = new wp_query( $args );
 // Display popular items
 if ( $pwd_query->have_posts() ) { ?>
 
-	<section class="pwd-footer-pp pwd-clr">
+	<section class="pwd-footer-pp">
 
-		<div class="pwd-container pwd-clr">
+		<div class="pwd-container">
 
 			<?php
 			// Display heading
@@ -62,25 +62,19 @@ if ( $pwd_query->have_posts() ) { ?>
 
 			<?php endif; ?>
 
-			<div class="pwd-row pwd-clr"><?php
+			<div class="pwd-row pwd-row-cols-5"><?php
 
 				// Loop through related posts
-				$pwd_count=0;
-				foreach( $pwd_query->posts as $post ) : setup_postdata( $post );
+				foreach ( $pwd_query->posts as $post ) : setup_postdata( $post ); ?>
 
-					// Add to counter
-					$pwd_count++; ?>
+					<div class="pwd-col">
+						<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>">
+							<?php the_post_thumbnail( 'pwd_footer_popular' ); ?>
+							<div class="pwd-footer-pp-entry-title"><?php the_title(); ?></div>
+						</a>
+					</div>
 
-						<div class="pwd-col pwd-col-5 pwd-clr">
-							<a href="<?php the_permalink(); ?>" title="<?php pwd_esc_title(); ?>">
-								<?php the_post_thumbnail( 'pwd_footer_popular' ); ?>
-								<div class="pwd-footer-pp-entry-title"><?php the_title(); ?></div>
-							</a>
-						</div>
-
-					<?php
-
-				endforeach;
+				<?php endforeach;
 
 			?></div><!-- .pwd-row -->
 

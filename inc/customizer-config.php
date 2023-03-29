@@ -3,7 +3,7 @@
  * Defines all settings for the customizer class
  *
  * @package Powered WordPress Theme
- * @author Alexander Clarke
+ * @author WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link https://www.wpexplorer.com/
  * @since 1.0.0
@@ -73,7 +73,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'control' => array(
 						'label' => esc_html__( 'Container Max Width Percent', 'wpex-powered' ),
 						'type' => 'text',
-						'active_callback' => 'pwd_is_responsive',
 						'desc' => esc_html__( 'Default:', 'wpex-powered' ) .' 85%',
 					),
 				),
@@ -151,29 +150,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 			),
 		);
 
-		// Responsive
-		$panels['general']['sections']['responsive'] = array(
-			'id' => 'pwd_responsive',
-			'title' => esc_html__( 'Responsiveness', 'wpex-powered' ),
-			'settings' => array(
-				array(
-					'id' => 'responsive',
-					'default' => true,
-					'control' => array(
-						'label' => esc_html__( 'Enable', 'wpex-powered' ),
-						'type' => 'checkbox',
-					),
-				),
-				array(
-					'id' => 'mobile_menu_breakpoint',
-					'control' => array(
-						'label' => esc_html__( 'Mobile Menu Breakpoint', 'wpex-powered' ),
-						'desc' => esc_html__( 'The window width at which the theme will hide the default menu and display the mobile menu. Default is 959px.', 'wpex-powered' ),
-					),
-				),
-			),
-		);
-
 		// Header Section
 		$panels['general']['sections']['general'] = array(
 			'id' => 'pwd_general',
@@ -193,13 +169,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						'type' => 'upload',
 					),
 				),
-				array(
-					'id' => 'logo_retina_height',
-					'control' => array(
-						'label' => esc_html__( 'Standard Logo Height', 'wpex-powered' ),
-						'desc' => esc_html__( 'Enter the standard height for your logo. Used to set your retina logo to the correct dimensions.', 'wpex-powered' ),
-					),
-				),
 			),
 		);
 
@@ -217,6 +186,36 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					),
 				),
 				array(
+					'id' => 'archive_featured_post_height',
+					'control' => array(
+						'label' => esc_html__( 'Featured Post Height (px)', 'wpex-powered' ),
+						'type' => 'text',
+						'input_attrs' => [
+							'placeholder' => '480px',
+						],
+					),
+					'inline_css' => array(
+						'target' => ':root',
+						'alter' => '--pwd-featured-post-height',
+						'sanitize' => 'px',
+					),
+				),
+				array(
+					'id' => 'archive_featured_post_height_mobile',
+					'control' => array(
+						'label' => esc_html__( 'Mobile Featured Post Image Height (px)', 'wpex-powered' ),
+						'type' => 'text',
+						'input_attrs' => [
+							'placeholder' => '260px',
+						],
+					),
+					'inline_css' => array(
+						'target' => ':root',
+						'alter' => '--pwd-featured-post-mobile-height',
+						'sanitize' => 'px',
+					),
+				),
+				array(
 					'id' => 'entry_columns',
 					'default' => '3',
 					'control' => array(
@@ -227,18 +226,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 							'2' => '2',
 							'3' => '3',
 							'4' => '4',
-						),
-					),
-				),
-				array(
-					'id' => 'grid_layout_mode',
-					'default' => 'fitRows',
-					'control' => array(
-						'label' => esc_html__( 'Grid Layout Mode', 'wpex-powered' ),
-						'type' => 'select',
-						'choices' => array(
-							'fitRows' => esc_html__( 'Fit Rows', 'wpex-powered' ),
-							'masonry' => esc_html__( 'Masonry', 'wpex-powered' ),
 						),
 					),
 				),
@@ -358,19 +345,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					),
 				),
 				array(
-					'id' => 'post_related_grid_layout_mode',
-					'default' => 'fitRows',
-					'control' => array(
-						'label' => esc_html__( 'Grid Layout Mode', 'wpex-powered' ),
-						'type' => 'select',
-						'choices' => array(
-							'fitRows' => esc_html__( 'Fit Rows', 'wpex-powered' ),
-							'masonry' => esc_html__( 'Masonry', 'wpex-powered' ),
-						),
-						'active_callback' => 'pwd_customizer_has_related_posts',
-					),
-				),
-				array(
 					'id' => 'post_related_displays',
 					'default' => 'related_tags',
 					'control' => array(
@@ -424,15 +398,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						)
 					),
 				),
-				array(
-					'id' => 'footer_copyright',
-					'default' => '<a href="http://www.wordpress.org" title="WordPress" target="_blank">WordPress</a> Theme Designed &amp; Developed by <a href="https://www.wpexplorer.com//" target="_blank" title="WPExplorer">WPExplorer</a>',
-					'control' => array(
-						'label' => esc_html__( 'Footer Copyright', 'wpex-powered' ),
-						'type' => 'textarea',
-						'desc' =>  esc_html__( 'Use shortcode [pwd_current_year] to display current year.', 'wpex-powered' ),
-					),
-				),
 			),
 		);
 
@@ -477,135 +442,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 		);
 
 		/*-----------------------------------------------------------------------------------*/
-		/* - Typography
-		/*-----------------------------------------------------------------------------------*/
-		$panels['typography'] = array(
-			'title' => esc_html__( 'Typography', 'wpex-powered' ),
-			'description' => esc_html__( 'It is highly recommended that you do NOT use more then a couple custom Google fonts on the site because it could greatly slow things down.', 'wpex-powered' ),
-			'sections' => array(
-
-				// Body Typography
-				array(
-					'id' => 'body',
-					'title' => esc_html__( 'Body', 'wpex-powered' ),
-					'settings' => array(
-						array(
-							'id' => 'body_font_family',
-							'default' => 'Open Sans',
-							'control' => array(
-								'label' => esc_html__( 'Font Family', 'wpex-powered' ),
-								'type' => 'google_font',
-							),
-							'inline_css' => array(
-								'target' => 'body',
-								'alter' => 'font-family',
-							),
-						),
-					),
-				),
-
-				// Logo Typography
-				array(
-					'id' => 'pwd_logo_typography',
-					'title' => esc_html__( 'Logo', 'wpex-powered' ),
-					'settings' => array(
-						array(
-							'id' => 'logo_font_family',
-							//'default' => 'Crete Round',
-							'control' => array(
-								'label' => esc_html__( 'Font Family', 'wpex-powered' ),
-								'type' => 'google_font',
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-logo',
-								'alter' => 'font-family',
-							),
-						),
-						array(
-							'id' => 'logo_font_weight',
-							'control' => array(
-								'label' => esc_html__( 'Font Weight', 'wpex-powered' ),
-								'type' => 'select',
-								'choices' => $font_weights,
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-logo .site-text-logo',
-								'alter' => 'font-weight',
-							),
-						),
-						array(
-							'id' => 'logo_size',
-							'control' => array(
-								'label' => esc_html__( 'Font Size', 'wpex-powered' ),
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-logo .site-text-logo',
-								'alter' => 'font-size',
-								'sanitize' => 'px',
-							),
-						),
-						array(
-							'id' => 'logo_letter_spacing',
-							'control' => array(
-								'label' => esc_html__( 'Letter Spacing', 'wpex-powered' ),
-							),
-							'inline_css' => array(
-								'target' => '.pwd-site-logo .site-text-logo',
-								'alter' => 'letter-spacing',
-								'sanitize' => 'px',
-							),
-						),
-					),
-				),
-
-				// Headings Typography
-				array(
-					'id' => 'gds_headings_typography',
-					'title' => esc_html__( 'Headings', 'wpex-powered' ),
-					'desc' => 'h1,h2,h3,h4,h5,h6',
-					'settings' => array(
-						array(
-							'id' => 'headings_font_family',
-							'default' => 'Lato',
-							'control' => array(
-								'label' => esc_html__( 'Font Family', 'wpex-powered' ),
-								'type' => 'google_font',
-							),
-							'inline_css' => array(
-								'target' => 'h1,h2,h3,h4,h5,h6',
-								'alter' => 'font-family',
-							),
-						),
-						array(
-							'id' => 'headings_font_weight',
-							'control' => array(
-								'label' => esc_html__( 'Font Weight', 'wpex-powered' ),
-								'type' => 'select',
-								'choices' => $font_weights,
-							),
-							'inline_css' => array(
-								'target' => 'h1,h2,h3,h4,h5,h6',
-								'alter' => 'font-weight',
-							),
-						),
-						array(
-							'id' => 'headings_letter_spacing',
-							'control' => array(
-								'label' => esc_html__( 'Letter Spacing', 'wpex-powered' ),
-							),
-							'inline_css' => array(
-								'target' => 'h1,h2,h3,h4,h5,h6',
-								'alter' => 'letter-spacing',
-								'sanitize' => 'px',
-							),
-						),
-					),
-				),
-
-			),
-		);
-
-		/*-----------------------------------------------------------------------------------*/
 		/* - Styling Panel
 		/*-----------------------------------------------------------------------------------*/
 		$panels['styling'] = array(
@@ -619,10 +455,14 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 					'settings' => array(
 						array(
 							'id' => 'accent_color',
-							'default' => '#177fff',
 							'control' => array(
 								'label' => esc_html__( 'Accent Color', 'wpex-powered' ),
 								'type' => 'color',
+							),
+							'inline_css' => array(
+								'target' => ':root',
+								'alter' => '--pwd-accent',
+								'sanitize' => 'hex',
 							),
 						),
 					),
@@ -665,9 +505,7 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 								'target' => '.pwd-site-logo a',
 								'alter' => array(
 									'color',
-									'border-color',
 								),
-								'important' => true,
 							),
 						),
 					),

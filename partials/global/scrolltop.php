@@ -3,7 +3,7 @@
  * Scroll to top button
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,4 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<a href="#" title="<?php esc_html_e( 'Top', 'wpex-powered' ); ?>" class="pwd-site-scroll-top"><span class="fa fa-chevron-up" aria-hidden="true"></span></a>
+<a href="#" class="pwd-site-scroll-top"><span class="fa fa-chevron-up" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'scroll to the top of the site', 'wpex-powered' ); ?></span></a>

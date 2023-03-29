@@ -7,7 +7,7 @@
  * pwd_comment() which is located at functions/comments-callback.php
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -26,7 +26,7 @@ if ( ! pwd_has_comments() ) {
 // Check if there are comments
 $have_comments = have_comments(); ?>
 
-<div id="comments" class="comments-area pwd-boxed-content pwd-clr">
+<div id="comments" class="comments-area pwd-boxed-content">
 
 	<?php
 	// Get comments title
@@ -48,7 +48,7 @@ $have_comments = have_comments(); ?>
 
 	<h5 class="pwd-comments-title pwd-heading"><?php echo esc_html( $comments_title ); ?></h5>
 
-	<div class="pwd-comments-wrap pwd-clr">
+	<div class="pwd-comments-wrap">
 
 		<?php
 		// Display comments if we have some
@@ -67,7 +67,7 @@ $have_comments = have_comments(); ?>
 			// Display comment pagination
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 
-				<nav class="navigation comment-navigation row pwd-clr" role="navigation">
+				<nav class="navigation comment-navigation row" role="navigation">
 					<h3 class="assistive-text pwd-heading"><span><?php esc_html_e( 'Comment navigation', 'wpex-powered' ); ?></span></h3>
 					<div class="pwd-clr">
 						<div class="pwd-nav-previous"><?php
@@ -85,7 +85,7 @@ $have_comments = have_comments(); ?>
 			// Display comments closed notice
 			if ( ! comments_open() ) : ?>
 
-				<div class="comments-closed-notice pwd-clr"><?php
+				<div class="comments-closed-notice"><?php
 
 					esc_html_e( 'Comments are now closed.', 'wpex-powered' );
 

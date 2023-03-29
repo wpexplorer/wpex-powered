@@ -10,7 +10,7 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -18,45 +18,36 @@
 
 get_header(); ?>
 
-	<div class="pwd-content-area pwd-clr">
+	<div class="pwd-content-area">
 
-		<main class="pwd-site-main pwd-clr">
+		<main class="pwd-site-main">
 
 			<?php
 			// Display page header
 			get_template_part( 'partials/archives/header' ); ?>
 
 			<?php
-			// Featured post
-			if ( pwd_archive_has_featured_post() && ( is_front_page() || is_archive() ) ) :
-
-				get_template_part( 'partials/archives/featured-post' );
-
-			endif; ?>
-
-			<?php
 			// Check if posts exist
-			if ( have_posts() ) : ?>
+			if ( have_posts() ) :
 
-				<div id="pwd-grid" class="pwd-entries pwd-row pwd-clr" data-settings="<?php echo pwd_masonry_settings(); ?>">
-
-					<?php
-					// Set counter
-					$pwd_count = 0;
-
-					// Get query
-					global $wp_query;
+				$has_featured = pwd_archive_has_featured_post() && ( is_front_page() || is_archive() );
+				$columns = pwd_get_loop_columns( 'archive' ) ?: '3';
+				$pwd_count = 0;
 
 					// Loop through posts
 					while ( have_posts() ) : the_post();
+						$pwd_count++;
 
-						// Exclude featured post
-						if ( get_the_ID() == pwd_get_first_post_with_thumb() ) {
-							continue;
+						if ( 1 === $pwd_count ) {
+							if ( $has_featured ) {
+								get_template_part( 'partials/archives/featured-post', null, [ 'post_id' => get_the_ID() ] );
+							}
+							echo '<div id="pwd-grid" class="pwd-entries pwd-row pwd-row-cols-' . absint( $columns ) . '">';
 						}
 
-						// Display post entry
-						get_template_part( 'partials/layout-entry' );
+						if ( $pwd_count > 1 || ! $has_featured ) {
+							get_template_part( 'partials/layout-entry' );
+						}
 
 					// End loop
 					endwhile; ?>
@@ -65,10 +56,13 @@ get_header(); ?>
 
 				<?php
 				// Include pagination template part
+				$is_rtl = is_rtl();
+				$left_arrow = $is_rtl ? 'fa-chevron-right' : 'fa-chevron-left';
+				$right_arrow = $is_rtl ? 'fa-chevron-left' : 'fa-chevron-right';
 				the_posts_pagination( apply_filters( 'pwd_pagination_args', array(
 					'mid_size'  => 3,
-					'prev_text' => '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
-					'next_text' => '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+					'prev_text' => '<i class="fa ' . $left_arrow . '" aria-hidden="true"></i><span class="screen-reader-text">' . esc_html__( 'previous items', 'wpex-powered' ) . '</span>',
+					'next_text' => '<i class="fa ' . $right_arrow . '" aria-hidden="true"></i><span class="screen-reader-text">' . esc_html__( 'next items', 'wpex-powered' ) . '</span>',
 				) ) ); ?>
 
 			<?php

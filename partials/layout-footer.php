@@ -3,7 +3,7 @@
  * Footer Layout
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -12,7 +12,9 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-} ?>
+}
+
+?>
 
 <?php get_template_part( 'partials/footer/footer-popular' ); ?>
 
@@ -21,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php if ( pwd_has_footer_widgets() ) : ?>
 
 		<?php get_template_part( 'partials/footer/footer-widgets' ); ?>
-		
+
 	<?php endif; ?>
 
 	<?php if ( get_theme_mod( 'footer_bottom', true  ) ) : ?>
 
 		<div class="pwd-footer-bottom">
 
-			<div class="pwd-container pwd-clr"><?php
+			<div class="pwd-container"><?php
 
 				get_template_part( 'partials/footer/footer-copyright' );
 

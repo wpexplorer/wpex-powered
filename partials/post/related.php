@@ -3,7 +3,7 @@
  * Single related posts
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -69,9 +69,13 @@ global $pwd_query;
 $pwd_query = new wp_query( $args );
 
 // Display related items
-if ( $pwd_query->have_posts() ) { ?>
+if ( $pwd_query->have_posts() ) {
 
-	<section class="pwd-related-posts pwd-clr">
+$cols = pwd_get_loop_columns( 'related' ) ?: '2';
+
+?>
+
+	<section class="pwd-related-posts">
 
 		<?php
 		// Display heading
@@ -81,14 +85,10 @@ if ( $pwd_query->have_posts() ) { ?>
 			<h4 class="pwd-heading"><?php echo pwd_sanitize( $heading, 'html' ); ?></h4>
 		<?php endif; ?>
 
-		<div class="pwd-entries pwd-row pwd-clr" data-settings="<?php echo pwd_masonry_settings( 'related' ); ?>"><?php
+		<div class="pwd-entries pwd-row pwd-row-cols-<?php echo absint( $cols ); ?>"><?php
 
 			// Loop through related posts
-			$pwd_count=0;
-			foreach( $pwd_query->posts as $post ) : setup_postdata( $post );
-
-				// Add to counter
-				$pwd_count++;
+			foreach ( $pwd_query->posts as $post ) : setup_postdata( $post );
 
 				// Display post entry
 				get_template_part( 'partials/layout-entry' );

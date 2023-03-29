@@ -3,7 +3,7 @@
  * Single post layout
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<article class="pwd-post-article pwd-clr"<?php pwd_schema_markup( 'blog_post' ); ?>>
+<article class="pwd-post-article"<?php pwd_schema_markup( 'blog_post' ); ?>>
 
 	<?php
 	// Entry media should display only if not protected

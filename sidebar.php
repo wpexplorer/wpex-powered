@@ -3,7 +3,7 @@
  * The sidebar containing the main widget area.
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -18,7 +18,7 @@ $sidebar = ( is_singular( 'page' ) && is_active_sidebar( 'sidebar_pages' ) ) ? '
 
 if ( is_active_sidebar( $sidebar ) ) : ?>
 
-	<aside class="pwd-sidebar pwd-clr"<?php pwd_schema_markup( 'sidebar' ); ?>>
+	<aside class="pwd-sidebar"<?php pwd_schema_markup( 'sidebar' ); ?>>
 
 		<div class="pwd-widget-area">
 

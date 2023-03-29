@@ -3,7 +3,7 @@
  * Header search
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,4 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<div class="pwd-site-header-search pwd-clr"><?php get_search_form(); ?></div>
+<div class="pwd-site-header-search"><?php get_search_form(); ?></div>

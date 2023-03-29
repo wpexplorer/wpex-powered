@@ -3,7 +3,7 @@
  * Used to display post author info
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -35,11 +35,11 @@ if ( ! $author_description ) {
 	return;
 } ?>
 
-<div class="author-info pwd-clr">
+<div class="author-info">
 	<h4 class="heading"><span><?php printf( esc_html__( 'Written by %s', 'wpex-powered' ), $author ); ?></span></h4>
-	<div class="author-info-inner pwd-clr">
+	<div class="author-info-inner">
 		<?php if ( $author_avatar ) { ?>
-			<div class="author-avatar pwd-clr">
+			<div class="author-avatar">
 				<a href="<?php echo esc_url( $author_url ); ?>" rel="author" title="<?php esc_attr( $author ); ?>">
 					<?php echo pwd_sanitize( $author_avatar, 'image' ); ?>
 				</a>
@@ -49,7 +49,7 @@ if ( ! $author_description ) {
 			<p><?php echo pwd_sanitize( $author_description, 'html' ); ?></p>
 		</div><!-- .author-description -->
 		<?php if ( pwd_author_has_social() ) : ?>
-			<div class="author-social pwd-clr">
+			<div class="author-social">
 				<?php
 				// Display twitter url
 				if ( $url = get_the_author_meta( 'pwd_twitter', $post->post_author ) ) { ?>

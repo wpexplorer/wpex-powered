@@ -3,7 +3,7 @@
  * Returns the page layout components
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } ?>
 
-<article class="pwd-page-article pwd-clr"><?php
+<article class="pwd-page-article"><?php
 
 	// Featured image
 	if ( has_post_thumbnail() ) :

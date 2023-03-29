@@ -7,7 +7,7 @@
  * 'pages' on your WordPress site will use a different template.
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
@@ -15,9 +15,9 @@
 
 get_header(); ?>
 
-	<div class="pwd-content-area pwd-clr">
+	<div class="pwd-content-area">
 
-		<main class="pwd-site-main pwd-clr">
+		<main class="pwd-site-main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

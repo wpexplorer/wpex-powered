@@ -3,7 +3,7 @@
  * Outputs a read more link for entries / Not used by default but available if you want to add it.
  *
  * @package   Powered WordPress Theme
- * @author    Alexander Clarke
+ * @author    WPExplorer.com
  * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0

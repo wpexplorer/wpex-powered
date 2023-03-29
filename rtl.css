@@ -12,10 +12,10 @@
 ------------------------------------------------------------------*/
 
 /* Header */
-.pwd-site-branding { float: right; margin-right: 0; margin-left: 60px; }
-.pwd-site-nav { float: left; }
-.pwd-site-nav .pwd-dropdown-menu > li { float: right; }
-.pwd-site-nav .pwd-dropdown-menu li a .fa { margin-left: 0; margin-right: 5px; }
+.pwd-site-branding { margin-right: 0; margin-left: 60px; }
+.pwd-site-nav .pwd-dropdown-menu > .menu-item { float: right; }
+.pwd-site-nav .pwd-dropdown-menu .menu-item a .fa { margin-left: 0; margin-right: 5px; }
+.pwd-site-nav .pwd-dropdown-menu .sub-menu { left: initial; }
 .pwd-site-header-search { left: 0; right: auto; }
 .pwd-site-header-wrap .slicknav_menu { float: left; }
 
@@ -26,32 +26,15 @@
 .pwd-loop-entry-format-icon { margin-right: 0; margin-left: 0.8em; }
 
 /* Pagination */
-.pwd-page-numbers li { float: right; }
+.pwd-page-numbers a, .pwd-page-numbers span, .nav-links a, .nav-links span { float: right; }
 .pwd-page-numbers a.next .fa:before { content: "\f053"; }
 .pwd-page-numbers a.prev .fa:before { content: "\f054"; }
 
 /* Widgets */
-.widget-recent-list li { padding-left: 0; padding-right: 100px; }
-.widget-recent-list .pwd-thumbnail { right: 0; left: auto; }
-
-.widget_tag_cloud a { float: right; margin: 0 0 3px 3px; }
-
 .pwd-site-searchform input[type="search"] { padding-right: 0.857em; padding-left: 50px; }
 .pwd-site-searchform button { right: auto; left: 0; }
 
-.footer-widget .pwd-social-profiles-widget li { float: right; padding: 0; margin-left: 0; margin-right: 5px; }
-.footer-widget .pwd-social-profiles-widget li:first-child { margin-right: 0; }
-
 /* Posts */
-.pwd-meta li, .pwd-meta .pwd-sep { float: right; }
-.pwd-post-share li { float: right; margin-right: 0; margin-left: 6px; }
-.pwd-post-share a .fa { margin-right: 0; margin-left: 6px; }
-.pwd-post-tags a { float: right; margin-right: 0; margin-left: 3px; }
-
-.pwd-author-info-inner { padding-left: 30px; padding-right: 160px; }
-.pwd-author-info-avatar { left: auto; right: 30px; }
-.pwd-author-info-social a { float: right; margin-right: 0; margin-left: 3px; }
-
 .pwd-post-navigation .fa { display: none; }
 .pwd-post-navigation .nav-next { float: right; }
 .pwd-post-navigation .nav-previous { float: left; text-align: left; }

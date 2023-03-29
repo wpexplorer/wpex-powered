@@ -3,134 +3,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Powered WordPress Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-16 14:01-0700\n"
+"POT-Creation-Date: 2023-03-28 21:05-0700\n"
 "PO-Revision-Date: 2016-07-26 10:42-0800\n"
 "Last-Translator: \n"
 "Language-Team: WPExplorer.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Lapwd-Translator: AJ Clarke <stplorer@gmail.com>\n"
 "X-Poedit-KeywordsList: esc_html_e;gettext;gettext_noop;__;_e;_n;_nx;"
 "esc_html__;esc_html_x;_x\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 2.2.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../admin/about.php:120
-msgid "A free WordPress theme by WPExplorer"
-msgstr ""
-
-#: ../admin/about.php:120
-msgid "Theme Details"
-msgstr ""
-
-#: ../admin/about.php:120
-msgid "More Themes"
-msgstr ""
-
-#: ../admin/about.php:124
-msgid "About"
-msgstr ""
-
-#: ../admin/about.php:127
-msgid "GPL License"
-msgstr ""
-
-#: ../admin/about.php:128
-msgid ""
-"This theme is licensed under the GPL license. This means you can use it for "
-"anything you like as long as it remains GPL."
-msgstr ""
-
-#: ../admin/about.php:132
-msgid "Credits"
-msgstr ""
-
-#: ../admin/about.php:134
-msgid "This theme was created by:"
-msgstr ""
-
-#: ../admin/about.php:136
-msgid "We work hard to develop, support and update this theme."
-msgstr ""
-
-#: ../admin/about.php:138
-msgid ""
-"A back-link to our website is very much appreciated or you can follow us via "
-"our social media!"
-msgstr ""
-
-#: ../admin/about.php:149
-msgid "Getting Started"
-msgstr ""
-
-#: ../admin/about.php:153
-msgid ""
-"Below you will find some useful links to get you started with this theme."
-msgstr ""
-
-#: ../admin/about.php:163
-msgid "Customize Your Site"
-msgstr ""
-
-#: ../admin/about.php:168
-msgid "Recommendations"
-msgstr ""
-
-#: ../admin/about.php:171
-msgid "Plugins"
-msgstr ""
-
-#: ../admin/about.php:172
-msgid ""
-"Below you will find links to plugins we (WPExplorer.com staff) personally "
-"like and recommend. None of these plugins are required for your theme to "
-"work, they simply add additional functionality."
-msgstr ""
-
-#: ../admin/about.php:187
-msgid "Total Drag & Drop Theme"
-msgstr ""
-
-#: ../admin/about.php:188
-msgid ""
-"Check out our most advanced (yet easy to use) and flexible theme to date."
-msgstr ""
-
-#: ../admin/about.php:196
-msgid "WordPress Hosting"
-msgstr ""
-
-#: ../admin/about.php:197
-msgid ""
-"If you need fast and reliable hosting we recommend the same host we use and "
-"love WPEngine."
-msgstr ""
-
-#: ../admin/about.php:205
-msgid "Deals & Coupons"
-msgstr ""
-
-#: ../admin/about.php:206
-msgid "Check out our coupons page for great deals on WordPress resources."
-msgstr ""
-
-#: ../admin/about.php:213 ../admin/about.php:215
-msgid "Disable This Page"
-msgstr ""
-
-#: ../admin/about.php:214
-msgid ""
-"Click the link below to disable this about page completely and never see it "
-"again."
-msgstr ""
-
-#: ../admin/dashboard-feed.php:9
-msgid "WordPress Articles"
-msgstr ""
 
 #: ../comments.php:37
 msgid "This Article Has 1 Comment"
@@ -161,169 +48,115 @@ msgstr ""
 msgid "Comments are now closed."
 msgstr ""
 
-#: ../functions.php:153 ../inc/customizer-config.php:619
+#: ../functions.php:111 ../inc/customizer-config.php:454
 msgid "Main"
 msgstr ""
 
-#: ../functions.php:154
-msgid "Mobile Alternative"
+#: ../functions.php:194
+msgid "toggle mobile menu"
 msgstr ""
 
-#: ../functions.php:323
+#: ../functions.php:217
 msgid "Sidebar - Main"
 msgstr ""
 
-#: ../functions.php:333
+#: ../functions.php:227
 msgid "Sidebar - Pages"
 msgstr ""
 
-#: ../functions.php:348
+#: ../functions.php:242
 msgid "Footer 1"
 msgstr ""
 
-#: ../functions.php:362
+#: ../functions.php:256
 msgid "Footer 2"
 msgstr ""
 
-#: ../functions.php:376
+#: ../functions.php:270
 msgid "Footer 3"
 msgstr ""
 
-#: ../functions.php:390
+#: ../functions.php:284
 msgid "Footer 4"
 msgstr ""
 
-#: ../functions.php:502
+#: ../functions.php:374
 msgid "Featured Image"
 msgstr ""
 
-#: ../inc/classes/customizer/controls.php:13 ../inc/core-functions.php:79
-#: ../inc/customizer-config.php:22 ../inc/customizer-config.php:38
-#: ../inc/meta-pages.php:68
-msgid "Default"
-msgstr ""
-
-#: ../inc/classes/customizer/controls.php:19
-msgid "Custom Fonts"
-msgstr ""
-
-#: ../inc/classes/customizer/controls.php:26
-msgid "Standard Fonts"
-msgstr ""
-
-#: ../inc/classes/customizer/controls.php:36
-msgid "Google Fonts"
+#: ../header.php:27
+msgid "Skip to content"
 msgstr ""
 
 #: ../inc/classes/widgets/recent-posts-thumbnails.php:24
-msgid "Posts With Thumbnails"
+msgid "Powered - Posts With Thumbnails"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:156
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:150
 msgid "Recent Posts"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:170
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:194
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:167
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:191
 msgid "Title"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:175
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:172
 msgid "Number to Show"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:180
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:177
 msgid "Order"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:183
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:180
 msgid "Descending"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:184
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:181
 msgid "Ascending"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:189
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:186
 msgid "Order By"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:193
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:190
 msgid "Date"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:195
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:192
 msgid "Modified"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:196
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:193
 msgid "Author"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:197
-#: ../inc/customizer-config.php:383
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:194
+#: ../inc/customizer-config.php:356
 msgid "Random"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:198
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:195
 msgid "Comment Count"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:201
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:198
 msgid "Post Views"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:212
-#: ../inc/customizer-config.php:382
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:207
+#: ../inc/customizer-config.php:355
 msgid "Category"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:215
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:210
 msgid "All"
 msgstr ""
 
-#: ../inc/classes/widgets/recent-posts-thumbnails.php:226
+#: ../inc/classes/widgets/recent-posts-thumbnails.php:221
 msgid "Image Size"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:109
-msgid "Email"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:117
-msgid "Social Profiles"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:209
-msgid "Follow Us"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:220
-msgid "Title:"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:225
-msgid "Description:"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:230
-msgid "Link Target:"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:233
-msgid "Blank"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:234
-msgid "Self"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:241
-msgid "Social Links"
-msgstr ""
-
-#: ../inc/classes/widgets/social.php:242
-msgid "Drag and drop to re-order items."
 msgstr ""
 
 #: ../inc/core-functions.php:50
@@ -346,9 +179,14 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: ../inc/core-functions.php:55 ../inc/customizer-config.php:409
+#: ../inc/core-functions.php:55 ../inc/customizer-config.php:382
 #: ../partials/footer/footer-popular.php:57
 msgid "Popular Posts"
+msgstr ""
+
+#: ../inc/core-functions.php:79 ../inc/customizer-config.php:22
+#: ../inc/customizer-config.php:38 ../inc/meta-pages.php:68
+msgid "Default"
 msgstr ""
 
 #: ../inc/core-functions.php:80
@@ -387,28 +225,28 @@ msgstr ""
 msgid "Bottom Center"
 msgstr ""
 
-#: ../inc/core-functions.php:466
+#: ../inc/core-functions.php:439
 msgid "Pingback:"
 msgstr ""
 
-#: ../inc/core-functions.php:486
+#: ../inc/core-functions.php:459
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: ../inc/core-functions.php:492
+#: ../inc/core-functions.php:465
 msgid "Reply"
 msgstr ""
 
-#: ../inc/core-functions.php:500
+#: ../inc/core-functions.php:473
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../inc/core-functions.php:509
+#: ../inc/core-functions.php:482
 msgid "Edit"
 msgstr ""
 
-#: ../inc/core-functions.php:555
+#: ../inc/core-functions.php:528
 msgid "read more"
 msgstr ""
 
@@ -436,8 +274,8 @@ msgstr ""
 msgid "Container Width"
 msgstr ""
 
-#: ../inc/customizer-config.php:68 ../inc/customizer-config.php:77
-#: ../inc/customizer-config.php:85 ../inc/customizer-config.php:93
+#: ../inc/customizer-config.php:68 ../inc/customizer-config.php:76
+#: ../inc/customizer-config.php:84 ../inc/customizer-config.php:92
 msgid "Default:"
 msgstr ""
 
@@ -445,357 +283,278 @@ msgstr ""
 msgid "Container Max Width Percent"
 msgstr ""
 
-#: ../inc/customizer-config.php:83
+#: ../inc/customizer-config.php:82
 msgid "Content Area Width"
 msgstr ""
 
-#: ../inc/customizer-config.php:91
+#: ../inc/customizer-config.php:90
 msgid "Sidebar Width"
 msgstr ""
 
-#: ../inc/customizer-config.php:102
+#: ../inc/customizer-config.php:101
 msgid "Layouts"
 msgstr ""
 
-#: ../inc/customizer-config.php:108
+#: ../inc/customizer-config.php:107
 msgid "Homepage Layout"
 msgstr ""
 
-#: ../inc/customizer-config.php:117
+#: ../inc/customizer-config.php:116
 msgid "Archives Layout"
 msgstr ""
 
-#: ../inc/customizer-config.php:120
+#: ../inc/customizer-config.php:119
 msgid "Categories, tags, author...etc"
 msgstr ""
 
-#: ../inc/customizer-config.php:128
+#: ../inc/customizer-config.php:127
 msgid "Search Layout"
 msgstr ""
 
-#: ../inc/customizer-config.php:137
+#: ../inc/customizer-config.php:136
 msgid "Post Layout"
 msgstr ""
 
-#: ../inc/customizer-config.php:146
+#: ../inc/customizer-config.php:145
 msgid "Page Layout"
 msgstr ""
 
-#: ../inc/customizer-config.php:157
-msgid "Responsiveness"
-msgstr ""
-
-#: ../inc/customizer-config.php:163
-msgid "Enable"
-msgstr ""
-
-#: ../inc/customizer-config.php:170
-msgid "Mobile Menu Breakpoint"
-msgstr ""
-
-#: ../inc/customizer-config.php:171
-msgid ""
-"The window width at which the theme will hide the default menu and display "
-"the mobile menu. Default is 959px."
-msgstr ""
-
-#: ../inc/customizer-config.php:180 ../inc/customizer-config.php:635
+#: ../inc/customizer-config.php:156 ../inc/customizer-config.php:474
 msgid "Header"
 msgstr ""
 
-#: ../inc/customizer-config.php:185
+#: ../inc/customizer-config.php:161
 msgid "Custom Logo"
 msgstr ""
 
-#: ../inc/customizer-config.php:192
+#: ../inc/customizer-config.php:168
 msgid "Custom Retina Logo"
 msgstr ""
 
-#: ../inc/customizer-config.php:199
-msgid "Standard Logo Height"
-msgstr ""
-
-#: ../inc/customizer-config.php:200
-msgid ""
-"Enter the standard height for your logo. Used to set your retina logo to the "
-"correct dimensions."
-msgstr ""
-
-#: ../inc/customizer-config.php:209
+#: ../inc/customizer-config.php:178
 msgid "Entries"
 msgstr ""
 
-#: ../inc/customizer-config.php:215
+#: ../inc/customizer-config.php:184
 msgid "Featured Post?"
 msgstr ""
 
-#: ../inc/customizer-config.php:223
+#: ../inc/customizer-config.php:191
+msgid "Featured Post Height (px)"
+msgstr ""
+
+#: ../inc/customizer-config.php:206
+msgid "Mobile Featured Post Image Height (px)"
+msgstr ""
+
+#: ../inc/customizer-config.php:222
 msgid "Grid Columns"
 msgstr ""
 
-#: ../inc/customizer-config.php:237 ../inc/customizer-config.php:365
-msgid "Grid Layout Mode"
-msgstr ""
-
-#: ../inc/customizer-config.php:240 ../inc/customizer-config.php:368
-msgid "Fit Rows"
-msgstr ""
-
-#: ../inc/customizer-config.php:241 ../inc/customizer-config.php:369
-msgid "Masonry"
-msgstr ""
-
-#: ../inc/customizer-config.php:249
+#: ../inc/customizer-config.php:236
 msgid "Entry Displays?"
 msgstr ""
 
-#: ../inc/customizer-config.php:252
+#: ../inc/customizer-config.php:239
 msgid "Custom Excerpt"
 msgstr ""
 
-#: ../inc/customizer-config.php:253
+#: ../inc/customizer-config.php:240
 msgid "Full Content"
 msgstr ""
 
-#: ../inc/customizer-config.php:261
+#: ../inc/customizer-config.php:248
 msgid "Entry Excerpt Length"
 msgstr ""
 
-#: ../inc/customizer-config.php:263
+#: ../inc/customizer-config.php:250
 msgid "How many words to display per excerpt"
 msgstr ""
 
-#: ../inc/customizer-config.php:271
+#: ../inc/customizer-config.php:257
 msgid "Entry Thumbnail"
 msgstr ""
 
-#: ../inc/customizer-config.php:278
+#: ../inc/customizer-config.php:264
 msgid "Entry Embeds"
 msgstr ""
 
-#: ../inc/customizer-config.php:280
+#: ../inc/customizer-config.php:266
 msgid ""
 "Display's your video/audio embed on the homepage and archives instead of the "
 "featured image."
 msgstr ""
 
-#: ../inc/customizer-config.php:289
+#: ../inc/customizer-config.php:275
 msgid "Posts"
 msgstr ""
 
-#: ../inc/customizer-config.php:295
+#: ../inc/customizer-config.php:281
 msgid "Post Thumbnail"
 msgstr ""
 
-#: ../inc/customizer-config.php:303
+#: ../inc/customizer-config.php:289
 msgid "Post Meta"
 msgstr ""
 
-#: ../inc/customizer-config.php:311
+#: ../inc/customizer-config.php:297
 msgid "Post Tags"
 msgstr ""
 
-#: ../inc/customizer-config.php:319
+#: ../inc/customizer-config.php:305
 msgid "Post Social Share"
 msgstr ""
 
-#: ../inc/customizer-config.php:327
+#: ../inc/customizer-config.php:313
 msgid "Post Author Box"
 msgstr ""
 
-#: ../inc/customizer-config.php:335
+#: ../inc/customizer-config.php:321
 msgid "Post Next/Previous"
 msgstr ""
 
-#: ../inc/customizer-config.php:343
+#: ../inc/customizer-config.php:329
 msgid "Post Related"
 msgstr ""
 
-#: ../inc/customizer-config.php:351
+#: ../inc/customizer-config.php:337
 msgid "Post Related Columns"
 msgstr ""
 
-#: ../inc/customizer-config.php:378
+#: ../inc/customizer-config.php:351
 msgid "Relate Posts by"
 msgstr ""
 
-#: ../inc/customizer-config.php:381
+#: ../inc/customizer-config.php:354
 msgid "Tags"
 msgstr ""
 
-#: ../inc/customizer-config.php:392
+#: ../inc/customizer-config.php:365
 msgid "Post Related: Count"
 msgstr ""
 
-#: ../inc/customizer-config.php:403
+#: ../inc/customizer-config.php:376
 msgid "Footer"
 msgstr ""
 
-#: ../inc/customizer-config.php:417
+#: ../inc/customizer-config.php:390
 msgid "Footer Widgets Columns"
 msgstr ""
 
-#: ../inc/customizer-config.php:420
+#: ../inc/customizer-config.php:393
 msgid "None - Disable"
 msgstr ""
 
-#: ../inc/customizer-config.php:432
-msgid "Footer Copyright"
-msgstr ""
-
-#: ../inc/customizer-config.php:434
-msgid "Use shortcode [pwd_current_year] to display current year."
-msgstr ""
-
-#: ../inc/customizer-config.php:443
+#: ../inc/customizer-config.php:407
 msgid "Discussion"
 msgstr ""
 
-#: ../inc/customizer-config.php:449
+#: ../inc/customizer-config.php:413
 msgid "Comments For Pages"
 msgstr ""
 
-#: ../inc/customizer-config.php:457
+#: ../inc/customizer-config.php:421
 msgid "Comments For Posts"
 msgstr ""
 
-#: ../inc/customizer-config.php:467
+#: ../inc/customizer-config.php:431
 msgid "Search Results"
 msgstr ""
 
-#: ../inc/customizer-config.php:473
+#: ../inc/customizer-config.php:437
 msgid "Search posts only."
 msgstr ""
 
-#: ../inc/customizer-config.php:484
-msgid "Typography"
-msgstr ""
-
-#: ../inc/customizer-config.php:485
-msgid ""
-"It is highly recommended that you do NOT use more then a couple custom "
-"Google fonts on the site because it could greatly slow things down."
-msgstr ""
-
-#: ../inc/customizer-config.php:491
-msgid "Body"
-msgstr ""
-
-#: ../inc/customizer-config.php:497 ../inc/customizer-config.php:517
-#: ../inc/customizer-config.php:572
-msgid "Font Family"
-msgstr ""
-
-#: ../inc/customizer-config.php:511
-msgid "Logo"
-msgstr ""
-
-#: ../inc/customizer-config.php:528 ../inc/customizer-config.php:583
-msgid "Font Weight"
-msgstr ""
-
-#: ../inc/customizer-config.php:540
-msgid "Font Size"
-msgstr ""
-
-#: ../inc/customizer-config.php:551 ../inc/customizer-config.php:595
-msgid "Letter Spacing"
-msgstr ""
-
-#: ../inc/customizer-config.php:565
-msgid "Headings"
-msgstr ""
-
-#: ../inc/customizer-config.php:613
+#: ../inc/customizer-config.php:448
 msgid "Styling"
 msgstr ""
 
-#: ../inc/customizer-config.php:625
+#: ../inc/customizer-config.php:459
 msgid "Accent Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:640
+#: ../inc/customizer-config.php:479
 msgid "Background Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:653
+#: ../inc/customizer-config.php:492
 msgid "Header Height"
 msgstr ""
 
-#: ../inc/customizer-config.php:656
+#: ../inc/customizer-config.php:495
 msgid "In pixels. Default is 50px."
 msgstr ""
 
-#: ../inc/customizer-config.php:662
+#: ../inc/customizer-config.php:501
 msgid "Logo Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:680
+#: ../inc/customizer-config.php:517
 msgid "Menu"
 msgstr ""
 
-#: ../inc/customizer-config.php:685
+#: ../inc/customizer-config.php:522
 msgid "Menu Link Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:697
+#: ../inc/customizer-config.php:534
 msgid "Menu Link Hover Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:709
+#: ../inc/customizer-config.php:546
 msgid "Menu Link Hover Background"
 msgstr ""
 
-#: ../inc/customizer-config.php:721
+#: ../inc/customizer-config.php:558
 msgid "Menu Link Active Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:733
+#: ../inc/customizer-config.php:570
 msgid "Menu Link Active Background"
 msgstr ""
 
-#: ../inc/customizer-config.php:745
+#: ../inc/customizer-config.php:582
 msgid "Menu Dropdown Background"
 msgstr ""
 
-#: ../inc/customizer-config.php:757
+#: ../inc/customizer-config.php:594
 msgid "Menu Dropdown Link Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:769
+#: ../inc/customizer-config.php:606
 msgid "Menu Dropdown Link Hover Color"
 msgstr ""
 
-#: ../inc/customizer-config.php:782
+#: ../inc/customizer-config.php:619
 msgid "Menu Dropdown Link Hover Background"
 msgstr ""
 
-#: ../inc/customizer-config.php:804
+#: ../inc/customizer-config.php:641
 msgid "False"
 msgstr ""
 
-#: ../inc/customizer-config.php:805
+#: ../inc/customizer-config.php:642
 msgid ""
 "If you alter any image sizes you will have to regenerate your thumbnails."
 msgstr ""
 
-#: ../inc/customizer-config.php:817
+#: ../inc/customizer-config.php:654
 msgid "Image Width"
 msgstr ""
 
-#: ../inc/customizer-config.php:826
+#: ../inc/customizer-config.php:663
 msgid "Image Height"
 msgstr ""
 
-#: ../inc/customizer-config.php:835
+#: ../inc/customizer-config.php:672
 msgid "Crop"
 msgstr ""
 
-#: ../inc/customizer-config.php:845
+#: ../inc/customizer-config.php:682
 msgid "Image Sizes"
 msgstr ""
 
-#: ../inc/customizer-config.php:846
+#: ../inc/customizer-config.php:683
 msgid ""
 "By default this theme does not crop any images so you can customize your "
 "settings first and prevent unnecessary image cropping. Below you will find "
@@ -832,6 +591,14 @@ msgstr ""
 
 #: ../inc/meta-posts.php:73
 msgid "Audio"
+msgstr ""
+
+#: ../index.php:64 ../partials/global/pagination.php:44
+msgid "previous items"
+msgstr ""
+
+#: ../index.php:65 ../partials/global/pagination.php:45
+msgid "next items"
 msgstr ""
 
 #: ../partials/archives/header.php:39
@@ -935,7 +702,7 @@ msgid "Edit This Article"
 msgstr ""
 
 #: ../partials/global/scrolltop.php:17
-msgid "Top"
+msgid "scroll to the top of the site"
 msgstr ""
 
 #: ../partials/post/author.php:28
@@ -966,42 +733,26 @@ msgstr ""
 msgid "Previous Article"
 msgstr ""
 
-#: ../partials/post/related.php:79
+#: ../partials/post/related.php:83
 msgid "Related Articles"
-msgstr ""
-
-#: ../partials/post/share.php:24
-msgid "Share on Twitter"
 msgstr ""
 
 #: ../partials/post/share.php:25
 msgid "Tweet"
 msgstr ""
 
-#: ../partials/post/share.php:29
-msgid "Share on Google+"
-msgstr ""
-
 #: ../partials/post/share.php:30
-msgid "Plus one"
-msgstr ""
-
-#: ../partials/post/share.php:34
-msgid "Share on Facebook"
-msgstr ""
-
-#: ../partials/post/share.php:35
 msgid "Share"
 msgstr ""
 
-#: ../partials/post/share.php:39
-msgid "Share on Pinterest"
-msgstr ""
-
-#: ../partials/post/share.php:40
+#: ../partials/post/share.php:35
 msgid "Pin it"
 msgstr ""
 
 #: ../searchform.php:13
-msgid "Search"
+msgid "search"
+msgstr ""
+
+#: ../searchform.php:15
+msgid "submit search"
 msgstr ""
