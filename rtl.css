@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
 
  Theme Name: Powered
- Version: 1.0.0
+ Version: 2.0
  Description: RTL styles
  Author: WPExplorer
  Author URI: https://www.wpexplorer.com/
@@ -14,7 +14,6 @@
 /* Header */
 .pwd-site-branding { margin-right: 0; margin-left: 60px; }
 .pwd-site-nav .pwd-dropdown-menu > .menu-item { float: right; }
-.pwd-site-nav .pwd-dropdown-menu .menu-item a .fa { margin-left: 0; margin-right: 5px; }
 .pwd-site-nav .pwd-dropdown-menu .sub-menu { left: initial; }
 .pwd-site-header-search { left: 0; right: auto; }
 .pwd-site-header-wrap .slicknav_menu { float: left; }
@@ -27,15 +26,12 @@
 
 /* Pagination */
 .pwd-page-numbers a, .pwd-page-numbers span, .nav-links a, .nav-links span { float: right; }
-.pwd-page-numbers a.next .fa:before { content: "\f053"; }
-.pwd-page-numbers a.prev .fa:before { content: "\f054"; }
 
 /* Widgets */
 .pwd-site-searchform input[type="search"] { padding-right: 0.857em; padding-left: 50px; }
 .pwd-site-searchform button { right: auto; left: 0; }
 
 /* Posts */
-.pwd-post-navigation .fa { display: none; }
 .pwd-post-navigation .nav-next { float: right; }
 .pwd-post-navigation .nav-previous { float: left; text-align: left; }
 

@@ -156,9 +156,6 @@ class Powered_Theme {
 		// Define inline style handle
 		$style_handle = apply_filters( 'pwd_style_handle', 'style' );
 
-		// Font Awesome
-		wp_enqueue_style( 'font-awesome', $css_dir_uri .'font-awesome.min.css' );
-
 		// Main CSS
 		wp_enqueue_style( 'style', get_stylesheet_uri() );
 
@@ -191,7 +188,7 @@ class Powered_Theme {
 
 		// Localize scripts
 		$localize = apply_filters( 'pwd_localize', array(
-			'mobileSiteMenuLabel' => '<span class="fa fa-bars" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__( 'toggle mobile menu', 'wpex-powered' ) . '</span>',
+			'mobileSiteMenuLabel' => '<span class="pwd-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="screen-reader-text">' . esc_html__( 'toggle mobile menu', 'wpex-powered' ) . '</span>',
 		) );
 
 		// Load 3rd party scripts
@@ -551,7 +548,7 @@ class Powered_Theme {
 		$search_li = '<li class="menu-item pwd-search-toggle">';
 			$search_li .= '<a href="#" aria-role="button" aria-label="' . esc_attr__( 'toggle site search', 'wpex-powered' ) . '">';
 				$search_li .= '<span class="link-inner">';
-					$search_li .= '<span class="fa fa-search" aria-hidden="true"></span>';
+					$search_li .= '<span class="pwd-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>';
 				$search_li .= '</span>';
 			$search_li .= '</a>';
 		$search_li .= '</li>';

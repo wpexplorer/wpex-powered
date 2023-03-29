@@ -4,7 +4,7 @@ Author URI: https://www.wpexplorer.com
 Tags: right-sidebar, fluid-width, custom-background
 Requires at least: 6.1
 Tested up to: 6.2
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Updated The Featured post has been updated to use modern CSS with a max-height and a new customizer option was added so you can control the height.
 * Updated Copyright notice has been updated.
 * Updated Translation .PO file.
+* Updated Updated numbered pagination design.
 * Updated Various theme elements have been updated to use the flexbox model.
 * Fixed Accessibility issues where menu dropdowns were not accessibility via the keyboard.
 * Fixed Contrast issues and other accessibility errors.
@@ -53,6 +54,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Removed Theme admin panel and dashboard feed removed.
 * Removed The editor styles have been removed.
 * Removed Mobile alternative menu option.
+* Removed Font Awesome icons and replaced all icons with SVG's.
 
 == Copyright ==
 

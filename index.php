@@ -56,14 +56,7 @@ get_header(); ?>
 
 				<?php
 				// Include pagination template part
-				$is_rtl = is_rtl();
-				$left_arrow = $is_rtl ? 'fa-chevron-right' : 'fa-chevron-left';
-				$right_arrow = $is_rtl ? 'fa-chevron-left' : 'fa-chevron-right';
-				the_posts_pagination( apply_filters( 'pwd_pagination_args', array(
-					'mid_size'  => 3,
-					'prev_text' => '<i class="fa ' . $left_arrow . '" aria-hidden="true"></i><span class="screen-reader-text">' . esc_html__( 'previous items', 'wpex-powered' ) . '</span>',
-					'next_text' => '<i class="fa ' . $right_arrow . '" aria-hidden="true"></i><span class="screen-reader-text">' . esc_html__( 'next items', 'wpex-powered' ) . '</span>',
-				) ) ); ?>
+				get_template_part( 'partials/global/pagination' ); ?>
 
 			<?php
 			// Display no posts found message

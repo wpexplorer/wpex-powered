@@ -412,10 +412,10 @@ if ( ! class_exists( 'Powered_Dropdown_Walker_Nav_Menu' ) ) {
 		public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 			$id_field = $this->db_fields['id'];
 			if ( ! empty( $children_elements[$element->$id_field] ) && ( $depth == 0 ) ) {
-				$element->title .= ' <span class="fa fa-caret-down pwd-dropdown-arrow-down" aria-hidden="true"></span>';
+				$element->title .= ' <span class="pwd-svg pwd-dropdown-arrow-down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>';
 			}
 			if ( ! empty( $children_elements[$element->$id_field] ) && ( $depth > 0 ) ) {
-				$element->title .= ' <span class="fa fa-caret-right pwd-dropdown-arrow-side" aria-hidden="true"></span>';
+				$element->title .= ' <span class="pwd-svg pwd-dropdown-arrow-side" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>';
 			}
 			Walker_Nav_Menu::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 		}
