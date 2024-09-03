@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
 
  Theme Name: WPEX Powered
- Version: 3.0.1
+ Version: 3.0
  Description: Powered premium WordPress theme.
  Author: WPExplorer
  Author URI: https://www.wpexplorer.com/
@@ -376,7 +376,7 @@ hr { border: solid #eee; border-width: 1px 0 0; clear: both; height: 0; margin: 
 .widget-recent-list li { display: flex; gap: 16px; }
 .widget-recent-list li:not(:last-child) { margin-bottom: 24px; }
 .widget-recent-list .pwd-thumbnail { display: block; width: 80px; height: 80px; flex-shrink: 0 }
-.widget-recent-list .pwd-thumbnail img { display: block; height: 80px; width: 80px; }
+.widget-recent-list .pwd-thumbnail img { display: block; height: 80px; width: 80px; aspect-ratio: 1/1; object-fit: cover; }
 .widget-recent-list .pwd-thumbnail img:hover { opacity: 0.9; }
 .widget-recent-list .pwd-title { font-weight: bold; text-transform: none; font-size: 1.077em; position: relative; letter-spacing: 0.5px; margin-bottom: 5px; }
 .widget-recent-list .pwd-title a { color: #333; }
