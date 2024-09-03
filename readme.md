@@ -1,6 +1,8 @@
 # Powered WordPress Theme
 A classic WordPress theme by [WPExplorer](https://www.wpexplorer.com/)
 
+**Demo**: https://wpexplorer-demos.com/powered/
+
 ## Installation Guide
 Head over to the [releases page](https://github.com/wpexplorer/wpex-powered/releases) click on the "Source code (zip)" link for the version you wish to install.
 
