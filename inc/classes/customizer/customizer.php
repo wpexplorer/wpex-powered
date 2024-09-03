@@ -103,7 +103,7 @@ if ( ! class_exists( 'Powered_Customizer' ) ) {
 						$id = isset( $setting['id'] ) ? $prefix .'_'. $setting['id'] : '';
 						$transport = isset( $setting['transport'] ) ? $setting['transport'] : 'refresh';
 						$default = isset( $setting['default'] ) ? $setting['default'] : '';
-						$sanitize_callback = isset( $setting['sanitize_callback'] ) ? $setting['sanitize_callback'] : false;
+						$sanitize_callback = isset( $setting['sanitize_callback'] ) ? $setting['sanitize_callback'] : 'sanitize_text_field';
 						$label = isset( $setting['control']['label'] ) ? $setting['control']['label'] : '';
 						$control_desc = isset( $setting['control']['desc'] ) ? $setting['control']['desc'] : '';
 						$type = isset( $setting['control']['type'] ) ? $setting['control']['type'] : 'text';

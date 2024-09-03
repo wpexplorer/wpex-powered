@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
@@ -42,36 +41,6 @@ function pwd_has_comments( $bool = true ) {
 		$bool = false;
 	}
 	return apply_filters( 'pwd_has_comments', $bool );
-}
-
-/**
- * Check if post has a video
- *
- * @since 1.0.0
- */
-function pwd_has_post_video( $post_id = '' ) {
-	$post_id = $post_id ? $post_id : get_the_ID();
-	$bool = false;
-	$mprefix = pwd_meta_prefix();
-	if ( get_post_meta( $post_id, $mprefix . 'post_video', true ) ) {
-		$bool = true;
-	}
-	return apply_filters( 'pwd_has_post_video', $bool );
-}
-
-/**
- * Check if post has a audio
- *
- * @since 1.0.0
- */
-function pwd_has_post_audio( $post_id = '' ) {
-	$post_id = $post_id ? $post_id : get_the_ID();
-	$bool = false;
-	$mprefix = pwd_meta_prefix();
-	if ( get_post_meta( $post_id, $mprefix .'post_audio', true ) ) {
-		$bool = true;
-	}
-	return apply_filters( 'pwd_has_post_audio', $bool );
 }
 
 /**

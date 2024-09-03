@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
@@ -245,14 +244,24 @@ function pwd_get_post_layout() {
 		$layout = pwd_get_theme_mod( 'archives_layout', 'full-width' );
 	}
 
+	// Check page template.
+	switch ( get_page_template_slug() ) {
+		case 'templates/fullwidth.php':
+		case 'templates/fullwidth-no-title.php':
+			$layout = 'full-width';
+			break;
+		case 'templates/left-sidebar-no-title.php':
+		case 'templates/left-sidebar.php':
+			$layout = 'left-sidebar';
+			break;
+		case 'templates/right-sidebar-no-title.php':
+		case 'templates/right-sidebar.php':
+			$layout = 'right-sidebar';
+			break;
+	}
+
 	// Apply filters
 	$layout = apply_filters( 'pwd_post_layout', $layout );
-
-	// Check meta
-	$mprefix = pwd_meta_prefix();
-	if ( $meta = get_post_meta( pwd_get_the_id(), $mprefix .'post_layout', true ) ) {
-		$layout = $meta;
-	}
 
 	// Sanitize
 	$layout = $layout ? $layout : 'right-sidebar';
@@ -357,28 +366,6 @@ function pwd_sanitize( $data = '', $type = null ) {
 	// HTML
 	elseif ( 'html' == $type ) {
 		$data = htmlspecialchars_decode( wp_kses_post( $data ) );
-	}
-
-	// Videos
-	elseif ( 'video' == $type || 'audio' == $type || 'embed' ) {
-		$data = wp_kses( $data, array(
-			'iframe' => array(
-				'src'               => array(),
-				'type'              => array(),
-				'allowfullscreen'   => array(),
-				'allowscriptaccess' => array(),
-				'height'            => array(),
-				'width'             => array()
-			),
-			'embed' => array(
-				'src'               => array(),
-				'type'              => array(),
-				'allowfullscreen'   => array(),
-				'allowscriptaccess' => array(),
-				'height'            => array(),
-				'width'             => array()
-			),
-		) );
 	}
 
 	// Apply filters and return
@@ -704,93 +691,6 @@ if ( ! function_exists( 'pwd_get_post_terms_list' ) ) {
  */
 function pwd_post_terms_list( $taxonomy = 'category', $first_only = false, $classes = '' ) {
 	echo pwd_get_post_terms( $taxonomy, $first_only, $classes );
-}
-
-/**
- * Returns post video
- *
- * @since 1.0.0
- */
-function pwd_get_post_video( $post_id = '' ) {
-
-	// Get post id
-	$post_id = $post_id ? $post_id : get_the_ID();
-
-	// Meta prefix
-	$mprefix = pwd_meta_prefix();
-
-	// Get video
-	$video = get_post_meta( $post_id, $mprefix .'post_video', true );
-	$video = apply_filters( 'pwd_post_video', $video );
-
-	// Display video if defined
-	if ( $video ) :
-
-		// Check what type of video it is
-		$type = pwd_check_meta_type( $video );
-
-		// Standard Embeds
-		if ( 'iframe' == $type || 'embed' == $type ) {
-			return pwd_sanitize( $video, 'video' );
-		}
-		// Oembeds
-		elseif ( $embed = wp_oembed_get( $video ) ) {
-			return $embed;
-		}
-		// Self hosted
-		else {
-			return do_shortcode( '[video src="'. $video .'"]' );
-		}
-
-	endif;
-}
-
-/**
- * Echo's post video
- *
- * @since 1.0.0
- */
-function pwd_post_video( $post_id = '' ) {
-	echo pwd_get_post_video( $post_id );
-}
-
-/**
- * Outputs post video
- *
- * @since 1.0.0
- */
-function pwd_post_audio( $post_id = '' ) {
-
-	// Get post id
-	$post_id = $post_id ? $post_id : get_the_ID();
-
-	// Meta prefix
-	$mprefix = pwd_meta_prefix();
-
-	// Get audio
-	$audio = get_post_meta( $post_id, $mprefix .'post_audio', true );
-	$audio = apply_filters( 'pwd_post_audio', $audio );
-
-	// Display audio if defined
-	if ( $audio ) :
-
-		// Check what type of audio it is
-		$type = pwd_check_meta_type( $audio );
-
-		// Standard Embeds
-		if ( 'iframe' == $type || 'embed' == $type ) {
-			echo pwd_sanitize( $audio, 'audio' );
-		}
-		// Oembeds
-		elseif ( $embed = wp_oembed_get( $audio ) ) {
-			echo $embed;
-		}
-		// Self hosted
-		else {
-			echo do_shortcode( '[audio src="'. $audio .'"]' );
-		}
-
-	endif;
 }
 
 /**

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Powered WordPress Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-28 21:05-0700\n"
+"POT-Creation-Date: 2024-09-02 19:23-0700\n"
 "PO-Revision-Date: 2016-07-26 10:42-0800\n"
 "Last-Translator: \n"
 "Language-Team: WPExplorer.com\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-KeywordsList: esc_html_e;gettext;gettext_noop;__;_e;_n;_nx;"
 "esc_html__;esc_html_x;_x\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -48,39 +48,39 @@ msgstr ""
 msgid "Comments are now closed."
 msgstr ""
 
-#: ../functions.php:111 ../inc/customizer-config.php:454
+#: ../functions.php:108 ../inc/customizer-config.php:454
 msgid "Main"
 msgstr ""
 
-#: ../functions.php:194
+#: ../functions.php:186
 msgid "toggle mobile menu"
 msgstr ""
 
-#: ../functions.php:217
+#: ../functions.php:209
 msgid "Sidebar - Main"
 msgstr ""
 
-#: ../functions.php:227
+#: ../functions.php:219
 msgid "Sidebar - Pages"
 msgstr ""
 
-#: ../functions.php:242
+#: ../functions.php:234
 msgid "Footer 1"
 msgstr ""
 
-#: ../functions.php:256
+#: ../functions.php:248
 msgid "Footer 2"
 msgstr ""
 
-#: ../functions.php:270
+#: ../functions.php:262
 msgid "Footer 3"
 msgstr ""
 
-#: ../functions.php:284
+#: ../functions.php:276
 msgid "Footer 4"
 msgstr ""
 
-#: ../functions.php:374
+#: ../functions.php:366
 msgid "Featured Image"
 msgstr ""
 
@@ -134,7 +134,7 @@ msgid "Author"
 msgstr ""
 
 #: ../inc/classes/widgets/recent-posts-thumbnails.php:194
-#: ../inc/customizer-config.php:356
+#: ../inc/customizer-config.php:348
 msgid "Random"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgid "Post Views"
 msgstr ""
 
 #: ../inc/classes/widgets/recent-posts-thumbnails.php:207
-#: ../inc/customizer-config.php:355
+#: ../inc/customizer-config.php:347
 msgid "Category"
 msgstr ""
 
@@ -179,13 +179,13 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: ../inc/core-functions.php:55 ../inc/customizer-config.php:382
+#: ../inc/core-functions.php:55 ../inc/customizer-config.php:374
 #: ../partials/footer/footer-popular.php:57
 msgid "Popular Posts"
 msgstr ""
 
 #: ../inc/core-functions.php:79 ../inc/customizer-config.php:22
-#: ../inc/customizer-config.php:38 ../inc/meta-pages.php:68
+#: ../inc/customizer-config.php:38
 msgid "Default"
 msgstr ""
 
@@ -225,40 +225,40 @@ msgstr ""
 msgid "Bottom Center"
 msgstr ""
 
-#: ../inc/core-functions.php:439
+#: ../inc/core-functions.php:417
 msgid "Pingback:"
 msgstr ""
 
-#: ../inc/core-functions.php:459
+#: ../inc/core-functions.php:437
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: ../inc/core-functions.php:465
+#: ../inc/core-functions.php:443
 msgid "Reply"
 msgstr ""
 
-#: ../inc/core-functions.php:473
+#: ../inc/core-functions.php:451
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../inc/core-functions.php:482
+#: ../inc/core-functions.php:460
 msgid "Edit"
 msgstr ""
 
-#: ../inc/core-functions.php:528
+#: ../inc/core-functions.php:506
 msgid "read more"
 msgstr ""
 
-#: ../inc/customizer-config.php:31 ../inc/meta-pages.php:69
+#: ../inc/customizer-config.php:31
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../inc/customizer-config.php:32 ../inc/meta-pages.php:70
+#: ../inc/customizer-config.php:32
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../inc/customizer-config.php:33 ../inc/meta-pages.php:71
+#: ../inc/customizer-config.php:33
 msgid "No Sidebar"
 msgstr ""
 
@@ -375,74 +375,68 @@ msgstr ""
 msgid "Entry Thumbnail"
 msgstr ""
 
-#: ../inc/customizer-config.php:264
-msgid "Entry Embeds"
-msgstr ""
-
-#: ../inc/customizer-config.php:266
-msgid ""
-"Display's your video/audio embed on the homepage and archives instead of the "
-"featured image."
-msgstr ""
-
-#: ../inc/customizer-config.php:275
+#: ../inc/customizer-config.php:267
 msgid "Posts"
 msgstr ""
 
-#: ../inc/customizer-config.php:281
+#: ../inc/customizer-config.php:273
 msgid "Post Thumbnail"
 msgstr ""
 
-#: ../inc/customizer-config.php:289
+#: ../inc/customizer-config.php:281
 msgid "Post Meta"
 msgstr ""
 
-#: ../inc/customizer-config.php:297
+#: ../inc/customizer-config.php:289
 msgid "Post Tags"
 msgstr ""
 
-#: ../inc/customizer-config.php:305
+#: ../inc/customizer-config.php:297
 msgid "Post Social Share"
 msgstr ""
 
-#: ../inc/customizer-config.php:313
+#: ../inc/customizer-config.php:305
 msgid "Post Author Box"
 msgstr ""
 
-#: ../inc/customizer-config.php:321
+#: ../inc/customizer-config.php:313
 msgid "Post Next/Previous"
 msgstr ""
 
-#: ../inc/customizer-config.php:329
+#: ../inc/customizer-config.php:321
 msgid "Post Related"
 msgstr ""
 
-#: ../inc/customizer-config.php:337
+#: ../inc/customizer-config.php:329
 msgid "Post Related Columns"
 msgstr ""
 
-#: ../inc/customizer-config.php:351
+#: ../inc/customizer-config.php:343
 msgid "Relate Posts by"
 msgstr ""
 
-#: ../inc/customizer-config.php:354
+#: ../inc/customizer-config.php:346
 msgid "Tags"
 msgstr ""
 
-#: ../inc/customizer-config.php:365
+#: ../inc/customizer-config.php:357
 msgid "Post Related: Count"
 msgstr ""
 
-#: ../inc/customizer-config.php:376
+#: ../inc/customizer-config.php:368
 msgid "Footer"
 msgstr ""
 
-#: ../inc/customizer-config.php:390
+#: ../inc/customizer-config.php:382
 msgid "Footer Widgets Columns"
 msgstr ""
 
-#: ../inc/customizer-config.php:393
+#: ../inc/customizer-config.php:385
 msgid "None - Disable"
+msgstr ""
+
+#: ../inc/customizer-config.php:397
+msgid "Footer Copyright Text"
 msgstr ""
 
 #: ../inc/customizer-config.php:407
@@ -563,44 +557,6 @@ msgid ""
 "alter these values."
 msgstr ""
 
-#: ../inc/meta-pages.php:38
-msgid "Page Settings"
-msgstr ""
-
-#: ../inc/meta-pages.php:76
-msgid "Layout"
-msgstr ""
-
-#: ../inc/meta-pages.php:87
-msgid "Hide Title"
-msgstr ""
-
-#: ../inc/meta-posts.php:37
-msgid "Post Settings"
-msgstr ""
-
-#: ../inc/meta-posts.php:64
-msgid "Video"
-msgstr ""
-
-#: ../inc/meta-posts.php:66 ../inc/meta-posts.php:75
-msgid ""
-"Enter your embed code or enter in a URL that is compatible with WordPress's "
-"built-in oEmbed function or self-hosted video function."
-msgstr ""
-
-#: ../inc/meta-posts.php:73
-msgid "Audio"
-msgstr ""
-
-#: ../index.php:64 ../partials/global/pagination.php:44
-msgid "previous items"
-msgstr ""
-
-#: ../index.php:65 ../partials/global/pagination.php:45
-msgid "next items"
-msgstr ""
-
 #: ../partials/archives/header.php:39
 msgid "Search Results "
 msgstr ""
@@ -688,17 +644,20 @@ msgstr ""
 msgid "Continue reading"
 msgstr ""
 
-#: ../partials/global/author-bio.php:39
-#, php-format
-msgid "Written by %s"
-msgstr ""
-
 #: ../partials/global/edit.php:24
 msgid "Edit This Page"
 msgstr ""
 
 #: ../partials/global/edit.php:26
 msgid "Edit This Article"
+msgstr ""
+
+#: ../partials/global/pagination.php:21
+msgid "previous items"
+msgstr ""
+
+#: ../partials/global/pagination.php:22
+msgid "next items"
 msgstr ""
 
 #: ../partials/global/scrolltop.php:17
@@ -713,39 +672,31 @@ msgstr ""
 msgid "Article written by"
 msgstr ""
 
-#: ../partials/post/meta.php:52
+#: ../partials/post/meta.php:51
 msgid "0 Comments"
 msgstr ""
 
-#: ../partials/post/meta.php:52
+#: ../partials/post/meta.php:51
 msgid "1 Comment"
 msgstr ""
 
-#: ../partials/post/meta.php:52
+#: ../partials/post/meta.php:51
 msgid "% Comments"
-msgstr ""
-
-#: ../partials/post/navigation.php:19
-msgid "Next Article"
-msgstr ""
-
-#: ../partials/post/navigation.php:20
-msgid "Previous Article"
 msgstr ""
 
 #: ../partials/post/related.php:83
 msgid "Related Articles"
 msgstr ""
 
-#: ../partials/post/share.php:25
-msgid "Tweet"
+#: ../partials/post/share.php:28
+msgid "Post"
 msgstr ""
 
-#: ../partials/post/share.php:30
+#: ../partials/post/share.php:31
 msgid "Share"
 msgstr ""
 
-#: ../partials/post/share.php:35
+#: ../partials/post/share.php:34
 msgid "Pin it"
 msgstr ""
 

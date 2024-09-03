@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
@@ -18,24 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php
 	// Entry media should display only if not protected
-	if ( ! post_password_required() ) :
+	if ( ! post_password_required() && has_post_thumbnail() && pwd_show_post_thumbnail() ) :
 
-		// Display post video
-		if ( pwd_has_post_video() ) :
-
-			get_template_part( 'partials/post/video' );
-
-		// Display post audio
-		elseif ( pwd_has_post_audio() ) :
-
-			get_template_part( 'partials/post/audio' );
-
-		// Display post thumbnail
-		elseif ( has_post_thumbnail() && pwd_show_post_thumbnail() ) :
-
-			get_template_part( 'partials/post/thumbnail' );
-
-		endif;
+		get_template_part( 'partials/post/thumbnail' );
 
 	endif;
 

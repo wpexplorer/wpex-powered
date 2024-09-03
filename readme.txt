@@ -3,34 +3,33 @@ Authors: WPExplorer
 Author URI: https://www.wpexplorer.com
 Tags: right-sidebar, fluid-width, custom-background
 Requires at least: 6.1
-Tested up to: 6.2
-Stable tag: 2.1
+Tested up to: 6.4
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
-= 1.0 =
-* First official release
+= 3.0
+* Added sanitization for all customizer fields.
+* Added page templates to replace the old page meta settings.
+* Added required attribute to the searchform.
+* Updated the default footer copyright.
+* Updated the twitter icons to x.
+* Updated author bio to use Yoast seo social profile settings.
+* Updated entry & post thumbnails to use aspect ratios.
+* Updared PHP version requirement to 8.0.
+* Fixed custom footer copyright settings not working.
+* Fixed spacing with gutenberg elements.
+* Removed custom user contact methods. The theme will check generic settings instead (like Yoast).
+* Removed the audio/video post meta fields.
+* Removed page meta settings.
+* Removed code that adds a wrapper around oEmbeds.
+* Removed code that adds the featured images in the admin dashboard.
+* Removed rtl.css and updated style.css to use modern text direction aware CSS.
 
-= 1.1 =
-* Added scroll to content link for screen readers.
-* Added new wpex_theme_info function for use with upcoming WPEX Updater Plugin.
-* Added aria-hidden labels to font icons.
-* Updated text domain to match theme folder.
-* Updated theme about page and added a button to disable it.
-* Updated archive pagination to use newer the_posts_pagination core function.
-* Updated search form to use placeholder attribute.
-* Updated require_once functions in functions.php to use get_parent_theme_file_path instead of get_template_directory.
-* Updated and renamed .POT file.
-* Fixed issue with focus styles being removed in the browser reset.
-* Fixed issue with Customizer excerpts if entering 0 for the value.
-* Removed Google Plus options from social and user settings.
-
-= 1.1.2 =
-* Fixed extra quote in popular footer entries.
-* Fixed issue with WordPress adding nav-links to single post pagination which is also added in the the_posts_pagination (numbered pagination) causing CSS conflicts.
-* Updated default right side margin on site-branding/logo.
+= 2.1 =
+* Added option to modify the footer copyright text.
 
 = 2.0 =
 * Added New "pwd_footer_copyright" filter added.
@@ -55,6 +54,28 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Removed The editor styles have been removed.
 * Removed Mobile alternative menu option.
 * Removed Font Awesome icons and replaced all icons with SVG's.
+
+= 1.1.2 =
+* Fixed extra quote in popular footer entries.
+* Fixed issue with WordPress adding nav-links to single post pagination which is also added in the the_posts_pagination (numbered pagination) causing CSS conflicts.
+* Updated default right side margin on site-branding/logo.
+
+= 1.1 =
+* Added scroll to content link for screen readers.
+* Added new wpex_theme_info function for use with upcoming WPEX Updater Plugin.
+* Added aria-hidden labels to font icons.
+* Updated text domain to match theme folder.
+* Updated theme about page and added a button to disable it.
+* Updated archive pagination to use newer the_posts_pagination core function.
+* Updated search form to use placeholder attribute.
+* Updated require_once functions in functions.php to use get_parent_theme_file_path instead of get_template_directory.
+* Updated and renamed .POT file.
+* Fixed issue with focus styles being removed in the browser reset.
+* Fixed issue with Customizer excerpts if entering 0 for the value.
+* Removed Google Plus options from social and user settings.
+
+= 1.0 =
+* First official release
 
 == Copyright ==
 

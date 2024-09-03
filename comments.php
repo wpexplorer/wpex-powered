@@ -6,11 +6,10 @@
  * form. The actual display of comments is handled by a callback to
  * pwd_comment() which is located at functions/comments-callback.php
  *
- * @package   Powered WordPress Theme
- * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      https://www.wpexplorer.com/
- * @since     1.0.0
+ * @package Powered WordPress Theme
+ * @author  WPExplorer.com
+ * @link    https://www.wpexplorer.com/
+ * @since   1.0.0
  */
 
 // Return if not needed

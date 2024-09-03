@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
@@ -17,13 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Base classes for entry
 $classes = array( 'pwd-loop-entry', 'pwd-col' );
 
-// Check if embeds are allowed
-$allow_embeds = pwd_get_theme_mod( 'entry_embeds', false );
-
-// Check for media
-$has_video = pwd_has_post_video();
-$has_audio = pwd_has_post_audio();
-
 // Classes
 $classes = array( 'pwd-loop-entry', 'pwd-col', 'pwd-masonry-item' );
 
@@ -33,23 +25,10 @@ $classes = array( 'pwd-loop-entry', 'pwd-col', 'pwd-masonry-item' );
 
 	<div class="pwd-loop-entry-inner"><?php
 
-		// Video embed
-		if ( $allow_embeds && $has_video ) :
-
-			get_template_part( 'partials/entry/video' );
-
-		// Post Thumbnail
-		elseif ( pwd_get_theme_mod( 'entry_thumbnail', true ) && has_post_thumbnail() ) :
+		if ( ! post_password_required() && pwd_get_theme_mod( 'entry_thumbnail', true ) && has_post_thumbnail() ) :
 
 			// Display thumbnail
 			get_template_part( 'partials/entry/thumbnail' );
-
-		endif;
-
-		// Audio embed
-		if ( $allow_embeds && $has_audio ) :
-
-			get_template_part( 'partials/entry/audio' );
 
 		endif;
 

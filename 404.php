@@ -2,11 +2,10 @@
 /**
  * The template for the 404 not found page.
  *
- * @package   Powered WordPress Theme
- * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      https://www.wpexplorer.com/
- * @since     1.0.0
+ * @package Powered WordPress Theme
+ * @author  WPExplorer.com
+ * @link    https://www.wpexplorer.com/
+ * @since   1.0.0
  */
 
 get_header(); ?>

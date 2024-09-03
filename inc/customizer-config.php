@@ -258,14 +258,6 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 						'type' => 'checkbox',
 					),
 				),
-				array(
-					'id' => 'entry_embeds',
-					'control' => array(
-						'label' => esc_html__( 'Entry Embeds', 'wpex-powered' ),
-						'type' => 'checkbox',
-						'desc' => esc_html__( 'Display\'s your video/audio embed on the homepage and archives instead of the featured image.', 'wpex-powered' ),
-					),
-				),
 			),
 		);
 
@@ -396,6 +388,14 @@ if ( ! function_exists( 'pwd_customizer_config' ) ) {
 							3 => 3,
 							4 => 4,
 						)
+					),
+				),
+				array(
+					'id' => 'footer_copy',
+					'sanitize_callback' => 'wp_kses_post',
+					'control' => array(
+						'label' => esc_html__( 'Footer Copyright Text', 'wpex-powered' ),
+						'type' => 'textarea',
 					),
 				),
 			),

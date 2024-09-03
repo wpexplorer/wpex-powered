@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */

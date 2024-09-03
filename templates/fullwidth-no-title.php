@@ -1,15 +1,15 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Full Width / No Title
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages and that other
  * 'pages' on your WordPress site will use a different template.
  *
- * @package Powered WordPress Theme
- * @author  WPExplorer.com
- * @link    https://www.wpexplorer.com/
- * @since   1.0.0
+ * @package   Powered WordPress Theme
+ * @author    WPExplorer.com
+ * @link      https://www.wpexplorer.com/
+ * @since     1.0.0
  */
 
 get_header(); ?>

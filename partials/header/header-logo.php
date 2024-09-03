@@ -2,11 +2,10 @@
 /**
  * Outputs the header logo
  *
- * @package   Powered WordPress Theme
- * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      https://www.wpexplorer.com/
- * @since     1.0.0
+ * @package Powered WordPress Theme
+ * @author  WPExplorer.com
+ * @link    https://www.wpexplorer.com/
+ * @since   1.0.0
  */
 
 // Exit if accessed directly
@@ -14,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$logo        = pwd_get_header_logo_src();
-$blog_name   = get_bloginfo( 'name' );
+$logo      = pwd_get_header_logo_src();
+$blog_name = get_bloginfo( 'name' );
 
 ?>
 
@@ -47,7 +46,7 @@ $blog_name   = get_bloginfo( 'name' );
 			}
 		}
 
-		$logo_html .= ' height="' . $logo_dims['height'] . '" width="' . $logo_dims['width'] . '"';
+		$logo_html .= ' height="' . esc_attr( $logo_dims['height'] ) . '" width="' . esc_attr( $logo_dims['width'] ) . '"';
 
 		$logo_html .= '>';
 

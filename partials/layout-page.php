@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
@@ -24,7 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	endif;
 
 	// Page Header
-	if ( ! get_post_meta( get_the_ID(), pwd_meta_prefix() .'hide_title', true ) ) :
+	$page_template = get_page_template_slug();
+	if ( ! $page_template || ! str_contains( $page_template, 'no-title' ) ) :
 
 		get_template_part( 'partials/page/header' );
 

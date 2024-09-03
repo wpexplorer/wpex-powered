@@ -15,11 +15,10 @@
  * For more information on hooks, actions, and filters,
  * see http://codex.wordpress.org/Plugin_API
  *
- * @package   Powered WordPress Theme
- * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
- * @link      https://www.wpexplorer.com/
- * @since     1.0.0
+ * @package Powered WordPress Theme
+ * @author  WPExplorer.com
+ * @link    https://www.wpexplorer.com/
+ * @since   1.0.0
  */
 
 class Powered_Theme {
@@ -34,16 +33,11 @@ class Powered_Theme {
 
 		// Add Filters
 		add_filter( 'excerpt_more', array( $this, 'excerpt_more' ) );
-		add_filter( 'embed_oembed_html', array( $this, 'embed_oembed_html' ), 99, 4 );
 		add_filter( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
-		add_filter( 'manage_post_posts_columns', array( $this, 'posts_columns' ), 10 );
-		add_filter( 'manage_page_posts_columns', array( $this, 'posts_columns' ), 10 );
-		add_filter( 'use_default_gallery_style', array( $this, 'remove_gallery_styles' ) );
-		add_filter( 'user_contactmethods', array( $this, 'user_fields' ) );
+		add_filter( 'use_default_gallery_style', '__return_false' );
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
 		add_filter( 'wp_nav_menu_items', array( $this, 'menu_add_items' ), 11, 2 );
 		add_filter( 'comment_form_fields', array( $this, 'move_comment_form_fields' ) );
-		add_filter( 'image_size_names_choose', array( $this, 'image_size_names_choose' ) );
 
 		// Actions
 		add_action( 'after_setup_theme', array( $this, 'load_files' ), 1 );
@@ -68,8 +62,6 @@ class Powered_Theme {
 		require_once get_parent_theme_file_path( '/inc/core-functions.php' );
 		require_once get_parent_theme_file_path( '/inc/conditionals.php' );
 		require_once get_parent_theme_file_path( '/inc/customizer-config.php' );
-		require_once get_parent_theme_file_path( '/inc/meta-posts.php' );
-		require_once get_parent_theme_file_path( '/inc/meta-pages.php' );
 		require_once get_parent_theme_file_path( '/inc/schema.php' );
 		require_once get_parent_theme_file_path( '/inc/classes/customizer/customizer.php' );
 		require_once get_parent_theme_file_path( 'inc/translators-config.php' );
@@ -120,7 +112,7 @@ class Powered_Theme {
 		add_theme_support( 'custom-background' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'align-wide' );
-		//add_theme_support( 'custom-header' );
+		add_theme_support( 'custom-spacing' );
 
 		// Add image sizesg
 		$get_image_sizes = pwd_get_image_sizes();
@@ -148,9 +140,6 @@ class Powered_Theme {
      * @link   https://codex.wordpress.org/Function_Reference/wp_enqueue_style
 	 */
 	public function theme_css() {
-
-		// Define css directory
-		$css_dir_uri = get_template_directory_uri() .'/css/';
 
 		// Define inline style handle
 		$style_handle = apply_filters( 'pwd_style_handle', 'style' );
@@ -191,10 +180,10 @@ class Powered_Theme {
 		) );
 
 		// Load 3rd party scripts
-		wp_enqueue_script( 'slicknav', $js_dir_uri .'plugins/jquery.slicknav.js', array( 'jquery' ), false, true );
+		wp_enqueue_script( 'slicknav', $js_dir_uri . 'plugins/jquery.slicknav.js', array( 'jquery' ), false, true );
 
 		// Theme functions
-		wp_enqueue_script( 'pwd-js', $js_dir_uri .'functions.js', array( 'jquery' ), false, true );
+		wp_enqueue_script( 'pwd-js', $js_dir_uri . 'functions.js', array( 'jquery' ), false, true );
 		wp_localize_script( 'pwd-js', 'pwdLocalize', $localize );
 	}
 
@@ -315,18 +304,6 @@ class Powered_Theme {
 	}
 
 	/**
-	 * Alters the default oembed output
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 *
-	 * @link   https://developer.wordpress.org/reference/hooks/embed_oembed_html/
-	 */
-	public function embed_oembed_html( $html, $url, $attr, $post_id ) {
-		return '<div class="pwd-responsive-embed">' . $html . '</div>';
-	}
-
-	/**
 	 * Alter the main query
 	 *
 	 * @since  1.0.0
@@ -359,94 +336,6 @@ class Powered_Theme {
 	}
 
 	/**
-	 * Adds new "Featured Image" column to the WP dashboard
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 *
-	 * @link   http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_posts_columns
-	 */
-	public function posts_columns( $defaults ) {
-		$defaults['pwd_post_thumbs'] = esc_html__( 'Featured Image', 'wpex-powered' );
-		return $defaults;
-	}
-
-	/**
-	 * Display post thumbnails in WP admin
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 *
-	 * @link   http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_posts_columns
-	 */
-	public function posts_custom_columns( $column_name, $id ) {
-		$id = get_the_ID();
-		if ( $column_name != 'pwd_post_thumbs' ) {
-			return;
-		}
-		if ( has_post_thumbnail( $id ) ) {
-			$img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'thumbnail', false );
-			if( ! empty( $img_src[0] ) ) { ?>
-					<img src="<?php echo esc_url( $img_src[0] ); ?>" alt="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" style="max-width:100%;max-height:90px;" />
-				<?php
-			}
-		} else {
-			echo '&mdash;';
-		}
-	}
-
-	/**
-	 * Remove gallery styles
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 *
-	 * @link   https://developer.wordpress.org/reference/hooks/use_default_gallery_style/
-	 */
-	public function remove_gallery_styles() {
-		return false;
-	}
-
-	/**
-	 * Add new user fields
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 *
-	 * @link   http://codex.wordpress.org/Plugin_API/Filter_Reference/user_contactmethods
-	 */
-	public function user_fields( $contactmethods ) {
-
-		// Add Twitter
-		if ( ! isset( $contactmethods['pwd_twitter'] ) ) {
-			$contactmethods['wpex_twitter'] = 'Powered - Twitter';
-		}
-
-		// Add Facebook
-		if ( ! isset( $contactmethods['pwd_facebook'] ) ) {
-			$contactmethods['wpex_facebook'] = 'Powered - Facebook';
-		}
-
-		// Add LinkedIn
-		if ( ! isset( $contactmethods['pwd_linkedin'] ) ) {
-			$contactmethods['wpex_linkedin'] = 'Powered - LinkedIn';
-		}
-
-		// Add Pinterest
-		if ( ! isset( $contactmethods['pwd_pinterest'] ) ) {
-			$contactmethods['wpex_pinterest'] = 'Powered - Pinterest';
-		}
-
-		// Add Pinterest
-		if ( ! isset( $contactmethods['pwd_instagram'] ) ) {
-			$contactmethods['wpex_instagram'] = 'Powered - Instagram';
-		}
-
-		// Return contactmethods
-		return $contactmethods;
-	}
-
-	/**
 	 * Adds extra CSS to the head based on customizer settings
 	 *
 	 * @since  1.0.0
@@ -460,7 +349,7 @@ class Powered_Theme {
 		// Container width
 		$width = pwd_get_theme_mod( 'layout_container_width' );
 		if ( $width && strpos( $width, '%' ) == false ) {
-			$width = intval( $width );
+			$width = intval( sanitize_text_field( $width ) );
 			$width = $width ? $width .'px' : null;
 		}
 		if ( $width ) {
@@ -521,6 +410,7 @@ class Powered_Theme {
 	 *
      */
     private function px_pct( $data ) {
+		$data = sanitize_text_field( $data );
         if ( 'none' == $data || '0px' == $data ) {
             return '0';
         } elseif ( strpos( $data, '%' ) ) {
@@ -565,21 +455,6 @@ class Powered_Theme {
 		unset( $fields['comment'] );
 		$fields['comment'] = $comment_field;
 		return $fields;
-	}
-
-	/**
-	 * Ouput custom header css
-	 *
-	 * @since 1.0.0
-	 */
-	public function image_size_names_choose( $sizes ) {
-		$get_image_sizes = pwd_get_image_sizes();
-		if ( $get_image_sizes && is_array( $get_image_sizes ) ) {
-			foreach ( $get_image_sizes as $key => $label ) {
-				$sizes['pwd_'. $key] = $label;
-			}
-		}
-		return $sizes;
 	}
 
 }

@@ -4,7 +4,6 @@
  *
  * @package   Powered WordPress Theme
  * @author    WPExplorer.com
- * @copyright Copyright (c) 2015, WPExplorer.com
  * @link      https://www.wpexplorer.com/
  * @since     1.0.0
  */
@@ -15,9 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Make sure we should display related items
-if ( 'post' != get_post_type()
-	|| 'on' == get_post_meta( get_the_ID(), 'pwd_disable_related', true )
-) {
+if ( 'post' !== get_post_type() ) {
 	return;
 }
 
