@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
 
  Theme Name: WPEX Powered
- Version: 3.0
+ Version: 3.0.1
  Description: Powered premium WordPress theme.
  Author: WPExplorer
  Author URI: https://www.wpexplorer.com/
@@ -572,7 +572,7 @@ body.error404 .pwd-entry-none { background: none; padding: 100px 0; border: 0; t
 -------------------------------------------------------------------*/
 .pwd-footer-pp { margin-bottom: 30px; }
 .pwd-footer-pp-heading { margin: 0 0 20px; font-size: 21px; }
-.pwd-footer-pp .pwd-col img { display: block; margin-bottom: 15px; }
+.pwd-footer-pp .pwd-col img { display: block; margin-bottom: 15px; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .pwd-footer-pp .pwd-col a { color: #000; }
 .pwd-footer-pp .pwd-col a:hover { text-decoration: none; color: var(--pwd-accent); }
 .pwd-footer-pp-entry-title { font-weight: bold; font-size: 16px; }
